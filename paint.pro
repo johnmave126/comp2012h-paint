@@ -8,3 +8,5 @@ SOURCES += \
 RESOURCES += res.qrc
 CONFIG += qt warn_on
 DESTDIR = build_bin
+MOC_DIR = build_tmp
+OBJECTS_DIR = build_tmp

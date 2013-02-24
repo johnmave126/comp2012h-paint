@@ -1,5 +1,5 @@
 <!DOCTYPE RCC><RCC version="1.0">
-<qresource prefix="/resource">
+<qresource prefix="/resource/icon">
 <file>bcolor_icon.bmp</file>
 <file>bitmap.bmp</file>
 <file>clearall_icon.bmp</file>
