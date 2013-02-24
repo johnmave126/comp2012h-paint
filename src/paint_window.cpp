@@ -36,9 +36,9 @@ void PaintMainWindow::CreateMenuBar() {
 	QPopupMenu* file = new QPopupMenu(this);
 	
 	//Create Image Section
-	file->insertItem("New image", this, SLOT(OnNewImage()), CTRL+KEY_N);
-	file->insertItem("Load image", this, SLOT(OnLoadImage()), CTRL+KEY_O);
-	file->insertItem("Save image", this, SLOT(OnSaveImage()), CTRL+KEY_S);
+	file->insertItem("New image", this, SLOT(OnNewImage()), CTRL+Key_N);
+	file->insertItem("Load image", this, SLOT(OnLoadImage()), CTRL+Key_O);
+	file->insertItem("Save image", this, SLOT(OnSaveImage()), CTRL+Key_S);
 	file->insertSeparator();
 	
 	//Create Color Section
@@ -47,7 +47,7 @@ void PaintMainWindow::CreateMenuBar() {
 	file->insertSeparator();
 	
 	//Create Exit Section
-	file->insertItem("Exit", this, SLOT(OnExit()), CTRL+KEY_X);	
+	file->insertItem("Exit", this, SLOT(OnExit()), CTRL+Key_X);	
 	
 	//Insert File Menu
 	menuBar()->insertItem("File", file);
@@ -58,8 +58,8 @@ void PaintMainWindow::CreateMenuBar() {
 	QPopupMenu* edit = new QPopupMenu(this);
 	
 	//Create Edit items
-	edit->insertItem("Undo", this, SLOT(OnUndo()), CTRL+KEY_Z);
-	edit->insertItem("Redo", this, SLOT(OnRedo()), CTRL+KEY_Y);
+	edit->insertItem("Undo", this, SLOT(OnUndo()), CTRL+Key_Z);
+	edit->insertItem("Redo", this, SLOT(OnRedo()), CTRL+Key_Y);
 	edit->insertItem("Clear All", this, SLOT(OnClearAll()));
 	edit->insertItem("Resize", this, SLOT(OnResizeImage()), CTRL+Key_R);
 	
