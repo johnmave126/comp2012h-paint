@@ -72,8 +72,8 @@ void PaintMainWindow::CreateMenuBar() {
 	QPopupMenu* view = new QPopupMenu(this);
 	
 	//Create View items
-	tmp_id = edit->insertItem("Tool Bar", this, SLOT(ToggleToolBar()));
-	edit->setItemChecked(tmp_id, true);
+	tmp_id = view->insertItem("Tool Bar", this, SLOT(ToggleToolBar()));
+	view->setItemChecked(tmp_id, true);
 	
 	//Insert View Menu
 	menuBar()->insertItem("View", view);
