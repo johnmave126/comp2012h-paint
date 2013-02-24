@@ -9,7 +9,7 @@
  * The Edit menu for window
  */
  
- #include "paint_window.h"
+#include "paint_window.h"
 #include <qmainwindow.h>
 #include <qapplication.h>
 #include <qmenubar.h>

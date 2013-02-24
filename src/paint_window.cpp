@@ -36,9 +36,9 @@ void PaintMainWindow::CreateMenuBar() {
 	QPopupMenu* file = new QPopupMenu(this);
 	
 	//Create Image Section
-	file->insertItem("New image", this, SLOT(OnNewImage()), QKeySequence::New);
-	file->insertItem("Load image", this, SLOT(OnLoadImage()), QKeySequence::Open);
-	file->insertItem("Save image", this, SLOT(OnSaveImage()), QKeySequence::Save);
+	file->insertItem("New image", this, SLOT(OnNewImage()), CTRL+KEY_N);
+	file->insertItem("Load image", this, SLOT(OnLoadImage()), CTRL+KEY_O);
+	file->insertItem("Save image", this, SLOT(OnSaveImage()), CTRL+KEY_S);
 	file->insertSeparator();
 	
 	//Create Color Section
@@ -58,8 +58,8 @@ void PaintMainWindow::CreateMenuBar() {
 	QPopupMenu* edit = new QPopupMenu(this);
 	
 	//Create Edit items
-	edit->insertItem("Undo", this, SLOT(OnUndo()), QKeySequence::Undo);
-	edit->insertItem("Redo", this, SLOT(OnRedo()), QKeySequence::Redo);
+	edit->insertItem("Undo", this, SLOT(OnUndo()), CTRL+KEY_Z);
+	edit->insertItem("Redo", this, SLOT(OnRedo()), CTRL+KEY_Y);
 	edit->insertItem("Clear All", this, SLOT(OnClearAll()));
 	edit->insertItem("Resize", this, SLOT(OnResizeImage()), CTRL+Key_R);
 	
