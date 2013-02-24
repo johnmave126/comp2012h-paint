@@ -4,13 +4,13 @@
  * Stu ID: 20090398
  * 2013 Spring
  *
- * paint_widget.h
+ * paint_window.h
  *
  * The header file for mainwindow of the program
  */
 
-#ifndef _PAINT_WIDGET_H
-#define _PAINT_WIDGET_H
+#ifndef _PAINT_WINDOW_H
+#define _PAINT_WINDOW_H
 
 #include "paint_common.h"
 #include <qmainwindow.h>
@@ -65,14 +65,14 @@ class PaintMainWindow: public QMainWindow {
 	void ChangeFGColor();
 	
 	/*
-	 * ChangeFGColor
+	 * ChangeBGColor
 	 *
 	 * slot that handle action when try to change background color
 	 */
 	void ChangeBGColor();
 	
 	/*
-	 * ChangeFGColor
+	 * OnExit
 	 *
 	 * slot that handle action when try to exit
 	 */
@@ -110,8 +110,33 @@ class PaintMainWindow: public QMainWindow {
 	void OnResizeImage();
 	//Edit Menu End
 	
+	//View Menu Begin
 	
+	/*
+	 * ToggleToolBar
+	 *
+	 * slot that handle action when try to toggle toolbar
+	 */
+	void ToggleToolBar();
+	//View Menu End
+	
+	//Help Menu Begin
+	
+	/*
+	 * ShowAbout
+	 *
+	 * slot that handle action when try to show About info
+	 */
+	void ShowAbout();
+	//Help Menu End
 	private:
+	
+	/*
+	 * CreateMenuBar
+	 *
+	 * To create menu bar for window
+	 */
+	void CreateMenuBar();
 };
 
 #endif

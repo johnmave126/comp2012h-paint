@@ -4,21 +4,31 @@
  * Stu ID: 20090398
  * 2013 Spring
  *
- * paint_widget.cpp
+ * paint_window.cpp
  *
  * Mainwindow of the program
  */
 
-#include "paint_widget.h"
+#include "paint_window.h"
 #include <qmainwindow.h>
 #include <qapplication.h>
 #include <qmenubar.h>
 #include <qpopupmenu.h>
 #include <qkeysequence.h>
 
-MyMainWindow::MyMainWindow(QWidget* parent, const char* name)
-:QMainWindow(parent, name)
-{
+PaintMainWindow::PaintMainWindow(QWidget* parent, const char* name)
+:QMainWindow(parent, name) {
+	
+	CreateMenuBar();
+	
+	
+}
+
+PaintMainWindow::~PaintMainWindow() {
+	
+}
+
+void PaintMainWindow::CreateMenuBar() {
 	int tmp_id; //Store id allocated by qt
 	
 	//Create File Menu
@@ -66,7 +76,7 @@ MyMainWindow::MyMainWindow(QWidget* parent, const char* name)
 	edit->setItemChecked(tmp_id, true);
 	
 	//Insert View Menu
-	menuBar()->insertItem("View", edit);
+	menuBar()->insertItem("View", view);
 	//View Menu End
 	
 	//Create Help Menu
@@ -76,43 +86,15 @@ MyMainWindow::MyMainWindow(QWidget* parent, const char* name)
 	//Create Help items
 	help->insertItem("About", this, SLOT(ShowAbout()));
 	
-	//Insert View Menu
-	menuBar()->insertItem("View", edit);
-	//View Menu End
+	//Insert Help Menu
+	menuBar()->insertItem("Help", help);
+	//Help Menu End
 }
 
-MyMainWindow::~MyMainWindow()
-{
-	delete image;
+void PaintMainWindow::paintEvent(QPaintEvent* e) {
+	
 }
 
-void MyMainWindow::paintEvent(QPaintEvent* e)
-{
-	QPainter paint(this);
-	if (! image->isNull())
-	{
-		paint.drawPixmap(0, menuBar()->height(), (*image));
-	}
-}
-
-void MyMainWindow::OnLoadImage()
-{
-	QString s = QFileDialog::getOpenFileName("", "*.bmp", this, "", "Load image...");
-	if (! s.isNull())
-	{
-		image->load(s);
-		this->update();
-	}
-}
-
-void MyMainWindow::mousePressEvent(QMouseEvent * e)
-{
-	if(image->	isNull()) {
-		OnLoadImage();
-	}
-	else {
-		if(e->x() <= image->width() && e->y() > menuBar()->height() && e->y() <= menuBar()->height() + image->height()) {
-			QMessageBox::about( this, "bitmap", "Mouse click event!");
-		}
-	}
+void PaintMainWindow::mousePressEvent(QMouseEvent * e) {
+	
 }
