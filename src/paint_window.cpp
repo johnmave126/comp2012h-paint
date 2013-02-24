@@ -73,7 +73,7 @@ void PaintMainWindow::CreateMenuBar() {
 	
 	//Create View items
 	tmp_id = edit->insertItem("Tool Bar", this, SLOT(ToggleToolBar()));
-	view->setItemChecked(tmp_id, true);
+	edit->setItemChecked(tmp_id, true);
 	
 	//Insert View Menu
 	menuBar()->insertItem("View", view);
