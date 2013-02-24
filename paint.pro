@@ -1,3 +1,5 @@
+INCLUDEPATH += include
+DEPENDPATH  += include src
 HEADERS += paint.h paint_common.h paint_window.h
 SOURCES += \
 	paint.cpp paint_window.cpp paint_window_menu_edit.cpp \
