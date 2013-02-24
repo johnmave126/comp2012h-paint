@@ -10,7 +10,7 @@
 */
 
 #include <qapplication.h>
-#include "paint_widget.h"
+#include "paint_window.h"
 
 int main(int argc, char* argv[])
 {
