@@ -12,7 +12,7 @@ MOC_DIR = build_tmp
 OBJECTS_DIR = build_tmp
 
 res_install.target = FORCE
+res_install.commands = cp a b
 #for(dir, RES_DIR) {
-res_install.commands = cp $${RES_DIR} $${DESTDIR}
 #}
 QMAKE_EXTRA_TARGETS += res_install
