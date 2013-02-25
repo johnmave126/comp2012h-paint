@@ -104,10 +104,5 @@ void PaintMainWindow::CreateMenuBar() {
 	//Help Menu End
 }
 
-void PaintMainWindow::paintEvent(QPaintEvent* e) {
-	
-}
-
-void PaintMainWindow::mousePressEvent(QMouseEvent * e) {
-	
+void resizeEvent(QResizeEvent *e) {
 }

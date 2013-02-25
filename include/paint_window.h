@@ -27,11 +27,10 @@ class PaintMainWindow: public QMainWindow {
 		PaintMainWindow(QWidget* parent = 0, const char* name = 0);
 		~PaintMainWindow();
 	
-		/** mouse event handler */
-		void mousePressEvent (QMouseEvent *);
-	
-		/** paint handler */
-		void paintEvent(QPaintEvent *);
+	protected:
+
+		/** resize handler */
+		void resizeEvent(QResizeEvent *);
 
 	public slots:
 		
