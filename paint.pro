@@ -12,10 +12,10 @@ DESTDIR = build_bin
 MOC_DIR = build_tmp
 OBJECTS_DIR = build_tmp
 
-mytarget.target = .buildfile
-mytarget.commands = touch $$mytarget.target
-mytarget.depends = mytarget2
- 
-mytarget2.commands = @echo Building $$mytarget.target
- 
-QMAKE_EXTRA_TARGETS += mytarget mytarget2
+
+QMAKE_POST_LINK= cp a b
+res_install.target = .test
+res_install.commands = cp a b
+#for(dir, RES_DIR) {
+#}
+QMAKE_EXTRA_TARGETS += res_install
