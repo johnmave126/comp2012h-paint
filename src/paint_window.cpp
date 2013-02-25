@@ -26,8 +26,8 @@ PaintMainWindow::PaintMainWindow(QWidget* parent, const char* name)
 	
 	//Create scrollview container
 	viewport = new QScrollView(this);
-	viewport->setGeometry(0, menubar()->height(),
-		width(), height() - menubar()->height());
+	viewport->setGeometry(0, menuBar()->height(),
+		width(), height() - menuBar()->height());
 	
 	//Create canvas
 	canvas = new PaintCanvas();
