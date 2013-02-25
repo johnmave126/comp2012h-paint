@@ -30,7 +30,7 @@ class PaintMainWindow: public QMainWindow {
 	protected:
 
 		/** resize handler */
-		void resizeEvent(QResizeEvent *);
+		virtual void resizeEvent(QResizeEvent *);
 
 	public slots:
 		
