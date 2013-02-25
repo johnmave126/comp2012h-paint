@@ -104,7 +104,7 @@ void PaintMainWindow::CreateMenuBar() {
 	//Help Menu End
 }
 
-void resizeEvent(QResizeEvent *e) {
+void PaintMainWindow::resizeEvent(QResizeEvent *e) {
 	/* Reset the region of the viewport upon the change
 	 * of the whole window. The canvas doesn't need to change.
 	 */
