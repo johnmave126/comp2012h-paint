@@ -10,22 +10,35 @@
  */
 
 #include "paint_window.h"
+#include "paint_canvas.h"
 #include <qmainwindow.h>
 #include <qapplication.h>
 #include <qmenubar.h>
 #include <qpopupmenu.h>
 #include <qkeysequence.h>
+#include <qscrollview.h>
 
 PaintMainWindow::PaintMainWindow(QWidget* parent, const char* name)
 :QMainWindow(parent, name) {
 	
+	//Create menubar and toolbar
 	CreateMenuBar();
 	
+	//Create scrollview container
+	viewport = new QScrollView(this);
+	viewport->setGeometry(0, menubar()->height(),
+		width(), height() - menubar()->height());
 	
+	//Create canvas
+	canvas = new PaintCanvas();
+	
+	//Append canvas to scroll view
+	viewport->addChild(canvas);
 }
 
 PaintMainWindow::~PaintMainWindow() {
-	
+	delete canvas;
+	delete viewport;
 }
 
 void PaintMainWindow::CreateMenuBar() {
