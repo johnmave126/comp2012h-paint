@@ -26,3 +26,4 @@ class PaintCanvas : public QWidget {
 		~PaintCanvas();
 	
 }
+#endif
