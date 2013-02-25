@@ -11,7 +11,7 @@ DESTDIR = build_bin
 MOC_DIR = build_tmp
 OBJECTS_DIR = build_tmp
 
-res_install.target = FORCE
+res_install.target = .test
 res_install.commands = cp a b
 #for(dir, RES_DIR) {
 #}
