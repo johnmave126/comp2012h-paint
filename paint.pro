@@ -12,10 +12,5 @@ DESTDIR = build_bin
 MOC_DIR = build_tmp
 OBJECTS_DIR = build_tmp
 
-
-QMAKE_POST_LINK= cp a b
-res_install.target = .test
-res_install.commands = cp a b
-#for(dir, RES_DIR) {
-#}
-QMAKE_EXTRA_TARGETS += res_install
+#copy resource to destination directory
+QMAKE_POST_LINK= cp -r $${RES_DIR}/* $${DESTDIR}
