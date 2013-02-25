@@ -11,8 +11,8 @@ DESTDIR = build_bin
 MOC_DIR = build_tmp
 OBJECTS_DIR = build_tmp
 
-RES_INSTALL.target = FORCE
+res_install.target = FORCE
 #for(dir, RES_DIR) {
-RES_INSTALL.commands += cp -r $$(dir)/* $$(DESTDIR);
+res_install.commands = cp -r $$RES_DIR/* $$DESTDIR;
 #}
-QMAKE_EXTRA_TARGETS += RES_INSTALL
+QMAKE_EXTRA_TARGETS += res_install
