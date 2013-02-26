@@ -17,6 +17,7 @@
 #include <qpainter.h>
 
 PaintCanvas::PaintCanvas() {
+	PaintToolBar *t = new PaintToolBar(this, "test");
 }
 
 PaintCanvas::~PaintCanvas() {
