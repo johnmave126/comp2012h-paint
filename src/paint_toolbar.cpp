@@ -17,11 +17,8 @@
 #include <qtoolbar.h>
 #include <qtoolbutton.h>
 
-#include <iostream>
-using namespace std;
-
 PaintToolBar::PaintToolBar(PaintMainWindow *parent, const char *name)
-:QToolBar(parent, name){
+:QToolBar(parent, name) {
 	QPixmap newIcon, openIcon, saveIcon, undoIcon, redoIcon,
 		clearIcon, resizeIcon, penIcon, lineIcon, eraserIcon,
 		rectIcon, fgIcon, bgIcon;
