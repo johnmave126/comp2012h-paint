@@ -53,18 +53,18 @@ PaintToolBar::PaintToolBar(QMainWindow *parent, const char *name)
 	newTool = new QToolButton(newIcon, "New Image", "Create a new image", 
 		parent, SLOT(OnNewImage()), this, "new image");
 	openTool = new QToolButton(openIcon, "Open Image", "Open an existing image", 
-		parent, NULL, this, "open image");
+		parent, SLOT(OnLoadImage()), this, "open image");
 	saveTool = new QToolButton(saveIcon, "Save Image", "Save current image", 
-		parent, NULL, this, "save image");
+		parent, SLOT(OnSaveImage()), this, "save image");
 	this->addSeparator();
 	undoTool = new QToolButton(undoIcon, "Undo", "Undo last operation", 
-		parent, NULL, this, "undo");
+		parent, SLOT(OnUndo()), this, "undo");
 	redoTool = new QToolButton(redoIcon, "Redo", "Redo the operation reverted", 
-		parent, NULL, this, "redo");
+		parent, SLOT(OnRedo()), this, "redo");
 	clearTool = new QToolButton(clearIcon, "Clear All", "Clear the canvas to background color", 
-		parent, NULL, this, "clear all");
+		parent, SLOT(OnClearAll()), this, "clear all");
 	resizeTool = new QToolButton(resizeIcon, "Resize", "Resize the canvas", 
-		parent, NULL, this, "resize");
+		parent, SLOT(OnResize()), this, "resize");
 	this->addSeparator();
 	penTool = new QToolButton(penIcon, "Pen", "Draw with pen tool", 
 		parent, NULL, this, "pen");
@@ -76,9 +76,9 @@ PaintToolBar::PaintToolBar(QMainWindow *parent, const char *name)
 		parent, NULL, this, "rectangle");
 	this->addSeparator();
 	fgTool = new QToolButton(fgIcon, "Color", "Set foreground color", 
-		parent, NULL, this, "fgcolor");
+		parent, SLOT(ChangeFGColor()), this, "fgcolor");
 	bgTool = new QToolButton(bgIcon, "BG Color", "Set background color", 
-		parent, NULL, this, "bgcolor");
+		parent, SLOT(ChangeBGColor()), this, "bgcolor");
 }
 
 PaintToolBar::~PaintToolBar() {
