@@ -88,14 +88,16 @@ void PaintMainWindow::CreateMenuBar() {
 	//View Menu Begin
 	QPopupMenu* view = new QPopupMenu(this);
 	
-	//Create View items
+	//Create ToolBar toggler
 	QAction *ToolBar_t = new QAction("&Tool Bar", 0, this);
 	QObject::connect(ToolBar_t, SIGNAL(activated()),
 		this, SLOT(ToggleToolBar()));
+	//Set ToolBar toggler to be checkable
 	ToolBar_t->setToggleAction(true);
 	ToolBar_t->setOn(true);
 	ToolBar_t->toggle();
 	ToolBar_t->addTo(view);
+	//Connect ToolBar state to ToolBar toggler
 	QObject::connect(tools, SIGNAL(visibilityChanged(bool)), 
 		ToolBar_t, SLOT(toggle()));
 	
