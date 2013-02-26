@@ -13,7 +13,6 @@
 #define _PAINT_TOOLBAR_H
 
 #include "paint_common.h"
-#include "paint_window.h"
 #include <qmainwindow.h>
 #include <qapplication.h>
 #include <qtoolbar.h>
@@ -24,7 +23,7 @@ class PaintToolBar : public QToolBar {
 	Q_OBJECT
 	
 	public:
-		PaintToolBar(PaintMainWindow* parent = 0, const char* name = 0);
+		PaintToolBar(QMainWindow* parent = 0, const char* name = 0);
 		~PaintToolBar();
 	
 };

@@ -17,7 +17,7 @@
 #include <qtoolbar.h>
 #include <qtoolbutton.h>
 
-PaintToolBar::PaintToolBar(PaintMainWindow *parent, const char *name)
+PaintToolBar::PaintToolBar(QMainWindow *parent, const char *name)
 :QToolBar(parent, name) {
 	QPixmap newIcon, openIcon, saveIcon, undoIcon, redoIcon,
 		clearIcon, resizeIcon, penIcon, lineIcon, eraserIcon,
@@ -25,6 +25,7 @@ PaintToolBar::PaintToolBar(PaintMainWindow *parent, const char *name)
 	QToolButton *newTool, *openTool, *saveTool, *undoTool, 
 		*redoTool, *clearTool, *resizeTool, *penTool, *lineTool,
 		*eraserTool, *rectTool, *fgTool, *bgTool;
+	PaintMainWindow *real_p = (PaintMainWindow*)parent;
 	
 	//Set Title
 	this->setLabel("Tool Bar");
@@ -46,7 +47,7 @@ PaintToolBar::PaintToolBar(PaintMainWindow *parent, const char *name)
 	
 	//Insert Buttons
 	newTool = new QToolButton(newIcon, "New Image", "Create a new image", 
-		parent, SLOT(parent->OnNewImage()), this, "new image");
+		parent, SLOT(real_p->OnNewImage()), this, "new image");
 	openTool = new QToolButton(openIcon, "Open Image", "Open an existing image", 
 		parent, NULL, this, "open image");
 	saveTool = new QToolButton(saveIcon, "Save Image", "Save current image", 
