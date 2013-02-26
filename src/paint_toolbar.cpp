@@ -28,12 +28,11 @@ PaintToolBar::PaintToolBar(QMainWindow *parent, const char *name)
 	QToolButton *newTool, *openTool, *saveTool, *undoTool, 
 		*redoTool, *clearTool, *resizeTool, *penTool, *lineTool,
 		*eraserTool, *rectTool, *fgTool, *bgTool;
-//	PaintMainWindow *real_p = (PaintMainWindow*)parent;
 	
 	//Set Title
 	this->setLabel("Tool Bar");
 	
-	cerr << QDir::currentDirPath();
+	cerr << QDir::current();
 	
 	//Import Icons
 	newIcon = QPixmap("icon/new_icon.bmp");
