@@ -17,6 +17,7 @@
 #include <qmainwindow.h>
 #include <qapplication.h>
 #include <qscrollview.h>
+#include <qtoolbar.h>
 
 class PaintMainWindow: public QMainWindow {
 	// All classes that contain signals or slots
@@ -140,6 +141,9 @@ class PaintMainWindow: public QMainWindow {
 		
 		QScrollView* viewport;
 		PaintCanvas* canvas;
+		
+		//ToolBar
+		PaintToolBar* tools;
 };
 
 #endif
