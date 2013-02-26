@@ -16,8 +16,8 @@
 #include <qtoolbar.h>
 #include <qtoolbutton.h>
 
-PaintCanvas::PaintToolBar(QMainWindow *parent = 0, const char *name = 0)
-:PaintToolBar(parent, name){
+PaintToolBar::PaintToolBar(QMainWindow *parent = 0, const char *name = 0)
+:QToolBar(parent, name){
 	
 	QPixmap newIcon, openIcon, saveIcon, undoIcon, redoIcon,
 		clearIcon, resizeIcon, penIcon, lineIcon, eraserIcon,
@@ -76,5 +76,5 @@ PaintCanvas::PaintToolBar(QMainWindow *parent = 0, const char *name = 0)
 		parent, SLOT(parent->OnNewImage()), this, "bgcolor");
 }
 
-PaintCanvas::~PaintToolBar() {
+PaintToolBar::~PaintToolBar() {
 }
