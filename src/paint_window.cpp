@@ -32,8 +32,6 @@ PaintMainWindow::PaintMainWindow(QWidget* parent, const char* name)
 	viewport->setGeometry(0, menuBar()->height(),
 		width(), height() - menuBar()->height());
 	
-	cerr << tools->height() << endl;
-	
 	//Create canvas
 	canvas = new PaintCanvas();
 	
