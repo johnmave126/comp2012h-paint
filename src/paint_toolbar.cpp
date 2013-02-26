@@ -20,7 +20,7 @@
 using namespace std;
 
 PaintToolBar::PaintToolBar(QMainWindow *parent, const char *name)
-:QToolBar("Tool Bar", parent, (QWidget*)parent->menuBar(), false, name){
+:QToolBar("Tool Bar", parent, (QWidget*)parent->menuBar(), true, name){
 	QPixmap newIcon, openIcon, saveIcon, undoIcon, redoIcon,
 		clearIcon, resizeIcon, penIcon, lineIcon, eraserIcon,
 		rectIcon, fgIcon, bgIcon;
