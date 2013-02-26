@@ -92,7 +92,7 @@ void PaintMainWindow::CreateMenuBar() {
 	tmp_id = view->insertItem("&Tool Bar", this, SLOT(ToggleToolBar()));
 	view->setItemChecked(tmp_id, true);
 	QObject::connect(tools, SIGNAL(visibilityChanged(visible)), 
-		this, SLOT(JustifyToggle(view, tmp_id, visible)));
+		this, SLOT(JustifyToggle(tmp_id, view, visible)));
 	
 	
 	//Insert View Menu
