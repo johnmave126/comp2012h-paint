@@ -20,7 +20,7 @@
 using namespace std;
 
 PaintToolBar::PaintToolBar(QMainWindow *parent, const char *name)
-:QToolBar(parent, name){
+:QToolBar("Tool Bar", parent, parent, true, name){
 	
 	cerr << parent << name << endl;
 	QPixmap newIcon, openIcon, saveIcon, undoIcon, redoIcon,
@@ -29,9 +29,6 @@ PaintToolBar::PaintToolBar(QMainWindow *parent, const char *name)
 	QToolButton *newTool, *openTool, *saveTool, *undoTool, 
 		*redoTool, *clearTool, *resizeTool, *penTool, *lineTool,
 		*eraserTool, *rectTool, *fgTool, *bgTool;
-	
-	//Set Title
-	this->setLabel("Tool Bar");
 	
 	//Import Icons
 	newIcon = QPixmap("icon/new_icon.bmp");
