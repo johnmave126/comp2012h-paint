@@ -10,6 +10,7 @@
  */
 
 #include "paint_toolbar.h"
+#include "paint_window.h"
 #include <qmainwindow.h>
 #include <qapplication.h>
 #include <qpixmap.h>
