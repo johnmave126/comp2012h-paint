@@ -52,7 +52,7 @@ PaintToolBar::PaintToolBar(QMainWindow *parent, const char *name)
 	
 	//Insert Buttons
 	newTool = new QToolButton(newIcon, "New Image", "Create a new image", 
-		parent, SLOT(onNewImage()), this, "new image");
+		parent, SLOT(OnNewImage()), this, "new image");
 	openTool = new QToolButton(openIcon, "Open Image", "Open an existing image", 
 		parent, NULL, this, "open image");
 	saveTool = new QToolButton(saveIcon, "Save Image", "Save current image", 
