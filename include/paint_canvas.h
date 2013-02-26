@@ -15,6 +15,8 @@
 #include "paint_common.h"
 #include <qmainwindow.h>
 #include <qapplication.h>
+#include <qpixmap.h>
+#include <vector>
 
 class PaintCanvas : public QWidget {
 	// All classes that contain signals or slots
@@ -25,5 +27,7 @@ class PaintCanvas : public QWidget {
 		PaintCanvas();
 		~PaintCanvas();
 	
+	private:
+		
 };
 #endif

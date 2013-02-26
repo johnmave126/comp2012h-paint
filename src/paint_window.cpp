@@ -26,13 +26,13 @@ PaintMainWindow::PaintMainWindow(QWidget* parent, const char* name)
 	//Create menubar and toolbar
 	CreateMenuBar();
 	tools = new PaintToolBar(this, "tool bar");
+	QObject::connect(tools, SIGNAL(visibilityChanged(visible)), 
+		this, SLOT(JustifyToggle(visible)));
 	
 	//Create scrollview container
 	viewport = new QScrollView(this);
-	setCentralWidget(viewport);
-//	viewport->setGeometry(0, menuBar()->height() + tools->height(),
-//		width(), height() - menuBar()->height());
-	
+	//Set as the central widget to resize automatically
+	setCentralWidget(viewport);	
 	
 	//Create canvas
 	canvas = new PaintCanvas();
@@ -110,10 +110,9 @@ void PaintMainWindow::CreateMenuBar() {
 	//Help Menu End
 }
 
-void PaintMainWindow::resizeEvent(QResizeEvent *e) {
-	/* Reset the region of the viewport upon the change
-	 * of the whole window. The canvas doesn't need to change.
-	 */
-//	viewport->setGeometry(0, menuBar()->height(),
-//		width(), height() - menuBar()->height());
+void PaintMainWindow::JustifyToggle(bool visible) {
+	//Find view menu
+	QPopupMenu* view = findItem(idAt(2));
+	//Set toolbar check state
+	view->setItemChecked(view->idAt(0), visible);
 }

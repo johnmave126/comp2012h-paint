@@ -30,10 +30,7 @@ class PaintMainWindow: public QMainWindow {
 		~PaintMainWindow();
 	
 	protected:
-
-		/** resize handler */
-		virtual void resizeEvent(QResizeEvent *);
-
+		
 	public slots:
 		
 		//File Menu Begin
@@ -131,6 +128,15 @@ class PaintMainWindow: public QMainWindow {
 		 */
 		void ShowAbout();
 		//Help Menu End
+		
+		//Toolbar Related
+		/*
+		 * JustifyToggle
+		 *
+		 * slot that handle action when the visibility of
+		 * toolbar changes
+		 */
+		void JustifyToggle(bool);
 	private:
 		
 		/*

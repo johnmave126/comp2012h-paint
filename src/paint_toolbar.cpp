@@ -29,7 +29,10 @@ PaintToolBar::PaintToolBar(QMainWindow *parent, const char *name)
 	QString tmpDir;
 	
 	//Set Title
-	this->setLabel("Tool Bar");
+	setLabel("Tool Bar");
+	
+	//Set close button when undocked
+	setCloseMode(Undocked);
 	
 	//Set working directory to application directory
 	tmpDir = QDir::currentDirPath();

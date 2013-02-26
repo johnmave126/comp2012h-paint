@@ -25,5 +25,6 @@ class PaintToolBar : public QToolBar {
 	public:
 		PaintToolBar(QMainWindow* parent = 0, const char* name = 0);
 		~PaintToolBar();
+	
 };
 #endif
