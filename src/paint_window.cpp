@@ -92,7 +92,7 @@ void PaintMainWindow::CreateMenuBar() {
 	tmp_id = view->insertItem("&Tool Bar", this, SLOT(ToggleToolBar()));
 	view->setItemChecked(tmp_id, true);
 	QObject::connect(tools, SIGNAL(visibilityChanged(visible)), 
-		this, SLOT(JustifyToggle(tmp_id, view, visible)));
+		view->findItem(tmp_id), SLOT(setChecked(visible)));
 	
 	
 	//Insert View Menu
@@ -109,11 +109,4 @@ void PaintMainWindow::CreateMenuBar() {
 	//Insert Help Menu
 	menuBar()->insertItem("&Help", help);
 	//Help Menu End
-}
-
-void PaintMainWindow::JustifyToggle(int id, QPopupMenu *view, bool visible) {
-	//Find view menu
-//	QPopupMenu* view = menuBar()->findItem(menuBar()->idAt(2));
-	//Set toolbar check state
-	view->setItemChecked(id, visible);
 }

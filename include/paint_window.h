@@ -128,15 +128,6 @@ class PaintMainWindow: public QMainWindow {
 		 */
 		void ShowAbout();
 		//Help Menu End
-		
-		//Toolbar Related
-		/*
-		 * JustifyToggle
-		 *
-		 * slot that handle action when the visibility of
-		 * toolbar changes
-		 */
-		void JustifyToggle(int, QPopupMenu*, bool);
 	private:
 		
 		/*
