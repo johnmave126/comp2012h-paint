@@ -25,14 +25,5 @@ class PaintToolBar : public QToolBar {
 	public:
 		PaintToolBar(QMainWindow* parent = 0, const char* name = 0);
 		~PaintToolBar();
-		
-	signals:
-		void visibilityChanged(bool);
-	
-	protected:
-		/** hide and show event handler */
-		virtual void hideEvent(QHideEvent *);
-		virtual void showEvent(QShowEvent *);
-	
 };
 #endif
