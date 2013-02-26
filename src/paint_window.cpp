@@ -93,9 +93,10 @@ void PaintMainWindow::CreateMenuBar() {
 	QAction *ToolBar_t = new QAction("&Tool Bar", NULL, this);
 	QObject::connect(ToolBar_t, SIGNAL(activated()),
 		this, SLOT(ToggleToolBar()));
+	ToolBar_t->setToggleAction(true);
 	ToolBar_t->addTo(view);
 	ToolBar_t->setOn(true);
-	QObject::connect(tools, SIGNAL(visibilityChanged(visible)), 
+	QObject::connect(tools, SIGNAL(visibilityChanged()), 
 		ToolBar_t, SLOT(toggle()));
 	
 	
