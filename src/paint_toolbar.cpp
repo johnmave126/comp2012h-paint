@@ -30,6 +30,8 @@ PaintToolBar::PaintToolBar(QMainWindow *parent, const char *name)
 	//Set Title
 	this->setLabel("Tool Bar");
 	
+	qDebug() << QDir::currentPath();
+	
 	//Import Icons
 	newIcon = QPixmap("icon/new_icon.bmp");
 	openIcon = QPixmap("icon/open_icon.bmp");
