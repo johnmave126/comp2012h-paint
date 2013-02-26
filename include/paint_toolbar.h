@@ -23,7 +23,7 @@ class PaintToolBar : public QToolBar {
 	Q_OBJECT
 	
 	public:
-		PaintToolBar(QWidget* parent = 0, const char* name = 0);
+		PaintToolBar(QMainWindow* parent = 0, const char* name = 0);
 		~PaintToolBar();
 	
 };
