@@ -11,6 +11,7 @@
  */
 
 #include "paint_canvas.h"
+#include "paint_toolbar.h"
 #include <qmainwindow.h>
 #include <qapplication.h>
 #include <qpixmap.h>
