@@ -26,15 +26,17 @@ PaintToolBar::PaintToolBar(QMainWindow *parent, const char *name)
 	QToolButton *newTool, *openTool, *saveTool, *undoTool, 
 		*redoTool, *clearTool, *resizeTool, *penTool, *lineTool,
 		*eraserTool, *rectTool, *fgTool, *bgTool;
+	QString tmpDir;
 	
 	//Set Title
 	this->setLabel("Tool Bar");
 	
 	//Set working directory to application directory
+	tmpDir = QDir::currentDirPath();
 	QDir::setCurrent(qApp->applicationDirPath());
 	
 	//Import Icons
-	newIcon = QPixmap("/icon/new_icon.bmp");
+	newIcon = QPixmap("icon/new_icon.bmp");
 	openIcon = QPixmap("icon/open_icon.bmp");
 	saveIcon = QPixmap("icon/save_icon.bmp");
 	undoIcon = QPixmap("icon/undo_icon.bmp");
@@ -47,6 +49,9 @@ PaintToolBar::PaintToolBar(QMainWindow *parent, const char *name)
 	rectIcon = QPixmap("icon/rect_icon.bmp");
 	fgIcon = QPixmap("icon/fcolor_icon.bmp");
 	bgIcon = QPixmap("icon/bcolor_icon.bmp");
+	
+	//Reset working directory
+	QDir::setCurrent(tmpDir);
 	
 	//Insert Buttons
 	newTool = new QToolButton(newIcon, "New Image", "Create a new image", 
