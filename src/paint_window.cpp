@@ -112,7 +112,7 @@ void PaintMainWindow::CreateMenuBar() {
 
 void PaintMainWindow::JustifyToggle(bool visible) {
 	//Find view menu
-	QPopupMenu* view = findItem(idAt(2));
+	QPopupMenu* view = QMenuData::findItem(QMenuData::idAt(2));
 	//Set toolbar check state
 	view->setItemChecked(view->idAt(0), visible);
 }
