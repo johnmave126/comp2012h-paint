@@ -32,11 +32,11 @@ PaintMainWindow::PaintMainWindow(QWidget* parent, const char* name)
 	viewport->setGeometry(0, menuBar()->height(),
 		width(), height() - menuBar()->height());
 	
+	
 	//Create canvas
 	canvas = new PaintCanvas();
 	
 	//Append canvas to scroll view
-	viewport->addChild(tools);
 	viewport->addChild(canvas);
 }
 
