@@ -31,7 +31,7 @@ PaintToolBar::PaintToolBar(QMainWindow *parent, const char *name)
 	this->setLabel("Tool Bar");
 	
 	//Set working directory to application directory
-	QDir::setCurrent(QApplication::applicationDirPath());
+	QDir::setCurrent(qApp->applicationDirPath());
 	
 	//Import Icons
 	newIcon = QPixmap("/icon/new_icon.bmp");
