@@ -25,19 +25,18 @@ PaintMainWindow::PaintMainWindow(QWidget* parent, const char* name)
 	
 	//Create menubar and toolbar
 	CreateMenuBar();
+	tools = new PaintToolBar(this, "tool bar");
 	
 	//Create scrollview container
 	viewport = new QScrollView(this);
-	viewport->setGeometry(0, menuBar()->height(),
-		width(), height() - menuBar()->height());
+	viewport->setGeometry(0, menuBar()->height() + tools->height(),
+		width(), height() - menuBar()->height() - tools->height());
 	
 	//Create canvas
 	canvas = new PaintCanvas();
 	
 	//Append canvas to scroll view
 	viewport->addChild(canvas);
-	
-	tools = new PaintToolBar(this, "tool bar");
 }
 
 PaintMainWindow::~PaintMainWindow() {
