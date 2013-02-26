@@ -144,7 +144,7 @@ class PaintMainWindow: public QMainWindow {
 		PaintCanvas* canvas;
 		
 		//ToolBar
-		PaintToolBar* tools;
+		QToolBar* tools;
 };
 
 #endif
