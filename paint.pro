@@ -9,7 +9,7 @@ SOURCES += \
 	paint_window_menu_file.cpp paint_window_menu_help.cpp \
 	paint_window_menu_view.cpp paint_canvas.cpp paint_toolbar.cpp
 RES_DIR = resource
-RESOURCES += res.qrc
+RESOURCES += $${RES_DIR}/res.qrc
 CONFIG += qt warn_on
 DESTDIR = build_bin
 MOC_DIR = build_tmp

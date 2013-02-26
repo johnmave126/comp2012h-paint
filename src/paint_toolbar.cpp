@@ -30,7 +30,7 @@ PaintToolBar::PaintToolBar(QMainWindow *parent, const char *name)
 	this->setLabel("Tool Bar");
 	
 	//Import Icons
-	newIcon = QPixmap(":/new_icon");
+	newIcon = QPixmap(":/icon/new_icon");
 	openIcon = QPixmap("icon/open_icon.bmp");
 	saveIcon = QPixmap("icon/save_icon.bmp");
 	undoIcon = QPixmap("icon/undo_icon.bmp");
@@ -59,7 +59,7 @@ PaintToolBar::PaintToolBar(QMainWindow *parent, const char *name)
 	clearTool = new QToolButton(clearIcon, "Clear All", "Clear the canvas to background color", 
 		parent, SLOT(OnClearAll()), this, "clear all");
 	resizeTool = new QToolButton(resizeIcon, "Resize", "Resize the canvas", 
-		parent, SLOT(OnResize()), this, "resize");
+		parent, SLOT(OnResizeImage()), this, "resize");
 	this->addSeparator();
 	penTool = new QToolButton(penIcon, "Pen", "Draw with pen tool", 
 		parent, NULL, this, "pen");
