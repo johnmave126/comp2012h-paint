@@ -76,9 +76,6 @@ PaintToolBar::PaintToolBar(QMainWindow *parent, const char *name)
 		parent, NULL, this, "fgcolor");
 	bgTool = new QToolButton(bgIcon, "BG Color", "Set background color", 
 		parent, NULL, this, "bgcolor");
-	
-	this->show();
-	this->undock();
 }
 
 PaintToolBar::~PaintToolBar() {
