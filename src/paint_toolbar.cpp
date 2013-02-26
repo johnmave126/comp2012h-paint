@@ -46,34 +46,34 @@ PaintToolBar::PaintToolBar(QMainWindow *parent = 0, const char *name = 0)
 	
 	//Insert Buttons
 	newTool = new QToolButton(newIcon, "New Image", "Create a new image", 
-		parent, SLOT(parent->OnNewImage()), this, "new image");
+		parent, NULL, this, "new image");
 	openTool = new QToolButton(openIcon, "Open Image", "Open an existing image", 
-		parent, SLOT(parent->OnLoadImage()), this, "open image");
+		parent, NULL, this, "open image");
 	saveTool = new QToolButton(saveIcon, "Save Image", "Save current image", 
-		parent, SLOT(parent->OnNewImage()), this, "save image");
+		parent, NULL, this, "save image");
 	this->addSeparator();
 	undoTool = new QToolButton(undoIcon, "Undo", "Undo last operation", 
-		parent, SLOT(parent->OnUndo()), this, "undo");
+		parent, NULL, this, "undo");
 	redoTool = new QToolButton(redoIcon, "Redo", "Redo the operation reverted", 
-		parent, SLOT(parent->OnRedo()), this, "redo");
+		parent, NULL, this, "redo");
 	clearTool = new QToolButton(clearIcon, "Clear All", "Clear the canvas to background color", 
-		parent, SLOT(parent->OnClearAll()), this, "clear all");
+		parent, NULL, this, "clear all");
 	resizeTool = new QToolButton(resizeIcon, "Resize", "Resize the canvas", 
-		parent, SLOT(parent->OnResizeImage()), this, "resize");
+		parent, NULL, this, "resize");
 	this->addSeparator();
 	penTool = new QToolButton(penIcon, "Pen", "Draw with pen tool", 
-		parent, SLOT(parent->OnNewImage()), this, "pen");
+		parent, NULL, this, "pen");
 	lineTool = new QToolButton(lineIcon, "Line", "Draw with line tool", 
-		parent, SLOT(parent->OnNewImage()), this, "line");
+		parent, NULL, this, "line");
 	eraserTool = new QToolButton(eraserIcon, "Eraser", "Erase certain area of canvas using an eraser", 
-		parent, SLOT(parent->OnNewImage()), this, "eraser");
+		parent, NULL, this, "eraser");
 	rectTool = new QToolButton(rectIcon, "Rectangle", "Draw a rectangle", 
-		parent, SLOT(parent->OnNewImage()), this, "rectangle");
+		parent, NULL, this, "rectangle");
 	this->addSeparator();
 	fgTool = new QToolButton(fgIcon, "Color", "Set foreground color", 
-		parent, SLOT(parent->OnNewImage()), this, "fgcolor");
+		parent, NULL, this, "fgcolor");
 	bgTool = new QToolButton(bgIcon, "BG Color", "Set background color", 
-		parent, SLOT(parent->OnNewImage()), this, "bgcolor");
+		parent, NULL, this, "bgcolor");
 }
 
 PaintToolBar::~PaintToolBar() {
