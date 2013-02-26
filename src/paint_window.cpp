@@ -115,5 +115,5 @@ void PaintMainWindow::JustifyToggle(int id, QPopupMenu *view, bool visible) {
 	//Find view menu
 //	QPopupMenu* view = menuBar()->findItem(menuBar()->idAt(2));
 	//Set toolbar check state
-	view->setItemChecked(tmp_id, visible);
+	view->setItemChecked(id, visible);
 }
