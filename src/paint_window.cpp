@@ -25,7 +25,7 @@ PaintMainWindow::PaintMainWindow(QWidget* parent, const char* name)
 	
 	//Create menubar and toolbar
 	CreateMenuBar();
-//	tools = new PaintToolBar(this, "tool bar");
+	tools = new PaintToolBar(this, "tool bar");
 	
 	//Create scrollview container
 	viewport = new QScrollView(this);
