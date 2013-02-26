@@ -21,8 +21,10 @@
  * slot that handle action when try to toggle toolbar
  */
 void PaintMainWindow::ToggleToolBar() {
-	if(tools->isVisible())
+	if(tools->isVisible()) {
 		tools->hide();
-	else
+	}
+	else {
 		tools->show();
+	}
 }

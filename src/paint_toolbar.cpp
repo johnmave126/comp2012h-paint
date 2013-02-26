@@ -90,3 +90,13 @@ PaintToolBar::PaintToolBar(QMainWindow *parent, const char *name)
 
 PaintToolBar::~PaintToolBar() {
 }
+
+void showEvent(QShowEvent *e) {
+	QToolBar::showEvent(e);
+	emit visibilityChanged(true);
+}
+
+void hideEvent(QHideEvent *e) {
+	QToolBar::hideEvent(e);
+	emit visibilityChanged(false);
+}
