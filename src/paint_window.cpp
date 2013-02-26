@@ -42,6 +42,7 @@ PaintMainWindow::PaintMainWindow(QWidget* parent, const char* name)
 PaintMainWindow::~PaintMainWindow() {
 	delete canvas;
 	delete viewport;
+	delete tools;
 }
 
 void PaintMainWindow::CreateMenuBar() {

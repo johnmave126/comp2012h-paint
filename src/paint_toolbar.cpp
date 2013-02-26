@@ -16,7 +16,7 @@
 #include <qtoolbar.h>
 #include <qtoolbutton.h>
 
-PaintToolBar::PaintToolBar(QMainWindow *parent = 0, const char *name = 0)
+PaintToolBar::PaintToolBar(QMainWindow *parent, const char *name)
 :QToolBar(parent, name){
 	
 	QPixmap newIcon, openIcon, saveIcon, undoIcon, redoIcon,
