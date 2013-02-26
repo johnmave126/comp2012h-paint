@@ -16,9 +16,6 @@
 #include <qpixmap.h>
 #include <qtoolbar.h>
 #include <qtoolbutton.h>
-#include <qdir.h>
-#include <iostream>
-using namespace std;
 
 PaintToolBar::PaintToolBar(QMainWindow *parent, const char *name)
 :QToolBar(parent, name) {
@@ -32,10 +29,8 @@ PaintToolBar::PaintToolBar(QMainWindow *parent, const char *name)
 	//Set Title
 	this->setLabel("Tool Bar");
 	
-	cerr << QDir::current();
-	
 	//Import Icons
-	newIcon = QPixmap("icon/new_icon.bmp");
+	newIcon = QPixmap(":/new_icon");
 	openIcon = QPixmap("icon/open_icon.bmp");
 	saveIcon = QPixmap("icon/save_icon.bmp");
 	undoIcon = QPixmap("icon/undo_icon.bmp");

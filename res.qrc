@@ -1,0 +1,18 @@
+<!DOCTYPE RCC>
+<RCC version="1.0">
+	<qresource prefix="resource/icon">
+		<file alias="bcolor_icon">bcolor_icon.bmp</file>
+		<file alias="clearall_icon">clearall_icon.bmp</file>
+		<file alias="eraser_icon">eraser_icon.bmp</file>
+		<file alias="fcolor_icon">fcolor_icon.bmp</file>
+		<file alias="line_icon">line_icon.bmp</file>
+		<file alias="new_icon">new_icon.bmp</file>
+		<file alias="open_icon">open_icon.bmp</file>
+		<file alias="pen_icon">pen_icon.bmp</file>
+		<file alias="rect_icon">rect_icon.bmp</file>
+		<file alias="redo_icon">redo_icon.bmp</file>
+		<file alias="resize_icon">resize_icon.bmp</file>
+		<file alias="save_icon">save_icon.bmp</file>
+		<file alias="undo_icon">undo_icon.bmp</file>
+	</qresource>
+</RCC>
