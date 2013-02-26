@@ -47,7 +47,6 @@ PaintMainWindow::~PaintMainWindow() {
 }
 
 void PaintMainWindow::CreateMenuBar() {
-	int tmp_id; //Store id allocated by qt
 	
 	//Create File Menu
 	//File Menu Begin
@@ -90,7 +89,7 @@ void PaintMainWindow::CreateMenuBar() {
 	QPopupMenu* view = new QPopupMenu(this);
 	
 	//Create View items
-	QAction *ToolBar_t = new QAction("&Tool Bar", NULL, this);
+	QAction *ToolBar_t = new QAction("&Tool Bar", 0, this);
 	QObject::connect(ToolBar_t, SIGNAL(activated()),
 		this, SLOT(ToggleToolBar()));
 	ToolBar_t->setToggleAction(true);
