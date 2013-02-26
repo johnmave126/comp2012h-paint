@@ -95,7 +95,6 @@ void PaintMainWindow::CreateMenuBar() {
 	//Set ToolBar toggler to be checkable
 	ToolBar_t->setToggleAction(true);
 	ToolBar_t->setOn(true);
-	ToolBar_t->toggle();
 	ToolBar_t->addTo(view);
 	//Connect ToolBar state to ToolBar toggler
 	QObject::connect(tools, SIGNAL(visibilityChanged(bool)), 
