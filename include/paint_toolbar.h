@@ -26,5 +26,7 @@ class PaintToolBar : public QToolBar {
 		PaintToolBar(QMainWindow* parent = 0, const char* name = 0);
 		~PaintToolBar();
 	
+	signals:
+		void visibilityChanged(int visible);
 };
 #endif
