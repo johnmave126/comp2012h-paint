@@ -136,7 +136,7 @@ class PaintMainWindow: public QMainWindow {
 		 * slot that handle action when the visibility of
 		 * toolbar changes
 		 */
-		void JustifyToggle(bool);
+		void JustifyToggle(int, QPopupMenu*, bool);
 	private:
 		
 		/*

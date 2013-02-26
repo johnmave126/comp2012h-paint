@@ -26,8 +26,6 @@ PaintMainWindow::PaintMainWindow(QWidget* parent, const char* name)
 	//Create menubar and toolbar
 	CreateMenuBar();
 	tools = new PaintToolBar(this, "tool bar");
-	QObject::connect(tools, SIGNAL(visibilityChanged(visible)), 
-		this, SLOT(JustifyToggle(visible)));
 	
 	//Create scrollview container
 	viewport = new QScrollView(this);
@@ -93,6 +91,9 @@ void PaintMainWindow::CreateMenuBar() {
 	//Create View items
 	tmp_id = view->insertItem("&Tool Bar", this, SLOT(ToggleToolBar()));
 	view->setItemChecked(tmp_id, true);
+	QObject::connect(tools, SIGNAL(visibilityChanged(visible)), 
+		this, SLOT(JustifyToggle(view, tmp_id, visible)));
+	
 	
 	//Insert View Menu
 	menuBar()->insertItem("&View", view);
@@ -110,9 +111,9 @@ void PaintMainWindow::CreateMenuBar() {
 	//Help Menu End
 }
 
-void PaintMainWindow::JustifyToggle(bool visible) {
+void PaintMainWindow::JustifyToggle(int id, QPopupMenu *view, bool visible) {
 	//Find view menu
-	QPopupMenu* view = menuBar()->findItem(menuBar()->idAt(2));
+//	QPopupMenu* view = menuBar()->findItem(menuBar()->idAt(2));
 	//Set toolbar check state
-	view->setItemChecked(view->idAt(0), visible);
+	view->setItemChecked(tmp_id, visible);
 }
