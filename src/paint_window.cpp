@@ -90,7 +90,7 @@ void PaintMainWindow::CreateMenuBar() {
 	QPopupMenu* view = new QPopupMenu(this);
 	
 	//Create View items
-	QAction ToolBar_t = ("&Tool Bar", NULL, this);
+	QAction *ToolBar_t = new QAction("&Tool Bar", NULL, this);
 	QObject::connect(ToolBar_t, SIGNAL(activated()),
 		this, SLOT(ToggleToolBar()));
 	ToolBar_t->addTo(view);
