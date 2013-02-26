@@ -20,6 +20,9 @@
 #include <qkeysequence.h>
 #include <qscrollview.h>
 
+#include <iostream>
+using namespace std;
+
 PaintMainWindow::PaintMainWindow(QWidget* parent, const char* name)
 :QMainWindow(parent, name) {
 	
@@ -31,6 +34,8 @@ PaintMainWindow::PaintMainWindow(QWidget* parent, const char* name)
 	viewport = new QScrollView(this);
 	viewport->setGeometry(0, menuBar()->height() + tools->height(),
 		width(), height() - menuBar()->height() - tools->height());
+	
+	cerr << tools->height() << endl;
 	
 	//Create canvas
 	canvas = new PaintCanvas();
@@ -112,6 +117,6 @@ void PaintMainWindow::resizeEvent(QResizeEvent *e) {
 	/* Reset the region of the viewport upon the change
 	 * of the whole window. The canvas doesn't need to change.
 	 */
-	viewport->setGeometry(0, menuBar()->height(),
-		width(), height() - menuBar()->height());
+	viewport->setGeometry(0, menuBar()->height() + tools->height(),
+		width(), height() - menuBar()->height() - tools->height());
 }
