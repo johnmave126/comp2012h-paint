@@ -16,6 +16,8 @@
 #include <qpixmap.h>
 #include <qtoolbar.h>
 #include <qtoolbutton.h>
+#include <qdir.h>
+#include <QDebug>
 
 PaintToolBar::PaintToolBar(QMainWindow *parent, const char *name)
 :QToolBar(parent, name) {
