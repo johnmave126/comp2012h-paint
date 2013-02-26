@@ -14,6 +14,7 @@
 
 #include "paint_common.h"
 #include "paint_canvas.h"
+#include "paint_toolbar.h"
 #include <qmainwindow.h>
 #include <qapplication.h>
 #include <qscrollview.h>
