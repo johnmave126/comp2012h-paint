@@ -16,6 +16,7 @@
 #include <qapplication.h>
 #include <qmenubar.h>
 #include <qpopupmenu.h>
+#include <qaction.h>
 #include <qpixmap.h>
 #include <qkeysequence.h>
 #include <qscrollview.h>
