@@ -122,7 +122,7 @@ void PaintMainWindow::CreateMenuBar() {
 	//Help Menu End
 }
 
-void PaintWindow::mousePressEvent(QMouseEvent *e) {
+void PaintMainWindow::mousePressEvent(QMouseEvent *e) {
 	//Handle left click inside window when no image loaded
 	if(e->button == Qt::LeftButton && !canvas->isLoaded()) {
 		OnNewImage();
