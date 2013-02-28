@@ -93,7 +93,6 @@ void PaintCanvas::resizeImage(const int w, const int h) {
 		painter.fillRect(0, ori_h, w, h - ori_h, bgColor);
 	}
 	painter.end();
-	cout << new_image.width() << new_image.height() << endl;
 	
 	//Clear history
 	ImageHistory.clear();
@@ -137,6 +136,9 @@ void PaintCanvas::saveImage(QString fileName, const QString filter) {
 	
 	//Save it
 	(*Current).save(fileName, format);
+}
+
+void PaintCanvas::undo() {
 }
 
 bool PaintCanvas::isLoaded() {

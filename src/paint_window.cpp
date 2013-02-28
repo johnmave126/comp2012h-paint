@@ -23,19 +23,18 @@
 
 PaintMainWindow::PaintMainWindow(QWidget* parent, const char* name)
 :QMainWindow(parent, name) {
+	//Create canvas
+	canvas = new PaintCanvas();
 	
 	//Create menubar and toolbar
-	tools = new PaintToolBar(this, "tool bar");
+	tools = new PaintToolBar(this, "tool bar", canvas);
 	CreateMenuBar();
 	setDockMenuEnabled(false);
 	
 	//Create scrollview container
 	viewport = new QScrollView(this);
 	//Set as the central widget to resize automatically
-	setCentralWidget(viewport);	
-	
-	//Create canvas
-	canvas = new PaintCanvas();
+	setCentralWidget(viewport);
 	
 	//Append canvas to scroll view
 	viewport->addChild(canvas);

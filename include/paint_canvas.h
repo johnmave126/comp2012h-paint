@@ -111,7 +111,45 @@ class PaintCanvas : public QWidget {
 		 * set the current background color
 		 */
 		void setBGColor(QColor color) {if(color.isValid())bgColor = color;}
-	
+		
+		
+		//History related
+		/*
+		 * undo
+		 *
+		 * try to undo the last operation
+		 */
+		void undo();
+		 
+		/*
+		 * redo
+		 *
+		 * try to redo the last undo
+		 */
+		void redo();
+		 
+		/*
+		 * forward
+		 *
+		 * try to forward the current history
+		 */
+		void forward(QPixmap new_node);
+		
+	signals:
+		/*
+		 * undoableChanged
+		 *
+		 * emitted when undoability changed
+		 */
+		void undoabilityChanged(bool);
+		
+		/*
+		 * redoableChanged
+		 *
+		 * emitted when redoability changed
+		 */
+		void redoabilityChanged(bool);
+		
 	protected:
 		
 		/* paint event handler */

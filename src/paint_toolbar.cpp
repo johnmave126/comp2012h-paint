@@ -11,6 +11,7 @@
 
 #include "paint_toolbar.h"
 #include "paint_window.h"
+#include "paint_canvas.h"
 #include <qmainwindow.h>
 #include <qapplication.h>
 #include <qpixmap.h>
@@ -18,7 +19,7 @@
 #include <qtoolbutton.h>
 #include <qdir.h>
 
-PaintToolBar::PaintToolBar(QMainWindow *parent, const char *name)
+PaintToolBar::PaintToolBar(QMainWindow *parent, const char *name, const PaintCanvas *canvas)
 :QToolBar(parent, name) {
 	QPixmap newIcon, openIcon, saveIcon, undoIcon, redoIcon,
 		clearIcon, resizeIcon, penIcon, lineIcon, eraserIcon,
@@ -66,8 +67,16 @@ PaintToolBar::PaintToolBar(QMainWindow *parent, const char *name)
 	this->addSeparator();
 	undoTool = new QToolButton(undoIcon, "Undo", "Undo last operation", 
 		parent, SLOT(OnUndo()), this, "undo");
+	undoTool->setEnabled(false);
+	//Disable this if it is un-undoable
+	QObject::connect(canvas, SIGNAL(undoabilityChanged(bool)),
+		undoTool, SLOT(setEnabled(bool)));
 	redoTool = new QToolButton(redoIcon, "Redo", "Redo the operation reverted", 
 		parent, SLOT(OnRedo()), this, "redo");
+	redoTool->setEnabled(false);
+	//Disable this if it is un-redoable
+	QObject::connect(canvas, SIGNAL(redoabilityChanged(bool)),
+		redoTool, SLOT(setEnabled(bool)));
 	clearTool = new QToolButton(clearIcon, "Clear All", "Clear the canvas to background color", 
 		parent, SLOT(OnClearAll()), this, "clear all");
 	resizeTool = new QToolButton(resizeIcon, "Resize", "Resize the canvas", 
