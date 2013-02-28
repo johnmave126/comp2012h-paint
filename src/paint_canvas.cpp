@@ -84,7 +84,7 @@ void PaintCanvas::saveImage(QString fileName, const QString filter) {
 	for(f_it = filters.begin(); f_it != filters.end(); f_it++) {
 		QRegExp reg(*f_it, false, true);
 		if(suffix.isEmpty()) {
-			suffix = (*f_it).right((*f_it).length - 2);
+			suffix = (*f_it).right((*f_it).length() - 2);
 		}
 		cout << *f_it << endl;
 		if(reg.exactMatch(fileName))
