@@ -14,6 +14,8 @@
 #include <qapplication.h>
 #include <qmenubar.h>
 #include <qpopupmenu.h>
+#include <qinputdialog.h>
+#include <qfiledialog.h>
 
 void PaintMainWindow::OnNewImage() {
 	bool ok;
