@@ -16,7 +16,11 @@
 #include <qmainwindow.h>
 #include <qapplication.h>
 #include <qpixmap.h>
-#include <vector>
+#include <qcolor.h>
+#include <list>
+using namespace std;
+
+#define MAX_HISTORY 10
 
 class PaintCanvas : public QWidget {
 	// All classes that contain signals or slots
@@ -26,8 +30,39 @@ class PaintCanvas : public QWidget {
 	public:
 		PaintCanvas();
 		~PaintCanvas();
+		
+		/*
+		 * changeImage
+		 *
+		 * w: the width of new image
+		 * h: the height of new image
+		 *
+		 * change the current image to a new image with current
+		 * foreground color
+		 */
+		void changeImage(const int w, const int h);
+		
+		/*
+		 * changeImage
+		 *
+		 * fileName: the file to be loaded as image
+		 *
+		 * change the current image to an existed image
+		 */
+		void changeImage(const QString fileName);
+		
+	
+	protected:
+		
+		/* paint event handler */
+		virtual void paintEvent(QPaintEvent*);
 	
 	private:
+		//History component
+		list<QPixmap> ImageHistory;
+		list<QPixmap>::iterator Current;
 		
+		//Foreground color and background color
+		QColor fgColor, bgColor;
 };
 #endif

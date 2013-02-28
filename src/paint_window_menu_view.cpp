@@ -15,11 +15,6 @@
 #include <qmenubar.h>
 #include <qpopupmenu.h>
 
-/*
- * ToggleToolBar
- *
- * slot that handle action when try to toggle toolbar
- */
 void PaintMainWindow::ToggleToolBar() {
 	if(tools->isVisible()) {
 		tools->hide();

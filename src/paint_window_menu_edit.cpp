@@ -15,34 +15,14 @@
 #include <qmenubar.h>
 #include <qpopupmenu.h>
 
-/*
- * OnUndo
- *
- * slot that handle action when try to undo
- */
 void PaintMainWindow::OnUndo() {
 }
 
-/*
- * OnRedo
- *
- * slot that handle action when try to redo
- */
 void PaintMainWindow::OnRedo() {
 }
 
-/*
- * OnClearAll
- *
- * slot that handle action when try to clear the image
- */
 void PaintMainWindow::OnClearAll() {
 }
 
-/*
- * OnResizeImage
- *
- * slot that handle action when try to resize the image
- */
 void PaintMainWindow::OnResizeImage() {
 }

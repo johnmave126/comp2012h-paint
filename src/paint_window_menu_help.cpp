@@ -14,11 +14,6 @@
 #include <qapplication.h>
 #include <qmessagebox.h>
 
-/*
- * ShowAbout
- *
- * slot that handle action when try to show About info
- */
 void PaintMainWindow::ShowAbout() {
 	QMessageBox::information( this, "About",
 		"COMP2012H Project1 Paint\n"
