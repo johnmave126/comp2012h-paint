@@ -41,7 +41,7 @@ PaintMainWindow::PaintMainWindow(QWidget* parent, const char* name)
 	viewport->addChild(canvas);
 	
 	//Resize window to a resonable size
-	setBaseSize(50, 50);
+	setBaseSize(100, 100);
 	resize(600, 400);
 }
 
@@ -120,4 +120,11 @@ void PaintMainWindow::CreateMenuBar() {
 	//Insert Help Menu
 	menuBar()->insertItem("&Help", help);
 	//Help Menu End
+}
+
+void PaintWindow::mousePressEvent(QMouseEvent *e) {
+	//Handle left click inside window when no image loaded
+	if(e->button == Qt::LeftButton && !canvas->isLoaded()) {
+		OnNewImage();
+	}
 }

@@ -63,6 +63,11 @@ void PaintCanvas::changeImage(const QString fileName) {
 	}
 }
 
+bool PaintCanvas::isLoaded() {
+	//Not loaded only if the history is blank
+	return !ImageHistory.empty();
+}
+
 void PaintCanvas::paintEvent(QPaintEvent *e) {
 	if(ImageHistory.empty()) {
 		//If no image is loaded, erase the region

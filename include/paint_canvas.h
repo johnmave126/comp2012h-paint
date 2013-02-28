@@ -51,6 +51,12 @@ class PaintCanvas : public QWidget {
 		 */
 		void changeImage(const QString fileName);
 		
+		/*
+		 * isLoaded
+		 *
+		 * return true if the canvas has an image in it
+		 */
+		bool isLoaded();
 	
 	protected:
 		

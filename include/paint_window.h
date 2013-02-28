@@ -31,6 +31,9 @@ class PaintMainWindow: public QMainWindow {
 	
 	protected:
 		
+		/** handler for mousepress event */
+		void mousePressEvent(QMouseEvent*);
+		
 	public slots:
 		
 		//File Menu Begin
