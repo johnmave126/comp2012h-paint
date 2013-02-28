@@ -63,8 +63,8 @@ void PaintCanvas::changeImage(const QString fileName) {
 	}
 }
 
-void PaintCanvas::saveImage(const QString fileName, const QString format) {
-	cerr << format << endl;
+void PaintCanvas::saveImage(const QString fileName, const QString filter) {
+	cerr << filter << endl;
 	return;
 	
 	int len_format = fileName.length() - fileName.findRev('.') - 1;

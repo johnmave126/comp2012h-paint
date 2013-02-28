@@ -55,10 +55,11 @@ class PaintCanvas : public QWidget {
 		 * saveImage
 		 *
 		 * fileName: the file to be saved as image
+		 * filter: the filter selected to save as
 		 *
 		 * save the current image to a file
 		 */
-		void saveImage(const QString fileName, const QString format);
+		void saveImage(const QString fileName, const QString filter);
 		
 		/*
 		 * isLoaded
