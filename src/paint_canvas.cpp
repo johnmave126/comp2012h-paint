@@ -77,10 +77,12 @@ void PaintCanvas::saveImage(QString fileName, const QString filter) {
 	int possible_start = filter.find('(') + 1,
 		possible_end = filter.find(')') - 1;
 	ASSERT(possible_start <= possible_end);
+	//Clip the section of filters
 	QString format_filters = filter.mid(possible_start,
 		possible_end - possible_start + 1);
 	QStringList filters = QStringList::split(' ', format_filters);
 	QStringList::iterator f_it;
+	//Iterate in possible filters to find match
 	for(f_it = filters.begin(); f_it != filters.end(); f_it++) {
 		QRegExp reg(*f_it, false, true);
 		if(suffix.isEmpty()) {
@@ -91,15 +93,13 @@ void PaintCanvas::saveImage(QString fileName, const QString filter) {
 			break;
 	}
 	
-	//suffix is missing, add it
+	//Suffix is missing, add it
 	if(f_it == filters.end() && !suffix.isEmpty()) {
 		fileName = fileName + '.' + suffix;
 	}
 	
-	cout << fileName << endl;
-	
 	//Save it
-	//(*Current).save(fileName, format);
+	(*Current).save(fileName, format);
 }
 
 bool PaintCanvas::isLoaded() {
