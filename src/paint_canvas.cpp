@@ -67,8 +67,8 @@ void PaintCanvas::changeImage(const QString fileName) {
 }
 
 void PaintCanvas::saveImage(QString fileName, const QString filter) {
-	//Find the format from filter
-	int len_format = filter.find(' ') + 1;
+	//Extract the format from filter
+	int len_format = filter.find(' ');
 	QString format = filter.left(len_format);
 	format = format.upper();
 	
@@ -88,7 +88,6 @@ void PaintCanvas::saveImage(QString fileName, const QString filter) {
 		if(suffix.isEmpty()) {
 			suffix = (*f_it).right((*f_it).length() - 2);
 		}
-		cout << *f_it << endl;
 		if(reg.exactMatch(fileName))
 			break;
 	}
