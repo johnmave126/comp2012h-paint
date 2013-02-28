@@ -58,7 +58,7 @@ class PaintCanvas : public QWidget {
 		 *
 		 * save the current image to a file
 		 */
-		void saveImage(const QString fileName);
+		void saveImage(const QString fileName, const QString format);
 		
 		/*
 		 * isLoaded

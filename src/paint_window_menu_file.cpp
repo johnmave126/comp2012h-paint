@@ -38,7 +38,7 @@ void PaintMainWindow::OnNewImage() {
 void PaintMainWindow::OnLoadImage() {
 	//Prompt a window to get filename
 	QString file = QFileDialog::getOpenFileName(QString::null,
-		"Images (*.png *.bmp *.jpg)", this, 0, "Load image...");
+		"PNG image (*.png);;BMP image (*.bmp);;JPEG image (*.jpeg *.jpg)", this, 0, "Load image...");
 	
 	//Something meaningful be input
 	if(!file.isNull()) {
@@ -52,14 +52,15 @@ void PaintMainWindow::OnSaveImage() {
 	if(!canvas->isLoaded())
 		return;
 	
+	QString format;
 	//Prompt a window to get filename to save
 	QString file = QFileDialog::getSaveFileName(QString::null,
-		"Images (*.png *.bmp *.jpg)", this, 0, "Save image...");
+		"PNG image (*.png);;BMP image (*.bmp);;JPEG image (*.jpeg *.jpg)", this, &format, "Save image...");
 	
 	//Something meaningful be input
 	if(!file.isNull()) {
 		//Ask canvas to change image
-		canvas->saveImage(file);
+		canvas->saveImage(file, format);
 	}
 }
 

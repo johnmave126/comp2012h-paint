@@ -17,6 +17,7 @@
 #include <qpixmap.h>
 #include <qcolor.h>
 #include <qpainter.h>
+#include <iostream>
 #include <list>
 using namespace std;
 
@@ -62,7 +63,10 @@ void PaintCanvas::changeImage(const QString fileName) {
 	}
 }
 
-void PaintCanvas::saveImage(const QString fileName) {
+void PaintCanvas::saveImage(const QString fileName, const QString format) {
+	cerr << format << endl;
+	return;
+	
 	int len_format = fileName.length() - fileName.findRev('.') - 1;
 	QString format = fileName.right(len_format);
 	
