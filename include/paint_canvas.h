@@ -52,6 +52,16 @@ class PaintCanvas : public QWidget {
 		void changeImage(const QString fileName);
 		
 		/*
+		 * resizeImage
+		 *
+		 * w: the width of new image
+		 * h: the height of new image
+		 *
+		 * resize the current image to a new size
+		 */
+		void resizeImage(const int w, const int h);
+		
+		/*
 		 * saveImage
 		 *
 		 * fileName: the file to be saved as image

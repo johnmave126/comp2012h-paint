@@ -66,6 +66,36 @@ void PaintCanvas::changeImage(const QString fileName) {
 	}
 }
 
+void PaintCanvas::resizeImage(const int w, const int h) {
+	QPixmap new_image;
+	QPainter painter;
+	int ori_w, ori_h;
+	
+	//Set canvas size
+	setFixedSize(w, h);
+	//Set pixmap size
+	new_image = (*Current);
+	painter.begin(&new_image);
+	ori_w = new_image.width();
+	ori_h = new_image.height();
+	//First resize horizontally
+	new_image.resize(w, ori_h);
+	if(w > ori_w) {
+		painter.fillRect(ori_w, 0, w - ori_w, ori_h, bgColor);
+	}
+	//Then resize vertically
+	new_image.resize(w, h);
+	if(h > ori_h) {
+		painter.fillRect(ori_h, 0, h - ori_h, w, bgColor);
+	}
+	painter.end();
+	
+	//Clear history
+	ImageHistory.clear();
+	ImageHistory.insert(ImageHistory.begin(), new_image);
+	Current = ImageHistory.begin();
+}
+
 void PaintCanvas::saveImage(QString fileName, const QString filter) {
 	//Extract the format from filter
 	int len_format = filter.find(' ');
