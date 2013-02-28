@@ -55,7 +55,7 @@ void PaintMainWindow::OnSaveImage() {
 	QString format;
 	//Prompt a window to get filename to save
 	QString file = QFileDialog::getSaveFileName(QString::null,
-		"BMP image (*.bmp);;PNG image (*.png);;JPEG image (*.jpeg *.jpg)",
+		"BMP image (*.bmp);;PNG image (*.png);;JPEG image (*.jpg *.jpeg)",
 		this, QString::null, "Save image...", &format);
 	
 	//Something meaningful be input

@@ -64,13 +64,16 @@ void PaintCanvas::changeImage(const QString fileName) {
 }
 
 void PaintCanvas::saveImage(const QString fileName, const QString filter) {
-	cout << filter << endl;
-	return;
+	//Find the format from filter
+	int len_format = filter.find(' ') + 1;
+	QString format = filter.left(len_format);
+	format = format.upper();
 	
-	int len_format = fileName.length() - fileName.findRev('.') - 1;
-	QString format = fileName.right(len_format);
+	//Append to fileName if format is absent
+	QStringList possible_formats = filter.split(QRegExp("\*\.\w+", 0);
+	cout << possible_formats.join(",") << endl;
 	
-	(*Current).save(fileName, format);
+	//(*Current).save(fileName, format);
 }
 
 bool PaintCanvas::isLoaded() {
