@@ -80,6 +80,7 @@ void PaintCanvas::resizeImage(const int w, const int h) {
 	//First resize horizontally
 	new_image.resize(w, ori_h);
 	painter.begin(&new_image);
+	//Fill extra area if necessary
 	if(w > ori_w) {
 		painter.fillRect(ori_w, 0, w - ori_w, ori_h, bgColor);
 	}
@@ -87,8 +88,9 @@ void PaintCanvas::resizeImage(const int w, const int h) {
 	//Then resize vertically
 	new_image.resize(w, h);
 	painter.begin(&new_image);
+	//Fill extra area if necessary
 	if(h > ori_h) {
-		painter.fillRect(ori_h, 0, h - ori_h, w, bgColor);
+		painter.fillRect(0, ori_h, w, h - ori_h, bgColor);
 	}
 	painter.end();
 	cout << new_image.width() << new_image.height() << endl;
