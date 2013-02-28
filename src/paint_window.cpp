@@ -39,6 +39,9 @@ PaintMainWindow::PaintMainWindow(QWidget* parent, const char* name)
 	
 	//Append canvas to scroll view
 	viewport->addChild(canvas);
+	
+	//Resize window to a resonable size
+	setFixedSize(700, 300);
 }
 
 PaintMainWindow::~PaintMainWindow() {
