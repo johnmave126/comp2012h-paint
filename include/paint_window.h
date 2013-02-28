@@ -131,6 +131,7 @@ class PaintMainWindow: public QMainWindow {
 		 */
 		void ShowAbout();
 		//Help Menu End
+		
 	private:
 		
 		/*

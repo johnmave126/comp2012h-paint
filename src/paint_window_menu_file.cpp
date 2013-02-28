@@ -26,7 +26,7 @@ void PaintMainWindow::OnNewImage() {
 	if(w > 0 && ok) {
 		//Ask for height
 		h = QInputDialog::getInteger("New Image", "Enter the bitmap height",
-				400, 0, 2147483647, 1, &ok, this);
+				300, 0, 2147483647, 1, &ok, this);
 		
 		if(h > 0 && ok) {
 			//Pass to canvas
@@ -37,7 +37,8 @@ void PaintMainWindow::OnNewImage() {
 
 void PaintMainWindow::OnLoadImage() {
 	//Prompt a window to get filename
-	QString file = QFileDialog::getOpenFileName(QString::null, "*.bmp", this, 0, "Load image...");
+	QString file = QFileDialog::getOpenFileName(QString::null,
+		"Images (*.png *.bmp *.jpg)", this, 0, "Load image...");
 	
 	//Something meaningful be input
 	if(!file.isNull()) {
@@ -47,6 +48,19 @@ void PaintMainWindow::OnLoadImage() {
 }
 
 void PaintMainWindow::OnSaveImage() {
+	//No need to ask if no image exists
+	if(!canvas->isLoaded())
+		return;
+	
+	//Prompt a window to get filename to save
+	QString file = QFileDialog::getSaveFileName(QString::null,
+		"Images (*.png *.bmp *.jpg)", this, 0, "Save image...");
+	
+	//Something meaningful be input
+	if(!file.isNull()) {
+		//Ask canvas to change image
+		canvas->saveImage(file);
+	}
 }
 
 void PaintMainWindow::ChangeFGColor() {

@@ -52,6 +52,15 @@ class PaintCanvas : public QWidget {
 		void changeImage(const QString fileName);
 		
 		/*
+		 * saveImage
+		 *
+		 * fileName: the file to be saved as image
+		 *
+		 * save the current image to a file
+		 */
+		void saveImage(const QString fileName);
+		
+		/*
 		 * isLoaded
 		 *
 		 * return true if the canvas has an image in it

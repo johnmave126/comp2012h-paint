@@ -43,7 +43,6 @@ void PaintCanvas::changeImage(const int w, const int h) {
 	ImageHistory.insert(ImageHistory.begin(), QPixmap(w, h));
 	Current = ImageHistory.begin();
 	(*Current).fill(bgColor);
-	
 }
 
 void PaintCanvas::changeImage(const QString fileName) {
@@ -61,6 +60,13 @@ void PaintCanvas::changeImage(const QString fileName) {
 		ImageHistory.insert(ImageHistory.begin(), newImage);
 		Current = ImageHistory.begin();
 	}
+}
+
+void PaintCanvas::saveImage(const QString fileName) {
+	int len_format = fileName.length() - fileName.findRev('.') - 1;
+	QString format = fileName.right(len_format);
+	
+	(*Current).save(fileName, format);
 }
 
 bool PaintCanvas::isLoaded() {
