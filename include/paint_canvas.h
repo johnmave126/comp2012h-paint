@@ -71,12 +71,46 @@ class PaintCanvas : public QWidget {
 		 */
 		void saveImage(QString fileName, const QString filter);
 		
+		
+		//Helper functions
 		/*
 		 * isLoaded
 		 *
 		 * return true if the canvas has an image in it
 		 */
 		bool isLoaded();
+		
+		/*
+		 * getFGColor
+		 *
+		 * return the current foreground color
+		 */
+		QColor getFGColor() const {return fgColor;}
+		
+		/*
+		 * setFGColor
+		 *
+		 * color: the new color to be set
+		 *
+		 * set the current foreground color
+		 */
+		void setFGColor(QColor color) {if(color.isValid())fgColor = color;}
+		
+		/*
+		 * getBGColor
+		 *
+		 * return the current background color
+		 */
+		QColor getBGColor() const {return bgColor;}
+		
+		/*
+		 * setBGColor
+		 *
+		 * color: the new color to be set
+		 *
+		 * set the current background color
+		 */
+		void setBGColor(QColor color) {if(color.isValid())bgColor = color;}
 	
 	protected:
 		

@@ -16,6 +16,7 @@
 #include <qpopupmenu.h>
 #include <qinputdialog.h>
 #include <qfiledialog.h>
+#include <qcolordialog.h>
 
 void PaintMainWindow::OnNewImage() {
 	bool ok;
@@ -66,9 +67,23 @@ void PaintMainWindow::OnSaveImage() {
 }
 
 void PaintMainWindow::ChangeFGColor() {
+	//Prompt a window to get new foreground color
+	QColor new_color = QColorDialog::getColor(canvas->getFGColor(), this);
+	//Something meaningful be input
+	if(new_color.isValid()) {
+		//Ask canvas to change foreground color
+		canvas->setFGColor(new_color);
+	}
 }
 
 void PaintMainWindow::ChangeBGColor() {
+	//Prompt a window to get new background color
+	QColor new_color = QColorDialog::getColor(canvas->getBGColor(), this);
+	//Something meaningful be input
+	if(new_color.isValid()) {
+		//Ask canvas to change background color
+		canvas->setBGColor(new_color);
+	}
 }
 
 void PaintMainWindow::OnExit() {
