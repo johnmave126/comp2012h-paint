@@ -33,18 +33,16 @@ PaintCanvas::~PaintCanvas() {
 }
 
 void PaintCanvas::changeImage(const int w, const int h) {
-	
 	//Clear History
 	ImageHistory.clear();
-	//Assign the current pointer for history use
-	Current = ImageHistory.begin();
 	
 	//Set canvas size
 	setFixedSize(w, h);
 	
 	//Insert into history
-	ImageHistory.insert(Current, QPixmap(w, h));
-	(*ImageHistory.begin()).fill(bgColor);
+	ImageHistory.insert(ImageHistory.begin(), QPixmap(w, h));
+	Current = ImageHistory.begin();
+	(*Current).fill(bgColor);
 	
 }
 
@@ -56,8 +54,12 @@ void PaintCanvas::changeImage(const QString fileName) {
 		//Set canvas size
 		setFixedSize(newImage.width(), newImage.height());
 		
+		//Clear History
+		ImageHistory.clear();
+		
 		//Insert into history
-		ImageHistory.insert(Current, newImage);
+		ImageHistory.insert(ImageHistory.begin(), newImage);
+		Current = ImageHistory.begin();
 	}
 }
 
