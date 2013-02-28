@@ -14,6 +14,7 @@
 #include <qapplication.h>
 #include <qmenubar.h>
 #include <qpopupmenu.h>
+#include <qinputdialog.h>
 
 void PaintMainWindow::OnUndo() {
 }
