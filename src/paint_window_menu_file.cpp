@@ -49,7 +49,7 @@ void PaintMainWindow::OnLoadImage() {
 }
 
 void PaintMainWindow::OnSaveImage() {
-	//No need to ask if no image exists
+	//Do nothing if no image exists
 	if(!canvas->isLoaded())
 		return;
 	
