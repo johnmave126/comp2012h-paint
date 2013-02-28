@@ -75,21 +75,22 @@ void PaintCanvas::resizeImage(const int w, const int h) {
 	setFixedSize(w, h);
 	//Set pixmap size
 	new_image = (*Current);
-	painter.begin(&new_image);
 	ori_w = new_image.width();
 	ori_h = new_image.height();
 	//First resize horizontally
 	new_image.resize(w, ori_h);
+	painter.begin(&new_image);
 	if(w > ori_w) {
 		painter.fillRect(ori_w, 0, w - ori_w, ori_h, bgColor);
 	}
+	painter.end();
 	//Then resize vertically
 	new_image.resize(w, h);
+	painter.begin(&new_image);
 	if(h > ori_h) {
 		painter.fillRect(ori_h, 0, h - ori_h, w, bgColor);
 	}
 	painter.end();
-	
 	cout << new_image.width() << new_image.height() << endl;
 	
 	//Clear history
