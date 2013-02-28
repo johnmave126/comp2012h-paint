@@ -79,14 +79,14 @@ void PaintCanvas::saveImage(QString fileName, const QString filter) {
 	ASSERT(possible_start <= possible_end);
 	QString format_filters = filter.mid(possible_start,
 		possible_end - possible_start + 1);
-	QStringList filters = QSTringList::split(' ');
+	QStringList filters = QStringList::split(' ');
 	QStringList::iterator f_it;
 	for(f_it = filters.begin(); f_it != filters.end(); f_it++) {
-		QRegExp reg(*it, false, true);
+		QRegExp reg(*f_it, false, true);
 		if(suffix.isEmpty()) {
-			suffix = (*it).right((*it).length - 2);
+			suffix = (*f_it).right((*f_it).length - 2);
 		}
-		cout << *it << endl;
+		cout << *f_it << endl;
 		if(reg.exactMatch(fileName))
 			break;
 	}
