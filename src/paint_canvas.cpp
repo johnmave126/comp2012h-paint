@@ -90,10 +90,15 @@ void PaintCanvas::resizeImage(const int w, const int h) {
 	}
 	painter.end();
 	
+	cout << new_image.width() << new_image.height() << endl;
+	
 	//Clear history
 	ImageHistory.clear();
 	ImageHistory.insert(ImageHistory.begin(), new_image);
 	Current = ImageHistory.begin();
+	
+	//Call for repaint
+	repaint();
 }
 
 void PaintCanvas::saveImage(QString fileName, const QString filter) {
