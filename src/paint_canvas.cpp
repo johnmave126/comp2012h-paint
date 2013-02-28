@@ -17,6 +17,9 @@
 #include <qpixmap.h>
 #include <qcolor.h>
 #include <qpainter.h>
+#include <qstring.h>
+#include <qstringlist.h>
+#include <qregexp.h>
 #include <iostream>
 #include <list>
 using namespace std;
