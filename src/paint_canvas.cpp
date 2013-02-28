@@ -79,7 +79,7 @@ void PaintCanvas::saveImage(QString fileName, const QString filter) {
 	ASSERT(possible_start <= possible_end);
 	QString format_filters = filter.mid(possible_start,
 		possible_end - possible_start + 1);
-	QStringList filters = QStringList::split(' ');
+	QStringList filters = QStringList::split(' ', filter);
 	QStringList::iterator f_it;
 	for(f_it = filters.begin(); f_it != filters.end(); f_it++) {
 		QRegExp reg(*f_it, false, true);
