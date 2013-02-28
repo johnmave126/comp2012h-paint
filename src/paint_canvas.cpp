@@ -70,7 +70,7 @@ void PaintCanvas::saveImage(const QString fileName, const QString filter) {
 	format = format.upper();
 	
 	//Append to fileName if format is absent
-	QStringList possible_formats = filter.split(QRegExp("\*\.\w+", 0);
+	QStringList possible_formats = filter.split(QRegExp("\\*\\.\\w+", 0);
 	cout << possible_formats.join(",") << endl;
 	
 	//(*Current).save(fileName, format);
