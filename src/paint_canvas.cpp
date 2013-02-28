@@ -69,6 +69,6 @@ void PaintCanvas::paintEvent(QPaintEvent *e) {
 	else {
 		//If there is imaged loaded, draw it
 		bitBlt(this, 0, 0,
-			*Current, 0, 0, (*Current).width(), (*Current).height());
+			&(*Current), 0, 0, (*Current).width(), (*Current).height());
 	}
 }
