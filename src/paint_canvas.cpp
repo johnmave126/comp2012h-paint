@@ -66,16 +66,39 @@ void PaintCanvas::changeImage(const QString fileName) {
 	}
 }
 
-void PaintCanvas::saveImage(const QString fileName, const QString filter) {
+void PaintCanvas::saveImage(QString fileName, const QString filter) {
 	//Find the format from filter
 	int len_format = filter.find(' ') + 1;
 	QString format = filter.left(len_format);
 	format = format.upper();
 	
-	//Append to fileName if format is absent
-	QStringList possible_formats = QStringList::split(QRegExp("\\*\\.\\w+"), filter);
-	cout << possible_formats.join(",") << endl;
+	//Append to fileName if suffix is absent
+	QString suffix;
+	int possible_start = filter.find('(') + 1,
+		possible_end = filter.find(')') - 1;
+	ASSERT(possible_start <= possible_end);
+	QString format_filters = filter.mid(possible_start,
+		possible_end - possible_start + 1);
+	QStringList filters = QSTringList::split(' ');
+	QStringList::iterator f_it;
+	for(f_it = filters.begin(); f_it != filters.end(); f_it++) {
+		QRegExp reg(*it, false, true);
+		if(suffix.isEmpty()) {
+			suffix = (*it).right((*it).length - 2);
+		}
+		cout << *it << endl;
+		if(reg.exactMatch(fileName))
+			break;
+	}
 	
+	//suffix is missing, add it
+	if(f_it == filters.end() && !suffix.isEmpty()) {
+		fileName = fileName + '.' + suffix;
+	}
+	
+	cout << fileName << endl;
+	
+	//Save it
 	//(*Current).save(fileName, format);
 }
 
