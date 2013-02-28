@@ -41,7 +41,8 @@ PaintMainWindow::PaintMainWindow(QWidget* parent, const char* name)
 	viewport->addChild(canvas);
 	
 	//Resize window to a resonable size
-	setFixedSize(700, 300);
+	setBaseSize(50, 50);
+	resize(600, 400);
 }
 
 PaintMainWindow::~PaintMainWindow() {
