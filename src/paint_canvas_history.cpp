@@ -10,6 +10,7 @@
  */
 
 #include "paint_canvas.h"
+#include <qmainwindow.h>
 #include <qwidget.h>
 #include <qapplication.h>
 #include <qpixmap.h>

@@ -138,9 +138,6 @@ void PaintCanvas::saveImage(QString fileName, const QString filter) {
 	(*Current).save(fileName, format);
 }
 
-void PaintCanvas::undo() {
-}
-
 bool PaintCanvas::isLoaded() {
 	//Not loaded only if the history is blank
 	return !ImageHistory.empty();
