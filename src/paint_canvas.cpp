@@ -139,6 +139,11 @@ void PaintCanvas::saveImage(QString fileName, const QString filter) {
 }
 
 void PaintCanvas::clearAll() {
+	//Check image
+	if(ImageHistory.empty()) {
+		return;
+	}
+	
 	//Always create a copy before operation
 	QPixmap copy = *Current;
 	
