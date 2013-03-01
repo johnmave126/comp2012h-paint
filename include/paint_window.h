@@ -82,28 +82,7 @@ class PaintMainWindow: public QMainWindow {
 		//File Menu End
 		
 		//Edit Menu Begin
-		
-		/*
-		 * OnUndo
-		 *
-		 * slot that handle action when try to undo
-		 */
-		void OnUndo();
-		
-		/*
-		 * OnRedo
-		 *
-		 * slot that handle action when try to redo
-		 */
-		void OnRedo();
-		
-		/*
-		 * OnClearAll
-		 *
-		 * slot that handle action when try to clear the image
-		 */
-		void OnClearAll();
-		
+				
 		/*
 		 * OnResizeImage
 		 *
