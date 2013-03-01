@@ -68,7 +68,8 @@ void PaintCanvas::forward(QPixmap new_node) {
 		ImageHistory.erase(ImageHistory.begin());
 	}
 	
-	//Emit signal
+	//Repaint and emit signal
+	repaint();
 	emit undoabilityChanged(true);
 	emit undoabilityChanged(false);
 }

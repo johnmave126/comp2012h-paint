@@ -138,6 +138,17 @@ void PaintCanvas::saveImage(QString fileName, const QString filter) {
 	(*Current).save(fileName, format);
 }
 
+void PaintCanvas::clearAll() {
+	//Always create a copy before operation
+	Pixmap copy = *Current;
+	
+	//Clear with bgColor
+	copy.fill(bgColor);
+	
+	//Forward the history using copy
+	forward(copy);
+}
+
 bool PaintCanvas::isLoaded() {
 	//Not loaded only if the history is blank
 	return !ImageHistory.empty();

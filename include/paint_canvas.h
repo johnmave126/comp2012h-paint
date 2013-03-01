@@ -112,6 +112,7 @@ class PaintCanvas : public QWidget {
 		 */
 		void setBGColor(QColor color) {if(color.isValid())bgColor = color;}
 		
+	public slots:
 		
 		//History related
 		/*
@@ -134,6 +135,13 @@ class PaintCanvas : public QWidget {
 		 * try to forward the current history
 		 */
 		void forward(QPixmap new_node);
+		
+		/*
+		 * clearAll
+		 *
+		 * try to clear the image
+		 */
+		void clearAll();
 		
 	signals:
 		/*

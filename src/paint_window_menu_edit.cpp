@@ -16,15 +16,6 @@
 #include <qpopupmenu.h>
 #include <qinputdialog.h>
 
-void PaintMainWindow::OnUndo() {
-}
-
-void PaintMainWindow::OnRedo() {
-}
-
-void PaintMainWindow::OnClearAll() {
-}
-
 void PaintMainWindow::OnResizeImage() {
 	bool ok;
 	int w, h;

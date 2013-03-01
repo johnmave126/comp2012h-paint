@@ -79,9 +79,9 @@ void PaintMainWindow::CreateMenuBar() {
 	QPopupMenu* edit = new QPopupMenu(this);
 	
 	//Create Edit items
-	edit->insertItem("&Undo", this, SLOT(OnUndo()), CTRL+Key_Z);
-	edit->insertItem("&Redo", this, SLOT(OnRedo()), CTRL+Key_Y);
-	edit->insertItem("&Clear All", this, SLOT(OnClearAll()));
+	edit->insertItem("&Undo", canvas, SLOT(undo()), CTRL+Key_Z);
+	edit->insertItem("&Redo", canvas, SLOT(redo()), CTRL+Key_Y);
+	edit->insertItem("&Clear All", canvas, SLOT(clearAll()));
 	edit->insertItem("Re&size", this, SLOT(OnResizeImage()), CTRL+Key_R);
 	
 	//Insert Edit Menu
