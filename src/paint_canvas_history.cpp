@@ -21,7 +21,6 @@ using namespace std;
 void PaintCanvas::undo() {
 	//If now is begin, or no image loaded
 	//Do nothing
-	
 	if(ImageHistory.empty() || Current == ImageHistory.begin()) {
 		return;
 	}
@@ -30,21 +29,26 @@ void PaintCanvas::undo() {
 	Current--;
 	repaint();
 	emit undoabilityChanged(Current != ImageHistory.begin());
-	emit redoabilityChanged((Current+1) != ImageHistory.end());
+	emit redoabilityChanged(true);
 }
 
 void PaintCanvas::redo() {
+	//Create a copy of Current->next
+	list<QPixmap>::iterator tmp = Current;
+	tmp++;
+	
 	//If now is end, or no image loaded
 	//Do nothing
-	if(ImageHistory.empty() || Current + 1 == ImageHistory.end()) {
+	if(ImageHistory.empty() || tmp == ImageHistory.end()) {
 		return;
 	}
 	
-	//Undo, repaint and emit signal
+	//Redo, repaint and emit signal
 	Current++;
+	tmp++;
 	repaint();
 	emit undoabilityChanged(Current != ImageHistory.begin());
-	emit redoabilityChanged((Current+1) != ImageHistory.end());
+	emit redoabilityChanged(tmp != ImageHistory.end());
 }
 
 void PaintCanvas::forward(QPixmap new_node) {
