@@ -47,7 +47,7 @@ void PaintCanvas::redo() {
 	Current++;
 	tmp++;
 	repaint();
-	emit undoabilityChanged(Current != ImageHistory.begin());
+	emit undoabilityChanged(true);
 	emit redoabilityChanged(tmp != ImageHistory.end());
 }
 
