@@ -140,7 +140,7 @@ void PaintCanvas::saveImage(QString fileName, const QString filter) {
 
 void PaintCanvas::clearAll() {
 	//Always create a copy before operation
-	Pixmap copy = *Current;
+	QPixmap copy = *Current;
 	
 	//Clear with bgColor
 	copy.fill(bgColor);
