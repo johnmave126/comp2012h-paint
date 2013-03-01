@@ -52,4 +52,23 @@ void PaintCanvas::redo() {
 }
 
 void PaintCanvas::forward(QPixmap new_node) {
+	//Create a copy of Current->next
+	list<QPixmap>::iterator tmp = Current;
+	tmp++;
+	
+	//Erase redo history
+	ImageHistory.erase(tmp, ImageHistory.end());
+	ImageHistory.insert(ImageHistory.end(), new_node);
+	
+	//Forward the history
+	Current++;
+	
+	//Remove the first element in history if necessary
+	while(ImageHistory.size() > MAX_HISTORY) {
+		ImageHistory.erase(ImageHistory.begin());
+	}
+	
+	//Emit signal
+	emit undoabilityChanged(true);
+	emit undoabilityChanged(false);
 }

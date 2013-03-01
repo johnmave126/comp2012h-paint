@@ -44,7 +44,7 @@ void PaintCanvas::changeImage(const int w, const int h) {
 	setFixedSize(w, h);
 	
 	//Insert into history
-	ImageHistory.insert(ImageHistory.begin(), QPixmap(w, h));
+	ImageHistory.insert(ImageHistory.end(), QPixmap(w, h));
 	Current = ImageHistory.begin();
 	(*Current).fill(bgColor);
 }
@@ -61,7 +61,7 @@ void PaintCanvas::changeImage(const QString fileName) {
 		ImageHistory.clear();
 		
 		//Insert into history
-		ImageHistory.insert(ImageHistory.begin(), newImage);
+		ImageHistory.insert(ImageHistory.end(), newImage);
 		Current = ImageHistory.begin();
 	}
 }
@@ -96,7 +96,7 @@ void PaintCanvas::resizeImage(const int w, const int h) {
 	
 	//Clear history
 	ImageHistory.clear();
-	ImageHistory.insert(ImageHistory.begin(), new_image);
+	ImageHistory.insert(ImageHistory.end(), new_image);
 	Current = ImageHistory.begin();
 	
 	//Call for repaint
