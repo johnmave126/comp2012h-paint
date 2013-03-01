@@ -66,19 +66,19 @@ PaintToolBar::PaintToolBar(QMainWindow *parent, const char *name, const PaintCan
 		parent, SLOT(OnSaveImage()), this, "save image");
 	this->addSeparator();
 	undoTool = new QToolButton(undoIcon, "Undo", "Undo last operation", 
-		parent, SLOT(OnUndo()), this, "undo");
+		canvas, SLOT(undo()), this, "undo");
 	undoTool->setEnabled(false);
 	//Disable this if it is un-undoable
 	QObject::connect(canvas, SIGNAL(undoabilityChanged(bool)),
 		undoTool, SLOT(setEnabled(bool)));
 	redoTool = new QToolButton(redoIcon, "Redo", "Redo the operation reverted", 
-		parent, SLOT(OnRedo()), this, "redo");
+		canvas, SLOT(redo()), this, "redo");
 	redoTool->setEnabled(false);
 	//Disable this if it is un-redoable
 	QObject::connect(canvas, SIGNAL(redoabilityChanged(bool)),
 		redoTool, SLOT(setEnabled(bool)));
 	clearTool = new QToolButton(clearIcon, "Clear All", "Clear the canvas to background color", 
-		parent, SLOT(OnClearAll()), this, "clear all");
+		canvas, SLOT(clearAll()), this, "clear all");
 	resizeTool = new QToolButton(resizeIcon, "Resize", "Resize the canvas", 
 		parent, SLOT(OnResizeImage()), this, "resize");
 	this->addSeparator();
