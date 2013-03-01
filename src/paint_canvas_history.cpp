@@ -71,5 +71,5 @@ void PaintCanvas::forward(QPixmap new_node) {
 	//Repaint and emit signal
 	repaint();
 	emit undoabilityChanged(true);
-	emit undoabilityChanged(false);
+	emit redoabilityChanged(false);
 }
