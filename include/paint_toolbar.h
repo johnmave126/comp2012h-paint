@@ -24,7 +24,7 @@ class PaintToolBar : public QToolBar {
 	Q_OBJECT
 	
 	public:
-		PaintToolBar(QMainWindow* parent = 0, const char* name = 0, const PaintCanvas* canvas = 0);
+		PaintToolBar(QMainWindow* parent = 0, const char* name = 0, PaintCanvas* canvas = 0);
 		~PaintToolBar();
 		
 	protected:
