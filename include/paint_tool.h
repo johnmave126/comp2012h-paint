@@ -31,21 +31,21 @@ class PaintTool {
 		 *
 		 * Initialize the tool
 		 */
-		virtual QPixmap begin(QPixmap dst, QColor color, QPoint new_point);
+		virtual QPixmap begin(QPixmap dst, QColor color, QPoint new_point) = 0;
 		
 		/*
 		 * end
 		 *
 		 * End the draw of the tool
 		 */
-		virtual QPixmap end();
+		virtual QPixmap end() = 0;
 		
 		/*
 		 * config
 		 *
 		 * Prompt to configure the tool
 		 */
-		virtual void config();
+		virtual void config() = 0;
 		
 	protected:
 		QPen drawPen;
