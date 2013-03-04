@@ -55,7 +55,7 @@ class PaintTool {
 		
 		//Temporary storage of painting target and painter
 		QPixmap my_target;
-		QPainter bufferPainter
+		QPainter bufferPainter;
 };
 
 #endif
