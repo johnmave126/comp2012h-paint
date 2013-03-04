@@ -13,6 +13,10 @@
 #define _PAINT_CANVAS_H
 
 #include "paint_common.h"
+#include "paint_pen.h"/*
+#include "paint_line.h"
+#include "paint_rect.h"
+#include "paint_eraser.h"*/
 #include <qmainwindow.h>
 #include <qapplication.h>
 #include <qpixmap.h>
@@ -21,6 +25,13 @@
 using namespace std;
 
 #define MAX_HISTORY 10
+
+enum PaintToolType {
+	Pen = 0,
+	Line,
+	Rect,
+	Eraser
+};
 
 class PaintCanvas : public QWidget {
 	// All classes that contain signals or slots
@@ -112,6 +123,13 @@ class PaintCanvas : public QWidget {
 		 */
 		void setBGColor(QColor color) {if(color.isValid())bgColor = color;}
 		
+		/*
+		 * config
+		 *
+		 * prompt to configure the current tool
+		 */
+		void config();
+		
 	public slots:
 		
 		//History related
@@ -162,13 +180,36 @@ class PaintCanvas : public QWidget {
 		
 		/* paint event handler */
 		virtual void paintEvent(QPaintEvent*);
+		
+		/* mousepress event handler */
+		virtual void mousePressEvent(QMouseEvent*);
+		
+		/* mousemove event handler */
+		virtual void mouseMoveEvent(QMouseEvent*);
+		
+		/* mouserelease event handler */
+		virtual void mouseReleaseEvent(QMouseEvent*);
 	
 	private:
 		//History component
 		list<QPixmap> ImageHistory;
 		list<QPixmap>::iterator Current;
 		
+		//Drawing content
+		QPixmap buffer;
+		
 		//Foreground color and background color
 		QColor fgColor, bgColor;
+		
+		//Mouse state
+		bool pressed;
+		float last_x, last_y;
+		
+		//Tools
+		PaintPen penTool;
+//		PaintLine lineTool;
+//		PaintRect rectTool;
+//		PaintEraser eraserTool;
+		PaintToolType ToolState;
 };
 #endif

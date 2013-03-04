@@ -27,6 +27,7 @@ void PaintCanvas::undo() {
 	
 	//Undo, repaint and emit signal
 	Current--;
+	buffer = *Current;
 	repaint();
 	emit undoabilityChanged(Current != ImageHistory.begin());
 	emit redoabilityChanged(true);
@@ -46,6 +47,7 @@ void PaintCanvas::redo() {
 	//Redo, repaint and emit signal
 	Current++;
 	tmp++;
+	buffer = *Current;
 	repaint();
 	emit undoabilityChanged(true);
 	emit redoabilityChanged(tmp != ImageHistory.end());
@@ -67,6 +69,7 @@ void PaintCanvas::forward(QPixmap new_node) {
 	while(ImageHistory.size() > MAX_HISTORY) {
 		ImageHistory.erase(ImageHistory.begin());
 	}
+	buffer = *Current;
 	
 	//Repaint and emit signal
 	repaint();

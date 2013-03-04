@@ -12,6 +12,8 @@
 
 #include "paint_canvas.h"
 #include "paint_toolbar.h"
+#include "paint_pen.h"
+
 #include <qmainwindow.h>
 #include <qapplication.h>
 #include <qpixmap.h>
@@ -25,7 +27,7 @@
 using namespace std;
 
 PaintCanvas::PaintCanvas()
-:fgColor(0, 0, 0), bgColor(255, 255, 255) {
+:fgColor(0, 0, 0), bgColor(255, 255, 255), ToolState(Pen) {
 	//Assign the current pointer for history use
 	Current = ImageHistory.begin();
 	
@@ -47,6 +49,10 @@ void PaintCanvas::changeImage(const int w, const int h) {
 	ImageHistory.insert(ImageHistory.end(), QPixmap(w, h));
 	Current = ImageHistory.begin();
 	(*Current).fill(bgColor);
+	buffer = *Current;
+	
+	//Repaint
+	repaint();
 }
 
 void PaintCanvas::changeImage(const QString fileName) {
@@ -63,6 +69,7 @@ void PaintCanvas::changeImage(const QString fileName) {
 		//Insert into history
 		ImageHistory.insert(ImageHistory.end(), newImage);
 		Current = ImageHistory.begin();
+		buffer = *Current;
 	}
 }
 
@@ -98,6 +105,7 @@ void PaintCanvas::resizeImage(const int w, const int h) {
 	ImageHistory.clear();
 	ImageHistory.insert(ImageHistory.end(), new_image);
 	Current = ImageHistory.begin();
+	buffer = *Current;
 	
 	//Call for repaint
 	repaint();
@@ -167,6 +175,18 @@ void PaintCanvas::paintEvent(QPaintEvent *e) {
 	else {
 		//If there is imaged loaded, draw it
 		bitBlt(this, 0, 0,
-			&(*Current), 0, 0, (*Current).width(), (*Current).height());
+			&buffer, 0, 0, buffer.width(), buffer.height());
 	}
+}
+
+void PaintCanvas::mousePressEvent(QMouseEvent *e) {
+	buffer = penTool.begin(*Current, fgColor, e->pos());
+}
+
+void PaintCanvas::mouseMoveEvent(QMouseEvent *e) {
+	buffer = penTool.addPoint(e->pos());
+}
+
+void PaintCanvas::mouseReleaseEvent(QMouseEvent *e) {
+	forward(penTool.end());
 }
