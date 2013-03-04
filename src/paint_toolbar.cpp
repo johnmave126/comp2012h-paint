@@ -17,6 +17,7 @@
 #include <qpixmap.h>
 #include <qtoolbar.h>
 #include <qtoolbutton.h>
+#include <qbuttongroup.h>
 #include <qdir.h>
 
 PaintToolBar::PaintToolBar(QMainWindow *parent, const char *name, PaintCanvas *canvas)
