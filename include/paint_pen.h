@@ -30,7 +30,7 @@ class PaintPen: public PaintTool {
 		 *
 		 * Initialize the pen tool
 		 */
-		virtual QPixmap begin(QPixmap dst, QColor color);
+		virtual QPixmap begin(QPixmap dst, QColor color, QPoint new_point);
 		
 		/*
 		 * addPoint

@@ -31,7 +31,7 @@ class PaintTool {
 		 *
 		 * Initialize the tool
 		 */
-		virtual QPixmap begin(QPixmap dst, QColor color);
+		virtual QPixmap begin(QPixmap dst, QColor color, QPoint new_point);
 		
 		/*
 		 * end
