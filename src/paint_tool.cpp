@@ -15,10 +15,10 @@
 #include <qpixmap.h>
 #include <qpen.h>
 
-PaintPen::PaintPen(QMainWindow *parent)
+PaintTool::PaintTool(QMainWindow *parent)
 :drawPen(QColor(0, 0, 0)), my_parent(parent) {
 }
 
-~PaintPen::~PaintPen() {
+PaintTool::~PaintTool() {
 	my_parent = NULL;
 }
