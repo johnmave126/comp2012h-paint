@@ -15,10 +15,11 @@
 #include <qpixmap.h>
 #include <qpainter.h>
 
-PaintPen::PaintPen(QMainWindow *parent) {
+PaintPen::PaintPen(QMainWindow *parent)
+:PaintTool(parent) {
 }
 
-~PaintPen::~PaintPen() {
+PaintPen::~PaintPen() {
 }
 
 QPixmap PaintPen::begin(QPixmap dst, QColor color, QPoint newPoint) {
@@ -27,7 +28,7 @@ QPixmap PaintPen::begin(QPixmap dst, QColor color, QPoint newPoint) {
 	drawPen.setColor(color);
 	
 	//Reset painter
-	bufferPainter.begin(my_target);
+	bufferPainter.begin(&my_target);
 	bufferPainter.setPen(drawPen);
 	
 	//Draw the point
@@ -47,7 +48,7 @@ QPixmap PaintPen::end() {
 	bufferPainter.end();
 	
 	//Return final pixmap
-	return my_target
+	return my_target;
 }
 
 void PaintPen::config() {
