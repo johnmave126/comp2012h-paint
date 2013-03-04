@@ -12,11 +12,12 @@
 #ifndef _PAINT_PEN_H
 #define _PAINT_PEN_H
 
+#include "paint_tool.h"
 #include <qapplication.h>
 #include <qpixmap.h>
 #include <qpainter.h>
 
-class PaintPen {
+class PaintPen: public PaintTool {
 	public:
 		PaintPen(QMainWindow* parent = 0);
 		~PaintPen();
