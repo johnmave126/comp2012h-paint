@@ -188,6 +188,7 @@ void PaintCanvas::mousePressEvent(QMouseEvent *e) {
 
 void PaintCanvas::mouseMoveEvent(QMouseEvent *e) {
 	buffer = penTool.addPoint(e->pos());
+	repaint();
 }
 
 void PaintCanvas::mouseReleaseEvent(QMouseEvent *e) {

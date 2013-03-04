@@ -31,13 +31,16 @@ QPixmap PaintPen::begin(QPixmap dst, QColor color, QPoint newPoint) {
 	bufferPainter.begin(&my_target);
 	bufferPainter.setPen(drawPen);
 	
+	//Store point
+	last_point = newPoint;
+	
 	//Draw the point
 	return addPoint(newPoint);
 }
 
 QPixmap PaintPen::addPoint(QPoint newPoint) {
 	//Draw the point
-	bufferPainter.drawPoint(newPoint);
+	bufferPainter.drawLine(last_point, newPoint);
 	
 	//Return tmp pixmap
 	return my_target;

@@ -54,6 +54,10 @@ class PaintPen: public PaintTool {
 		 * Configure the pen
 		 */
 		virtual void config();
+		
+	private:
+		//Record last point
+		QPoint last_point;
 };
 
 #endif
