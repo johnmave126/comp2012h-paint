@@ -170,7 +170,7 @@ bool PaintCanvas::isLoaded() {
 	return !ImageHistory.empty();
 }
 
-void PaintCanvas::paintEvent() {
+void PaintCanvas::paintEvent(QPaintEvent *e) {
 	if(ImageHistory.empty()) {
 		//If no image is loaded, erase the region
 		erase(0, 0, width(), height());
@@ -191,6 +191,6 @@ void PaintCanvas::mouseMoveEvent(QMouseEvent *e) {
 	repaint();
 }
 
-void PaintCanvas::mouseReleaseEvent() {
+void PaintCanvas::mouseReleaseEvent(QMouseEvent *e) {
 	forward(penTool.end());
 }

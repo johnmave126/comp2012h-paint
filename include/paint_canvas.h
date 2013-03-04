@@ -185,7 +185,7 @@ class PaintCanvas : public QWidget {
 	protected:
 		
 		/* paint event handler */
-		virtual void paintEvent();
+		virtual void paintEvent(QPaintEvent*);
 		
 		/* mousepress event handler */
 		virtual void mousePressEvent(QMouseEvent*);
@@ -194,7 +194,7 @@ class PaintCanvas : public QWidget {
 		virtual void mouseMoveEvent(QMouseEvent*);
 		
 		/* mouserelease event handler */
-		virtual void mouseReleaseEvent();
+		virtual void mouseReleaseEvent(QMouseEvent*);
 	
 	private:
 		//History component
