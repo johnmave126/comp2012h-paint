@@ -24,4 +24,11 @@
 #define NULL 0
 #endif
 
+enum PaintToolType {
+	Pen = 0,
+	Line,
+	Rect,
+	Eraser
+};
+
 #endif

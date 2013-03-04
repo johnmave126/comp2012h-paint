@@ -28,6 +28,7 @@ PaintToolBar::PaintToolBar(QMainWindow *parent, const char *name, PaintCanvas *c
 		*redoTool, *clearTool, *resizeTool, *penTool, *lineTool,
 		*eraserTool, *rectTool, *fgTool, *bgTool;
 	QString tmpDir;
+	QButtonGroup *paintTools;
 	
 	//Set Title
 	setLabel("Tool Bar");
@@ -82,14 +83,19 @@ PaintToolBar::PaintToolBar(QMainWindow *parent, const char *name, PaintCanvas *c
 	resizeTool = new QToolButton(resizeIcon, "Resize", "Resize the canvas", 
 		parent, SLOT(OnResizeImage()), this, "resize");
 	this->addSeparator();
+	
+	//Generate tools group
+	paintTools = new QButtonGroup(this);
+	paintTools->setExclusive(true);
+	
 	penTool = new QToolButton(penIcon, "Pen", "Draw with pen tool", 
-		parent, NULL, this, "pen");
+		parent, NULL, paintTools, "pen");
 	lineTool = new QToolButton(lineIcon, "Line", "Draw with line tool", 
-		parent, NULL, this, "line");
+		parent, NULL, paintTools, "line");
 	eraserTool = new QToolButton(eraserIcon, "Eraser", "Erase certain area of canvas using an eraser", 
-		parent, NULL, this, "eraser");
+		parent, NULL, paintTools, "eraser");
 	rectTool = new QToolButton(rectIcon, "Rectangle", "Draw a rectangle", 
-		parent, NULL, this, "rectangle");
+		parent, NULL, paintTools, "rectangle");
 	this->addSeparator();
 	fgTool = new QToolButton(fgIcon, "Color", "Set foreground color", 
 		parent, SLOT(ChangeFGColor()), this, "fgcolor");

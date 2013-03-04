@@ -26,13 +26,6 @@ using namespace std;
 
 #define MAX_HISTORY 10
 
-enum PaintToolType {
-	Pen = 0,
-	Line,
-	Rect,
-	Eraser
-};
-
 class PaintCanvas : public QWidget {
 	// All classes that contain signals or slots
 	// must mention Q_OBJECT in their declaration.
@@ -129,6 +122,19 @@ class PaintCanvas : public QWidget {
 		 * prompt to configure the current tool
 		 */
 		void config();
+		
+		/*
+		 * switchTool
+		 *
+		 * tool: the tool to switch
+		 *  -Pen: pen tool
+		 *  -Line: line tool
+		 *  -Rect: rect tool
+		 *  -Eraser: eraser tool
+		 *
+		 * switch the current tool
+		 */
+		void switchTool(PaintToolType tool);
 		
 	public slots:
 		
