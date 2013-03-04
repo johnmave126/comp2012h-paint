@@ -21,7 +21,7 @@
 class PaintTool {
 	public:
 		PaintTool(QMainWindow* parent = 0);
-		~PaintTool();
+		virtual ~PaintTool();
 		
 		/*
 		 * begin
