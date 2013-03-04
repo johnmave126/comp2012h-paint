@@ -162,6 +162,9 @@ void PaintCanvas::clearAll() {
 	forward(copy);
 }
 
+void PaintCanvas::config() {
+}
+
 bool PaintCanvas::isLoaded() {
 	//Not loaded only if the history is blank
 	return !ImageHistory.empty();
