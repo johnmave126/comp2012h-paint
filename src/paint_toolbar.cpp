@@ -86,17 +86,23 @@ PaintToolBar::PaintToolBar(QMainWindow *parent, const char *name, PaintCanvas *c
 	this->addSeparator();
 	
 	//Generate tools group
-	paintTools = new QButtonGroup(this);
+	paintTools = new QButtonGroup();
 	paintTools->setExclusive(true);
 	
 	penTool = new QToolButton(penIcon, "Pen", "Draw with pen tool", 
-		parent, NULL, paintTools, "pen");
+		parent, NULL, this, "pen");
 	lineTool = new QToolButton(lineIcon, "Line", "Draw with line tool", 
-		parent, NULL, paintTools, "line");
+		parent, NULL, this, "line");
 	eraserTool = new QToolButton(eraserIcon, "Eraser", "Erase certain area of canvas using an eraser", 
-		parent, NULL, paintTools, "eraser");
+		parent, NULL, this, "eraser");
 	rectTool = new QToolButton(rectIcon, "Rectangle", "Draw a rectangle", 
-		parent, NULL, paintTools, "rectangle");
+		parent, NULL, this, "rectangle");
+	
+	paintTools->insert(penTool);
+	paintTools->insert(lineTool);
+	paintTools->insert(eraserTool);
+	paintTools->insert(rectTool);
+	
 	this->addSeparator();
 	fgTool = new QToolButton(fgIcon, "Color", "Set foreground color", 
 		parent, SLOT(ChangeFGColor()), this, "fgcolor");
