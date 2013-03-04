@@ -27,9 +27,6 @@ QPixmap PaintPen::begin(QPixmap dst, QColor color, QPoint newPoint) {
 	my_target = dst;
 	drawPen.setColor(color);
 	
-	drawPen.setCapStyle(Qt::FlatCap);
-	drawPen.setWidth(40);
-	
 	//Reset painter
 	bufferPainter.begin(&my_target);
 	bufferPainter.setPen(drawPen);
