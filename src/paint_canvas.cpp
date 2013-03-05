@@ -163,6 +163,7 @@ void PaintCanvas::clearAll() {
 }
 
 void PaintCanvas::config() {
+	cout << "hehe" << endl;
 	penTool.config();
 }
 
