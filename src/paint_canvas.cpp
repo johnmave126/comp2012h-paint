@@ -163,6 +163,7 @@ void PaintCanvas::clearAll() {
 }
 
 void PaintCanvas::config() {
+	penTool->config();
 }
 
 bool PaintCanvas::isLoaded() {
