@@ -184,6 +184,9 @@ void PaintCanvas::paintEvent(QPaintEvent *e) {
 
 void PaintCanvas::mousePressEvent(QMouseEvent *e) {
 	if(e->button() == Qt::LeftButton) {
+		if(penTool.isBegin()) {
+			forward(penTool.end());
+		}
 		buffer = penTool.begin(*Current, fgColor, e->pos());
 	}
 	else {

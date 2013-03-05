@@ -56,5 +56,7 @@ QPixmap PaintPen::end() {
 }
 
 void PaintPen::config() {
-	
+	QFrame *config_window = new QFrame(my_parent);
+	config_window->setFrameStyle( QFrame::Panel | QFrame::Raised );
+	config_window->resize(300,100);
 }
