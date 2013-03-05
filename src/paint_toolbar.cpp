@@ -98,10 +98,19 @@ PaintToolBar::PaintToolBar(QMainWindow *parent, const char *name, PaintCanvas *c
 	rectTool = new QToolButton(rectIcon, "Rectangle", "Draw a rectangle", 
 		parent, NULL, this, "rectangle");
 	
+	//Switch to toggle and insert to a group
+	penTool->setToggleButton(true);
+	lineTool->setToggleButton(true);
+	eraserTool->setToggleButton(true);
+	rectTool->setToggleButton(true);
+	
 	paintTools->insert(penTool);
 	paintTools->insert(lineTool);
 	paintTools->insert(eraserTool);
 	paintTools->insert(rectTool);
+	
+	//Set default to pen
+	penTool->setState(QButton::On);
 	
 	this->addSeparator();
 	fgTool = new QToolButton(fgIcon, "Color", "Set foreground color", 
