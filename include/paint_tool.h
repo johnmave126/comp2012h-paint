@@ -47,6 +47,14 @@ class PaintTool {
 		 */
 		virtual void config() = 0;
 		
+		/*
+		 * isBegin
+		 *
+		 * return if the draw begins
+		 */
+		bool isBegin();
+		
+		
 	protected:
 		QPen drawPen;
 		

@@ -28,11 +28,6 @@ class PaintMainWindow: public QMainWindow {
 	public:
 		PaintMainWindow(QWidget* parent = 0, const char* name = 0);
 		~PaintMainWindow();
-	
-	protected:
-		
-		/** handler for mousepress event */
-		virtual void mousePressEvent(QMouseEvent*);
 		
 	public slots:
 		
@@ -110,6 +105,11 @@ class PaintMainWindow: public QMainWindow {
 		 */
 		void ShowAbout();
 		//Help Menu End
+		
+	protected:
+		
+		/** handler for mousepress event */
+		virtual void mousePressEvent(QMouseEvent*);
 		
 	private:
 		

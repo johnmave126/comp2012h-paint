@@ -183,14 +183,34 @@ void PaintCanvas::paintEvent(QPaintEvent *e) {
 }
 
 void PaintCanvas::mousePressEvent(QMouseEvent *e) {
-	buffer = penTool.begin(*Current, fgColor, e->pos());
+	if(e->button() == Qt::LeftButton) {
+		buffer = penTool.begin(*Current, fgColor, e->pos());
+	}
+	else {
+		e->ignore();
+	}
 }
 
 void PaintCanvas::mouseMoveEvent(QMouseEvent *e) {
-	buffer = penTool.addPoint(e->pos());
-	repaint();
+	if(e->state() == Qt::LeftButton) {
+		if(!penTool.isBegin()) {
+			buffer = penTool.begin(*Current, fgColor, e->pos());
+		}
+		else {
+			buffer = penTool.addPoint(e->pos());
+			repaint();
+		}
+	}
+	else {
+		e->ignore();
+	}
 }
 
 void PaintCanvas::mouseReleaseEvent(QMouseEvent *e) {
-	forward(penTool.end());
+	if(e->button() == Qt::LeftButton) {
+		forward(penTool.end());
+	}
+	else {
+		e->ignore();
+	}
 }

@@ -56,4 +56,5 @@ QPixmap PaintPen::end() {
 }
 
 void PaintPen::config() {
+	
 }

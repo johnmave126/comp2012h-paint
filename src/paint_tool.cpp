@@ -22,3 +22,7 @@ PaintTool::PaintTool(QMainWindow *parent)
 PaintTool::~PaintTool() {
 	my_parent = NULL;
 }
+
+bool PaintTool::isBegin() {
+	return bufferPainter.isActive();
+}
