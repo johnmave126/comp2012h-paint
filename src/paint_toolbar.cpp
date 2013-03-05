@@ -110,7 +110,7 @@ PaintToolBar::PaintToolBar(QMainWindow *parent, const char *name, PaintCanvas *c
 	paintTools->insert(rectTool);
 	
 	//Set default to pen
-	penTool->setState(QButton::On);
+	penTool->setOn(true);
 	
 	this->addSeparator();
 	fgTool = new QToolButton(fgIcon, "Color", "Set foreground color", 
