@@ -4,51 +4,48 @@
  * Stu ID: 20090398
  * 2013 Spring
  *
- * paint_pen.cpp
+ * paint_eraser.cpp
  *
- * Pen, a basic tool to be draw
+ * Eraser, a basic tool. Can erase part of the canvas.
  */
 
-#include "paint_pen.h"
+#include "paint_eraser.h"
 #include <qapplication.h>
 #include <qmainwindow.h>
 #include <qpixmap.h>
 #include <qpainter.h>
 
-PaintPen::PaintPen(QMainWindow *parent)
+PaintEraser::PaintEraser(QMainWindow *parent)
 :PaintTool(parent) {
-	drawPen.setCapStyle(Qt::FlatCap);
+	drawPen.setWidth(10);
+	drawPen.setCapStyle(Qt::SquareCap);
 }
 
-PaintPen::~PaintPen() {
+PaintEraser::~PaintEraser() {
 }
 
-QPixmap PaintPen::begin(QPixmap dst, QColor fcolor, QColor bcolor, QPoint newPoint) {
+QPixmap PaintEraser::begin(QPixmap dst, QColor fcolor, QColor bcolor, QPoint newPoint) {
 	//Set canvas and color
 	my_target = dst;
-	drawPen.setColor(fcolor);
+	drawPen.setColor(bcolor);
 	
 	//Reset painter
 	bufferPainter.begin(&my_target);
 	bufferPainter.setPen(drawPen);
 	
-	//Store point
-	last_point = newPoint;
-	
 	//Draw the point
 	return addPoint(newPoint);
 }
 
-QPixmap PaintPen::addPoint(QPoint newPoint) {
+QPixmap PaintEraser::addPoint(QPoint newPoint) {
 	//Draw the point
-	bufferPainter.drawLine(last_point, newPoint);
-	last_point = newPoint;
+	bufferPainter.drawPoint(newPoint);
 	
 	//Return tmp pixmap
 	return my_target;
 }
 
-QPixmap PaintPen::end() {
+QPixmap PaintEraser::end() {
 	//Reset painter
 	bufferPainter.end();
 	
@@ -56,7 +53,7 @@ QPixmap PaintPen::end() {
 	return my_target;
 }
 
-void PaintPen::config() {
+void PaintEraser::config() {
 	QFrame *config_window = new QDialog(my_parent);
 	config_window->resize(300,100);
 }

@@ -90,13 +90,13 @@ PaintToolBar::PaintToolBar(QMainWindow *parent, const char *name, PaintCanvas *c
 	paintTools->setExclusive(true);
 	
 	penTool = new QToolButton(penIcon, "Pen", "Draw with pen tool", 
-		parent, NULL, this, "pen");
+		canvas, SLOT(switchTool()), this, "pen");
 	lineTool = new QToolButton(lineIcon, "Line", "Draw with line tool", 
-		parent, NULL, this, "line");
+		canvas, SLOT(switchTool()), this, "line");
 	eraserTool = new QToolButton(eraserIcon, "Eraser", "Erase certain area of canvas using an eraser", 
-		parent, NULL, this, "eraser");
+		canvas, SLOT(switchTool()), this, "eraser");
 	rectTool = new QToolButton(rectIcon, "Rectangle", "Draw a rectangle", 
-		parent, NULL, this, "rectangle");
+		canvas, SLOT(switchTool()), this, "rect");
 	
 	//Switch to toggle and insert to a group
 	penTool->setToggleButton(true);

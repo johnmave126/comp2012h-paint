@@ -6,12 +6,13 @@
  *
  * paint_line.h
  *
- * Header file for line, a basic tool to be draw
+ * Header file for line, a basic tool to draw
  */
 
 #ifndef _PAINT_LINE_H
 #define _PAINT_LINE_H
 
+#include "paint_common.h"
 #include <qapplication.h>
 #include <qpixmap.h>
 #include <qpainter.h>
@@ -21,42 +22,60 @@ class PaintLine {
 		PaintLine(QMainWindow* parent = 0);
 		~PaintLine();
 		
+	public slots:
 		/*
 		 * begin
 		 *
 		 * dst: the Pixmap to draw upon
-		 * color: the color of the pen
+		 * color: the color of the line
+		 * newPoint: the first point triggered
 		 *
-		 * Initialize the pen tool
+		 * return a QPixmap for temporary use
+		 *
+		 * Initialize the line tool
 		 */
-		void begin(QPixmap *dst, QColor color);
+		virtual QPixmap begin(QPixmap dst, QColor color, QPoint new_point);
 		
 		/*
-		 * addPoint
+		 * process
 		 *
-		 * x: the x-coordinate of the point to add
-		 * y: the y-coordinate of the point to add
+		 * newPoint: the point to process upon mouseEvent
 		 *
-		 * Draw a point
+		 * return a QPixmap for temporary use
+		 *
+		 * Process a point, used during drawing
 		 */
-		void addPoint(float x, float y);
+		virtual QPixmap process(QPoint point);
 		
 		/*
 		 * end
 		 *
-		 * End the draw of pen
+		 * return a QPixmap, which is the final version
+		 *
+		 * End the draw of line
 		 */
-		void end();
+		virtual QPixmap end();
+		
+		/*
+		 * dblEnd
+		 *
+		 * End line tool in polyline mode
+		 */
+		virtual void dblEnd();
+		
+		/*
+		 * config
+		 *
+		 * Configure the line
+		 */
+		virtual void config();
 		
 	private:
-		QPen drawPen;
+		//Last time point and temporary point storage
+		QPoint last_point, tmp_point;
 		
-		//Equivalent to parent
-		QMainWindow *my_parent;
-		
-		//Temporary storage of painting target and painter
-		QPixmap *my_dst;
-		QPainter bufferPainter
+		//Current Mode
+		PaintLineMode mode;
 };
 
 #endif

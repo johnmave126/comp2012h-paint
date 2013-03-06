@@ -33,12 +33,18 @@ PaintCanvas::PaintCanvas()
 	
 	//Reset canvas size to zero
 	setFixedSize(0, 0);
+	
+	//Set default tool to pen
+	currentTool = &penTool;
 }
 
 PaintCanvas::~PaintCanvas() {
 }
 
 void PaintCanvas::changeImage(const int w, const int h) {
+	//Reset tool
+	resetTool();
+	
 	//Clear History
 	ImageHistory.clear();
 	
@@ -57,6 +63,9 @@ void PaintCanvas::changeImage(const int w, const int h) {
 
 void PaintCanvas::changeImage(const QString fileName) {
 	QPixmap newImage(fileName);
+	
+	//Reset tool
+	resetTool();
 	
 	//Check the validity of the file
 	if(!newImage.isNull()) {
@@ -77,6 +86,9 @@ void PaintCanvas::resizeImage(const int w, const int h) {
 	QPixmap new_image;
 	QPainter painter;
 	int ori_w, ori_h;
+	
+	//Reset tool
+	resetTool();
 	
 	//Set canvas size
 	setFixedSize(w, h);
@@ -163,7 +175,73 @@ void PaintCanvas::clearAll() {
 }
 
 void PaintCanvas::config() {
-	penTool.config();
+	//Reset tool
+	resetTool();
+	
+	currentTool->config();
+}
+
+void PaintCanvas::switchTool() {
+	QObject *sender = QObject::sender();
+	QString name;
+	
+	//Not called by signal
+	if(!sender) {
+		//Do nothing
+		return;
+	}
+	
+	name = sender->name();
+	
+	//Test each possibility
+	if(name == "pen") {
+		//Switch to pen
+		switchTool(Pen);
+	}
+	else if(name == "line") {
+		//Switch to line
+		switchTool(Line);
+	}
+	else if(name == "eraser") {
+		//Switch to eraser
+		switchTool(Eraser);
+	}
+	else if(name == "rect") {
+		//Switch to rect
+		switchTool(Rect);
+	}
+}
+
+void PaintCanvas::switchTool(PaintToolType tool) {
+	//Reset tool
+	resetTool();
+	
+	//Change the state
+	ToolState = tool;
+	
+	//Switch the tool
+	switch(ToolState) {
+		case Pen:
+			currentTool = &penTool;
+			break;
+		case Line:
+		//	currentTool = &lineTool;
+			break;
+		case Eraser:
+			currentTool = &eraserTool;
+			break;
+		case Rect:
+		//	currentTool = &rectTool;
+			break;
+	}
+} 
+
+void PaintCanvas::resetTool() {
+	//If the current tool is not ended, really end it
+	if(currentTool->isBegin()) {
+		forward(currentTool->end());
+		currentTool->dblEnd();
+	}
 }
 
 bool PaintCanvas::isLoaded() {
@@ -184,12 +262,13 @@ void PaintCanvas::paintEvent(QPaintEvent *e) {
 }
 
 void PaintCanvas::mousePressEvent(QMouseEvent *e) {
+	//Handle left click
 	if(e->button() == Qt::LeftButton) {
-		if(penTool.isBegin()) {
-			forward(penTool.end());
-		}
-		buffer = penTool.begin(*Current, fgColor, e->pos());
+		//Begin the paint of tool
+		buffer = currentTool->begin(*Current, fgColor, bgColor, e->pos());
 	}
+	//Give up, return it to parent
+	//Parent will reversely call the appropriate function
 	else {
 		e->ignore();
 	}
@@ -197,14 +276,15 @@ void PaintCanvas::mousePressEvent(QMouseEvent *e) {
 
 void PaintCanvas::mouseMoveEvent(QMouseEvent *e) {
 	if(e->state() == Qt::LeftButton) {
-		if(!penTool.isBegin()) {
-			buffer = penTool.begin(*Current, fgColor, e->pos());
+		if(!currentTool->isBegin()) {
+			buffer = currentTool->begin(*Current, fgColor, bgColor, e->pos());
 		}
 		else {
-			buffer = penTool.addPoint(e->pos());
+			buffer = currentTool->addPoint(e->pos());
 			repaint();
 		}
 	}
+	//Give up, return it to parent
 	else {
 		e->ignore();
 	}
@@ -212,8 +292,11 @@ void PaintCanvas::mouseMoveEvent(QMouseEvent *e) {
 
 void PaintCanvas::mouseReleaseEvent(QMouseEvent *e) {
 	if(e->button() == Qt::LeftButton) {
-		forward(penTool.end());
+		if(currentTool->isBegin()) {
+			forward(currentTool->end());
+		}
 	}
+	//Give up, return it to parent
 	else {
 		e->ignore();
 	}

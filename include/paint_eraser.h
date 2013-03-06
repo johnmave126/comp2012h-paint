@@ -12,6 +12,7 @@
 #ifndef _PAINT_ERASER_H
 #define _PAINT_ERASER_H
 
+#include "paint_common.h"
 #include "paint_tool.h"
 #include <qapplication.h>
 #include <qpixmap.h>
@@ -22,42 +23,48 @@ class PaintEraser: public PaintTool {
 		PaintEraser(QMainWindow* parent = 0);
 		~PaintEraser();
 		
+	public slots:
 		/*
 		 * begin
 		 *
 		 * dst: the Pixmap to draw upon
-		 * color: the color of the pen
+		 * fcolor: not used
+		 * bcolor: the background color of the pen
+		 * newPoint: the first point triggered
 		 *
-		 * Initialize the pen tool
+		 * return a QPixmap for temporary use
+		 *
+		 * Initialize the eraser tool
 		 */
-		void begin(QPixmap *dst, QColor color);
+		virtual QPixmap begin(QPixmap dst, QColor fColor, QColor bColor, QPoint new_point);
 		
 		/*
-		 * addPoint
+		 * process
 		 *
-		 * x: the x-coordinate of the point to add
-		 * y: the y-coordinate of the point to add
+		 * newPoint: the point to process upon mouseEvent
 		 *
-		 * Draw a point
+		 * return a QPixmap for temporary use
+		 *
+		 * Process a point, used during drawing
 		 */
-		void addPoint(float x, float y);
+		virtual QPixmap process(QPoint point);
 		
 		/*
 		 * end
 		 *
-		 * End the draw of pen
+		 * return a QPixmap, which is the final version
+		 *
+		 * End the draw of eraser
 		 */
-		void end();
+		virtual QPixmap end();
 		
-	private:
-		QPen drawPen;
+		/*
+		 * config
+		 *
+		 * Configure the eraser
+		 */
+		virtual void config();
 		
-		//Equivalent to parent
-		QMainWindow *my_parent;
-		
-		//Temporary storage of painting target and painter
-		QPixmap *my_dst;
-		QPainter bufferPainter
 };
 
 #endif

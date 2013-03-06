@@ -31,4 +31,9 @@ enum PaintToolType {
 	Eraser
 };
 
+enum PaintLineMode {
+	Sing = 0,
+	Poly
+};
+
 #endif

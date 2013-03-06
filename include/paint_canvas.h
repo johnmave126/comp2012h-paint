@@ -15,8 +15,8 @@
 #include "paint_common.h"
 #include "paint_pen.h"/*
 #include "paint_line.h"
-#include "paint_rect.h"
-#include "paint_eraser.h"*/
+#include "paint_rect.h"*/
+#include "paint_eraser.h"
 #include <qmainwindow.h>
 #include <qapplication.h>
 #include <qpixmap.h>
@@ -117,24 +117,12 @@ class PaintCanvas : public QWidget {
 		void setBGColor(QColor color) {if(color.isValid())bgColor = color;}
 		
 		/*
-		 * config
+		 * toolState
 		 *
-		 * prompt to configure the current tool
+		 * return the current tool to use
 		 */
-		void config();
-		
-		/*
-		 * switchTool
-		 *
-		 * tool: the tool to switch
-		 *  -Pen: pen tool
-		 *  -Line: line tool
-		 *  -Rect: rect tool
-		 *  -Eraser: eraser tool
-		 *
-		 * switch the current tool
-		 */
-		void switchTool(PaintToolType tool);
+		PaintToolType toolState() const {return ToolState;}
+
 		
 	public slots:
 		
@@ -166,6 +154,40 @@ class PaintCanvas : public QWidget {
 		 * try to clear the image
 		 */
 		void clearAll();
+		
+		/*
+		 * config
+		 *
+		 * prompt to configure the current tool
+		 */
+		void config();
+		
+		/*
+		 * switchTool
+		 *
+		 * switch the current tool, judge by the signal sender
+		 */
+		void switchTool();
+		
+		/*
+		 * switchTool
+		 *
+		 * tool: the tool to switch
+		 *  -Pen: pen tool
+		 *  -Line: line tool
+		 *  -Rect: rect tool
+		 *  -Eraser: eraser tool
+		 *
+		 * switch the current tool, judge by the parameter
+		 */
+		void switchTool(PaintToolType tool);
+		
+		/*
+		 * resetTool
+		 *
+		 * Really reset the current tool
+		 */
+		void resetTool();
 		
 	signals:
 		/*
@@ -212,10 +234,11 @@ class PaintCanvas : public QWidget {
 		float last_x, last_y;
 		
 		//Tools
+		PaintTool *currentTool;
 		PaintPen penTool;
 //		PaintLine lineTool;
 //		PaintRect rectTool;
-//		PaintEraser eraserTool;
+		PaintEraser eraserTool;
 		PaintToolType ToolState;
 };
 #endif

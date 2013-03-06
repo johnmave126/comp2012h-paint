@@ -23,22 +23,47 @@ class PaintTool {
 		PaintTool(QMainWindow* parent = 0);
 		virtual ~PaintTool();
 		
+	public slots:
 		/*
 		 * begin
 		 *
 		 * dst: the Pixmap to draw upon
-		 * color: the color of the tool
+		 * fcolor: the foreground color of the tool
+		 * bcolor: the background color of the tool
+		 * newPoint: the first point triggered
+		 *
+		 * return a QPixmap for temporary use
 		 *
 		 * Initialize the tool
 		 */
-		virtual QPixmap begin(QPixmap dst, QColor color, QPoint new_point) = 0;
+		virtual QPixmap begin(QPixmap dst, QColor fcolor, QColor bcolor, QPoint new_point) = 0;
+		
+		/*
+		 * process
+		 *
+		 * newPoint: the point to process upon mouseEvent
+		 *
+		 * return a QPixmap for temporary use
+		 *
+		 * Process a point, used during drawing
+		 */
+		virtual QPixmap process(QPoint newPoint) = 0;
 		
 		/*
 		 * end
 		 *
+		 * return a QPixmap, which is the final version
+		 *
 		 * End the draw of the tool
 		 */
 		virtual QPixmap end() = 0;
+		
+		/*
+		 * dblEnd
+		 *
+		 * end function for double click, not many tool will use this
+		 */
+		virtual void dblEnd();
 		
 		/*
 		 * config
@@ -57,6 +82,7 @@ class PaintTool {
 		
 	protected:
 		QPen drawPen;
+		QBrush fillBrush;
 		
 		//Equivalent to parent
 		QMainWindow *my_parent;

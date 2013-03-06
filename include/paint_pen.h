@@ -6,12 +6,13 @@
  *
  * paint_pen.h
  *
- * Header file for pen, a basic tool to be draw
+ * Header file for pen, a basic tool to draw
  */
 
 #ifndef _PAINT_PEN_H
 #define _PAINT_PEN_H
 
+#include "paint_common.h"
 #include "paint_tool.h"
 #include <qapplication.h>
 #include <qpixmap.h>
@@ -22,27 +23,36 @@ class PaintPen: public PaintTool {
 		PaintPen(QMainWindow* parent = 0);
 		~PaintPen();
 		
+	public slots:
 		/*
 		 * begin
 		 *
 		 * dst: the Pixmap to draw upon
-		 * color: the color of the pen
+		 * fcolor: the foreground color of the pen
+		 * bcolor: not used
+		 * newPoint: the first point triggered
+		 *
+		 * return a QPixmap for temporary use
 		 *
 		 * Initialize the pen tool
 		 */
-		virtual QPixmap begin(QPixmap dst, QColor color, QPoint new_point);
+		virtual QPixmap begin(QPixmap dst, QColor fColor, QColor bColor, QPoint new_point);
 		
 		/*
-		 * addPoint
+		 * process
 		 *
-		 * point: the coordinate of the point to add
+		 * newPoint: the point to process upon mouseEvent
 		 *
-		 * Draw a point
+		 * return a QPixmap for temporary use
+		 *
+		 * Process a point, used during drawing
 		 */
-		QPixmap addPoint(QPoint point);
+		virtual QPixmap process(QPoint point);
 		
 		/*
 		 * end
+		 *
+		 * return a QPixmap, which is the final version
 		 *
 		 * End the draw of pen
 		 */
