@@ -29,7 +29,7 @@ QPixmap PaintPen::begin(QPixmap dst, QColor fcolor, QColor bcolor, QPoint newPoi
 	my_target = dst;
 	drawPen.setColor(fcolor);
 	
-	//Reset painter
+	//Start painter
 	bufferPainter.begin(&my_target);
 	bufferPainter.setPen(drawPen);
 	

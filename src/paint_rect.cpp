@@ -36,7 +36,7 @@ QPixmap PaintRect::begin(QPixmap dst, QColor fcolor, QColor bcolor, QPoint newPo
 		fillBrush.setColor(bcolor);
 	}
 	
-	//Reset painter
+	//Start painter
 	bufferPainter.begin(&tmp_target);
 	bufferPainter.setPen(drawPen);
 	bufferPainter.setBrush(fillBrush);
@@ -49,8 +49,16 @@ QPixmap PaintRect::begin(QPixmap dst, QColor fcolor, QColor bcolor, QPoint newPo
 }
 
 QPixmap PaintRect::process(QPoint newPoint) {
+	//Temporarily reset painter
+	bufferPainter.end();
+	
 	//Reset to original
 	tmp_target = my_target;
+	
+	//Start again
+	bufferPainter.begin(&tmp_target);
+	bufferPainter.setPen(drawPen);
+	bufferPainter.setBrush(fillBrush);
 	
 	//Draw the point
 	bufferPainter.drawRect(start_point.x(), start_point.y(),

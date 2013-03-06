@@ -36,7 +36,7 @@ QPixmap PaintEraser::begin(QPixmap dst, QColor fcolor, QColor bcolor, QPoint new
 		b = 255 - bcolor.blue();
 	drawPen.setColor(QColor(r, g, b));
 	
-	//Reset real painter
+	//Start real painter
 	bufferPainter.begin(&my_target);
 	bufferPainter.setBackgroundColor(bcolor);
 
