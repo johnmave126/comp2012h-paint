@@ -13,7 +13,7 @@
 #include "paint_canvas.h"
 #include "paint_toolbar.h"
 #include "paint_pen.h"
-
+#include "paint_eraser.h"
 #include <qmainwindow.h>
 #include <qapplication.h>
 #include <qpixmap.h>
