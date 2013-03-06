@@ -15,6 +15,8 @@
 #include <qpixmap.h>
 #include <qpainter.h>
 #include <qdialog.h>
+#include <iostream>
+using namespace std;
 
 PaintEraser::PaintEraser(QMainWindow *parent)
 :PaintTool(parent) {
@@ -62,6 +64,8 @@ QPixmap PaintEraser::process(QPoint newPoint) {
 	int w = drawPen.width();
 	tmpBufferPainter.drawRect(newPoint.x() - (w >> 1),
 		newPoint.y() - (w >> 1), w, w);
+	
+	cout << w << endl;
 	
 	tmpBufferPainter.end();
 	
