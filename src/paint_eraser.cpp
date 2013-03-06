@@ -65,8 +65,8 @@ QPixmap PaintEraser::process(QPoint newPoint) {
 	
 	bufferPainter.end();
 	
-	cout << newPoint << endl;
-	cout << tmp_target.width() << tmp_target.height() << endl;
+	cout << newPoint.x() << newPoint.y() << endl;
+	cout << tmp_target.width() << tmp_target.height() << endl << endl;
 	
 	//Return tmp pixmap
 	return tmp_target;
