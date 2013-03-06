@@ -38,41 +38,37 @@ QPixmap PaintEraser::begin(QPixmap dst, QColor fcolor, QColor bcolor, QPoint new
 		b = 255 - bcolor.blue();
 	tmpPen.setColor(QColor(r, g, b));
 	
+	//Reset real painter
+	bufferPainter.begin(&my_target);
+	bufferPainter.setPen(drawPen);
+
 	//Draw the point
 	return process(newPoint);
 }
 
 QPixmap PaintEraser::process(QPoint newPoint) {
-	
-	//Reset painter
-	bufferPainter.begin(&my_target);
-	bufferPainter.setPen(drawPen);
-	
-	//Draw the point
+	//Erase a region
 	bufferPainter.drawPoint(newPoint);
 	
-	//Reset painter
-	bufferPainter.end();
+	//Reset tmp painter
+	tmp_target = my_target;
+	tmpBufferPainter.begin(&tmp_target);
+	tmpBufferPainter.setPen(tmpPen);
 	
 	//Draw the border
-	tmp_target = my_target;
-	bufferPainter.begin(&tmp_target);
-	bufferPainter.setPen(tmpPen);
-	
 	int w = drawPen.width();
-	bufferPainter.drawRect(newPoint.x() - (w >> 1),
+	tmpBufferPainter.drawRect(newPoint.x() - (w >> 1),
 		newPoint.y() - (w >> 1), w, w);
 	
-	bufferPainter.end();
-	
-	cout << newPoint.x() << newPoint.y() << endl;
-	cout << tmp_target.width() << tmp_target.height() << endl << endl;
+	tmpBufferPainter.end();
 	
 	//Return tmp pixmap
 	return tmp_target;
 }
 
 QPixmap PaintEraser::end() {
+	//Reset painter
+	bufferPainter.end();
 	
 	//Return final pixmap
 	return my_target;

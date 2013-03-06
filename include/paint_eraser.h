@@ -69,6 +69,7 @@ class PaintEraser: public PaintTool {
 			//Border Related
 			QPixmap tmp_target;
 			QPen tmpPen;
+			QPainter tmpBufferPainter;
 };
 
 #endif
