@@ -58,6 +58,6 @@ QPixmap PaintPen::end() {
 }
 
 void PaintPen::config() {
-	QFrame *config_window = new QDialog(my_parent);
+	QDialog *config_window = new QDialog(my_parent);
 	config_window->resize(300,100);
 }
