@@ -60,9 +60,9 @@ QPixmap PaintRect::process(QPoint newPoint) {
 	bufferPainter.setPen(drawPen);
 	bufferPainter.setBrush(fillBrush);
 	
-	//Draw the point
+	//Draw the rectangle
 	bufferPainter.drawRect(start_point.x(), start_point.y(),
-		newPoint.x(), newPoint.y());
+		newPoint.x() - start_point.x(), newPoint.y() - start_point.y());
 	
 	//Return tmp pixmap
 	return tmp_target;
