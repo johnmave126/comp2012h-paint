@@ -14,6 +14,7 @@
 #include <qmainwindow.h>
 #include <qpixmap.h>
 #include <qpainter.h>
+#include <qdialog.h>
 
 PaintEraser::PaintEraser(QMainWindow *parent)
 :PaintTool(parent) {
@@ -36,7 +37,7 @@ QPixmap PaintEraser::begin(QPixmap dst, QColor fcolor, QColor bcolor, QPoint new
 	tmpPen.setColor(QColor(r, g, b));
 	
 	//Draw the point
-	return addPoint(newPoint);
+	return process(newPoint);
 }
 
 QPixmap PaintEraser::process(QPoint newPoint) {

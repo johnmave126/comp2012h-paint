@@ -14,6 +14,7 @@
 #include <qmainwindow.h>
 #include <qpixmap.h>
 #include <qpainter.h>
+#include <qdialog.h>
 
 PaintPen::PaintPen(QMainWindow *parent)
 :PaintTool(parent) {
@@ -36,7 +37,7 @@ QPixmap PaintPen::begin(QPixmap dst, QColor fcolor, QColor bcolor, QPoint newPoi
 	last_point = newPoint;
 	
 	//Draw the point
-	return addPoint(newPoint);
+	return process(newPoint);
 }
 
 QPixmap PaintPen::process(QPoint newPoint) {
