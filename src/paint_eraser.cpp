@@ -20,10 +20,8 @@ using namespace std;
 
 PaintEraser::PaintEraser(QMainWindow *parent)
 :PaintTool(parent) {
-	drawPen.setWidth(10);
+	drawPen.setWidth(1);
 	drawPen.setCapStyle(Qt::SquareCap);
-	tmpPen.setWidth(1);
-	tmpPen.setCapStyle(Qt::SquareCap);
 }
 
 PaintEraser::~PaintEraser() {
@@ -32,15 +30,14 @@ PaintEraser::~PaintEraser() {
 QPixmap PaintEraser::begin(QPixmap dst, QColor fcolor, QColor bcolor, QPoint newPoint) {
 	//Set canvas and color
 	my_target = dst;
-	drawPen.setColor(bcolor);
 	int r = 255 - bcolor.red(),
 		g = 255 - bcolor.green(),
 		b = 255 - bcolor.blue();
-	tmpPen.setColor(QColor(r, g, b));
+	drawPen.setColor(QColor(r, g, b));
 	
 	//Reset real painter
 	bufferPainter.begin(&my_target);
-	bufferPainter.setPen(drawPen);
+	bufferPainter.setBackgroundColor(bcolor);
 
 	//Draw the point
 	return process(newPoint);
@@ -48,25 +45,19 @@ QPixmap PaintEraser::begin(QPixmap dst, QColor fcolor, QColor bcolor, QPoint new
 
 QPixmap PaintEraser::process(QPoint newPoint) {
 	//Erase a region
-	bufferPainter.drawPoint(newPoint);
-	
-	//Assign tmporary target
-	bufferPainter.end();
-	tmp_target = my_target;
-	bufferPainter.begin(&my_target);
-	bufferPainter.setPen(drawPen);
-	
+	bufferPainter.eraseRect(newPoint.x() - (width >> 1),
+		newPoint.y() - (width >> 1), width, width);
+
 	//Reset tmp painter
+	tmp_target = my_target;
 	tmpBufferPainter.begin(&tmp_target);
-	tmpBufferPainter.setPen(tmpPen);
+	tmpBufferPainter.setPen(drawPen);
 	
 	//Draw the border
-	int w = drawPen.width();
-	tmpBufferPainter.drawRect(newPoint.x() - (w >> 1),
-		newPoint.y() - (w >> 1), w, w);
+	tmpBufferPainter.drawRect(newPoint.x() - (width >> 1),
+		newPoint.y() - (width >> 1), width, width);
 	
-	cout << w << endl;
-	
+	//Reset tmp painter
 	tmpBufferPainter.end();
 	
 	//Return tmp pixmap
