@@ -65,6 +65,10 @@ class PaintEraser: public PaintTool {
 		 */
 		virtual void config();
 		
+		private:
+			//Border Related
+			QPixmap tmp_target;
+			QPen tmpPen;
 };
 
 #endif
