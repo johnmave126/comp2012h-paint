@@ -37,8 +37,8 @@ QPixmap PaintEraser::begin(QPixmap dst, QColor fcolor, QColor bcolor, QPoint new
 	tmpPen.setColor(QColor(r, g, b));
 	
 	//Reset real painter
-	bufferPainter.begin(&my_target);
 	bufferPainter.setPen(drawPen);
+	bufferPainter.begin(&my_target);
 
 	//Draw the point
 	return process(newPoint);
@@ -54,8 +54,8 @@ QPixmap PaintEraser::process(QPoint newPoint) {
 	bufferPainter.begin(&my_target);
 	
 	//Reset tmp painter
-	tmpBufferPainter.begin(&tmp_target);
 	tmpBufferPainter.setPen(tmpPen);
+	tmpBufferPainter.begin(&tmp_target);
 	
 	//Draw the border
 	int w = drawPen.width();
