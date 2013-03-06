@@ -20,6 +20,7 @@ using namespace std;
 
 PaintEraser::PaintEraser(QMainWindow *parent)
 :PaintTool(parent) {
+	width = 10;
 	drawPen.setWidth(1);
 	drawPen.setCapStyle(Qt::SquareCap);
 }
