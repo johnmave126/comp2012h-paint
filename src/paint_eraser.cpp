@@ -48,8 +48,12 @@ QPixmap PaintEraser::process(QPoint newPoint) {
 	//Erase a region
 	bufferPainter.drawPoint(newPoint);
 	
-	//Reset tmp painter
+	//Assign tmporary target
+	bufferPainter.end();
 	tmp_target = my_target;
+	bufferPainter.begin(&my_target);
+	
+	//Reset tmp painter
 	tmpBufferPainter.begin(&tmp_target);
 	tmpBufferPainter.setPen(tmpPen);
 	
