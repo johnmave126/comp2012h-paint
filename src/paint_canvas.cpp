@@ -182,7 +182,7 @@ void PaintCanvas::config() {
 }
 
 void PaintCanvas::switchTool() {
-	QObject *sender = QObject::sender();
+	const QObject *sender = QObject::sender();
 	QString name;
 	
 	//Not called by signal
