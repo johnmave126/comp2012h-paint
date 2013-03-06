@@ -13,8 +13,8 @@
 #define _PAINT_CANVAS_H
 
 #include "paint_common.h"
-#include "paint_pen.h"/*
-#include "paint_line.h"
+#include "paint_pen.h"
+#include "paint_line.h"/*
 #include "paint_rect.h"*/
 #include "paint_eraser.h"
 #include <qmainwindow.h>
@@ -229,15 +229,11 @@ class PaintCanvas : public QWidget {
 		//Foreground color and background color
 		QColor fgColor, bgColor;
 		
-		//Mouse state
-		bool pressed;
-		float last_x, last_y;
-		
 		//Tools
 		PaintTool *currentTool;
 		PaintPen penTool;
 //		PaintLine lineTool;
-//		PaintRect rectTool;
+		PaintRect rectTool;
 		PaintEraser eraserTool;
 		PaintToolType ToolState;
 };

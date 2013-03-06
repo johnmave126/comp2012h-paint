@@ -14,6 +14,7 @@
 #include "paint_toolbar.h"
 #include "paint_pen.h"
 #include "paint_eraser.h"
+#include "paint_rect.h"
 #include <qmainwindow.h>
 #include <qapplication.h>
 #include <qpixmap.h>
@@ -231,7 +232,7 @@ void PaintCanvas::switchTool(PaintToolType tool) {
 			currentTool = &eraserTool;
 			break;
 		case Rect:
-		//	currentTool = &rectTool;
+			currentTool = &rectTool;
 			break;
 	}
 } 

@@ -24,6 +24,7 @@
 #define NULL 0
 #endif
 
+//Tools
 enum PaintToolType {
 	Pen = 0,
 	Line,
@@ -31,9 +32,16 @@ enum PaintToolType {
 	Eraser
 };
 
+//Line Config
 enum PaintLineMode {
 	Sing = 0,
 	Poly
+};
+
+//Rect Config
+enum PaintRectFill {
+	FG = 0,
+	BG
 };
 
 #endif
