@@ -280,7 +280,7 @@ void PaintCanvas::mouseMoveEvent(QMouseEvent *e) {
 			buffer = currentTool->begin(*Current, fgColor, bgColor, e->pos());
 		}
 		else {
-			buffer = currentTool->addPoint(e->pos());
+			buffer = currentTool->process(e->pos());
 			repaint();
 		}
 	}

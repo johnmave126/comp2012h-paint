@@ -39,7 +39,7 @@ QPixmap PaintPen::begin(QPixmap dst, QColor fcolor, QColor bcolor, QPoint newPoi
 	return addPoint(newPoint);
 }
 
-QPixmap PaintPen::addPoint(QPoint newPoint) {
+QPixmap PaintPen::process(QPoint newPoint) {
 	//Draw the point
 	bufferPainter.drawLine(last_point, newPoint);
 	last_point = newPoint;

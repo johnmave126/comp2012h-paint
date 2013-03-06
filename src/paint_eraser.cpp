@@ -39,7 +39,7 @@ QPixmap PaintEraser::begin(QPixmap dst, QColor fcolor, QColor bcolor, QPoint new
 	return addPoint(newPoint);
 }
 
-QPixmap PaintEraser::addPoint(QPoint newPoint) {
+QPixmap PaintEraser::process(QPoint newPoint) {
 	//Reset painter
 	bufferPainter.begin(&my_target);
 	bufferPainter.setPen(drawPen);
