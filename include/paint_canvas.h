@@ -13,9 +13,9 @@
 #define _PAINT_CANVAS_H
 
 #include "paint_common.h"
-#include "paint_pen.h"
-#include "paint_line.h"/*
-#include "paint_rect.h"*/
+#include "paint_pen.h"/*
+#include "paint_line.h"*/
+#include "paint_rect.h"
 #include "paint_eraser.h"
 #include <qmainwindow.h>
 #include <qapplication.h>
