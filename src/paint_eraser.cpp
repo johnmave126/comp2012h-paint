@@ -15,8 +15,6 @@
 #include <qpixmap.h>
 #include <qpainter.h>
 #include <qdialog.h>
-#include <iostream>
-using namespace std;
 
 PaintEraser::PaintEraser(QMainWindow *parent)
 :PaintTool(parent) {
