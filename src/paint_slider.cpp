@@ -16,7 +16,7 @@
 #include <qdialog.h>
 
 PaintSlider::PaintSlider(QWidget* parent, int width, const char* caption)
-:QWidget(parent), title(caption, this), slider(this) {
+:QWidget(parent), title(caption, this), slider(Qt::Horizontal, this) {
 	setFixedWidth(width);
 	title.setFixedWidth(70);
 	slider.setFixedWidth(width - 70);
