@@ -80,6 +80,5 @@ QPixmap PaintRect::end() {
 }
 
 void PaintRect::config() {
-	QDialog *config_window = new QDialog(my_parent);
-	config_window->resize(300,100);
+	config_window.exec();
 }
