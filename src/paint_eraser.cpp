@@ -28,7 +28,7 @@ PaintEraser::PaintEraser(QMainWindow *parent)
 	//Lay the config window
 	config_window.resize(300, 40);
 	config_window.setFixedSize(300, 40);
-	config_window.setIconText("Eraser Dialog");
+	config_window.setCaption("Eraser Dialog");
 	
 	//Add slider
 	PaintSlider *slider = new PaintSlider(&config_window,
