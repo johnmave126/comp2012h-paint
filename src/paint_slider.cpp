@@ -15,8 +15,6 @@
 #include <qwidget.h>
 #include <qpainter.h>
 #include <qdialog.h>
-#include <iostream>
-using namespace std;
 
 PaintSlider::PaintSlider(QWidget* parent, int width, const char* caption)
 :QWidget(parent), title(caption, this), slider(Qt::Horizontal, this),

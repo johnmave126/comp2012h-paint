@@ -29,7 +29,7 @@ PaintPen::PaintPen(QMainWindow *parent)
 	PaintSlider *slider = new PaintSlider(&config_window, config_window.width(), "Pen Width");
 	
 	//Connect Attributes
-	QObject::connect(slider, SIGNAL(valueChanged(int)),
+	QObject::connect((QWidget*)slider, SIGNAL(valueChanged(int)),
 		&drawPen, SLOT(setWidth(int)));
 }
 
