@@ -18,11 +18,14 @@
 using namespace std;
 
 PaintSlider::PaintSlider(QWidget* parent, int width, const char* caption)
-:QWidget(parent), title(caption, this), slider(Qt::Horizontal, this) {
+:QWidget(parent), title(caption, this), slider(Qt::Horizontal, this),
+ sliderValue(0, this) {
 	setFixedWidth(width);
-	title.setFixedWidth(70);
-	slider.setFixedWidth(width - 70);
-	slider.setGeometry(70, 0, width - 70, slider.height());
+	title.setFixedWidth(40);
+	slider.setFixedWidth(width - 40);
+	slider.move(40, 0);
+	sliderValue.setFixedWidth(30);
+	sliderValue.move(width - 30, 0);
 	QObject::connect(&slider, SIGNAL(valueChanged(int)),
 		this, SLOT(sliderValueChanged(int)));
 }
@@ -39,5 +42,6 @@ void PaintSlider::setMax(int m) {
 }
 
 void PaintSlider::sliderValueChanged(int r) {
+	sliderValue.setText(r);
 	emit valueChanged(r);
 }

@@ -55,5 +55,6 @@ class PaintSlider: public QWidget {
 	private:
 		QLabel title;
 		QSlider slider;
+		QLabel sliderValue;
 };
 #endif
