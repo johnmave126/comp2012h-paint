@@ -14,12 +14,15 @@
 #include <qwidget.h>
 #include <qpainter.h>
 #include <qdialog.h>
+#include <iostream>
+using namespace std;
 
 PaintSlider::PaintSlider(QWidget* parent, int width, const char* caption)
 :QWidget(parent), title(caption, this), slider(Qt::Horizontal, this) {
 	setFixedWidth(width);
 	title.setFixedWidth(70);
 	slider.setFixedWidth(width - 70);
+	cout << slider.pos().x() << ' ' << slider.pos().y() << endl;
 	slider.move(0, 70);
 	QObject::connect(&slider, SIGNAL(valueChanged(int)),
 		this, SLOT(sliderValueChanged(int)));
