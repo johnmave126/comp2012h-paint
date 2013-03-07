@@ -30,8 +30,8 @@ PaintPen::PaintPen(QMainWindow *parent)
 		config_window.width(), "Pen Width");
 	
 	//Connect Attributes
-	drawPen.connect(slider, SIGNAL(valueChanged(int)),
-		SLOT(setWidth(int)));
+	QObject::connect(slider, SIGNAL(valueChanged(int)),
+		this, SLOT(setPenWidth(int)));
 }
 
 PaintPen::~PaintPen() {
@@ -73,4 +73,8 @@ QPixmap PaintPen::end() {
 void PaintPen::config() {
 	//Run config window
 	config_window.exec();
+}
+
+void PaintPen::setPenWidth(int r) {
+	drawPen.setWidth(r);
 }

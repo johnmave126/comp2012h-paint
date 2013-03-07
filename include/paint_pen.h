@@ -19,6 +19,10 @@
 #include <qpainter.h>
 
 class PaintPen: public PaintTool {
+	// All classes that contain signals or slots
+	// must mention Q_OBJECT in their declaration.
+	Q_OBJECT
+	
 	public:
 		PaintPen(QMainWindow* parent = 0);
 		virtual ~PaintPen();
@@ -64,6 +68,16 @@ class PaintPen: public PaintTool {
 		 * Configure the pen
 		 */
 		virtual void config();
+		
+		/*
+		 * setPenWidth
+		 *
+		 * r: the pen width to set
+		 *
+		 * set the pen width to r
+		 */
+		virtual void setPenWidth(int r);
+		
 		
 	private:
 		//Record last point

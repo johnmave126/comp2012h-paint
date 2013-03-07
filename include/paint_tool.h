@@ -19,7 +19,11 @@
 #include <qpen.h>
 #include <qdialog.h>
 
-class PaintTool {
+class PaintTool: public QObject {
+	// All classes that contain signals or slots
+	// must mention Q_OBJECT in their declaration.
+	Q_OBJECT
+	
 	public:
 		PaintTool(QMainWindow* parent = 0);
 		virtual ~PaintTool();
