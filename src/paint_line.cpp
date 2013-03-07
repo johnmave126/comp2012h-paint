@@ -17,7 +17,7 @@
 #include <qdialog.h>
 
 PaintLine::PaintLine(QMainWindow *parent)
-:PaintTool(parent), mode(Sing) {
+:PaintTool(parent), mode(Poly) {
 	drawPen.setWidth(1);
 	drawPen.setCapStyle(Qt::FlatCap);
 }
