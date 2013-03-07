@@ -26,11 +26,12 @@ PaintPen::PaintPen(QMainWindow *parent)
 	//Lay the config window
 	config_window.resize(300, 200);
 	config_window.setFixedSize(300, 200);
-	PaintSlider *slider = new PaintSlider(&config_window, config_window.width(), "Pen Width");
+	PaintSlider *slider = new PaintSlider(&config_window,
+		config_window.width(), "Pen Width");
 	
 	//Connect Attributes
-	QObject::connect((QWidget*)slider, SIGNAL(valueChanged(int)),
-		&drawPen, SLOT(setWidth(int)));
+	drawPen.connect(slider, SIGNAL(valueChanged(int)),
+		SLOT(setWidth(int)));
 }
 
 PaintPen::~PaintPen() {
