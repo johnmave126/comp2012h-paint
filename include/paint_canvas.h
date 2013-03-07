@@ -215,6 +215,9 @@ class PaintCanvas : public QWidget {
 		/* mousemove event handler */
 		virtual void mouseMoveEvent(QMouseEvent*);
 		
+		/* mousedoubleclick event handler */
+		virtual void mouseDoubleClickEvent(QMouseEvent*);
+		
 		/* mouserelease event handler */
 		virtual void mouseReleaseEvent(QMouseEvent*);
 	
