@@ -17,6 +17,7 @@
 #include <qpixmap.h>
 #include <qpainter.h>
 #include <qpen.h>
+#include <qdialog.h>
 
 class PaintTool {
 	public:
