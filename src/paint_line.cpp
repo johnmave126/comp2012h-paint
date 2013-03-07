@@ -73,6 +73,8 @@ QPixmap PaintLine::end() {
 	//Reset painter
 	tmpBufferPainter.end();
 	
+	//Copy to original
+	my_target = tmp_target;
 	if(mode == Sing) {
 		//Null tmp_target indicates end of polyline
 		//Prevent poly mess
@@ -81,7 +83,6 @@ QPixmap PaintLine::end() {
 	else {
 		last_point = tmp_point;
 	}
-	my_target = tmp_target;
 	
 	//Return final pixmap
 	return my_target;
