@@ -237,7 +237,6 @@ void PaintCanvas::switchTool(PaintToolType tool) {
 void PaintCanvas::resetTool() {
 	//If the current tool is not ended, really end it
 	if(currentTool->isBegin()) {
-		currentTool->end();
 		currentTool->dblEnd();
 	}
 }
