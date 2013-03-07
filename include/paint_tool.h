@@ -90,9 +90,6 @@ class PaintTool: public QObject {
 		QPen drawPen;
 		QBrush fillBrush;
 		
-		//Equivalent to parent
-		QMainWindow *my_parent;
-		
 		//Temporary storage of painting target and painter
 		QPixmap my_target;
 		QPainter bufferPainter;
