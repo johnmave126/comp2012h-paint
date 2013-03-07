@@ -22,9 +22,9 @@
 #include <qscrollview.h>
 
 PaintMainWindow::PaintMainWindow(QWidget* parent, const char* name)
-:QMainWindow(parent, name), canvas(new PaintCanvas()), 
- tools(new PaintToolBar(this, "tool bar", canvas)), 
- viewport(new QScrollView(this)) {
+:QMainWindow(parent, name), canvas(new PaintCanvas()),
+ viewport(new QScrollView(this)), 
+ tools(new PaintToolBar(this, "tool bar", canvas)) {
 	//Create menubar and toolbar
 	CreateMenuBar();
 	setDockMenuEnabled(false);

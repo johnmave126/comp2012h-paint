@@ -120,13 +120,12 @@ class PaintMainWindow: public QMainWindow {
 		 */
 		void CreateMenuBar();
 		
-		//ToolBar
-		QToolBar* tools;
-		
 		//Main view
 		PaintCanvas* canvas;
 		QScrollView* viewport;
 		
+		//ToolBar
+		QToolBar* tools;
 };
 
 #endif
