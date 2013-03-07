@@ -22,9 +22,9 @@ PaintSlider::PaintSlider(QWidget* parent, int width, const char* caption)
 :QWidget(parent), title(caption, this), slider(Qt::Horizontal, this),
  sliderValue(QString("%1").arg(0), this) {
 	setFixedSize(width, slider.height());
-	title.setFixedWidth(40);
-	slider.setFixedWidth(width - 70);
-	slider.move(40, 0);
+	title.setFixedWidth(70);
+	slider.setFixedWidth(width - 120);
+	slider.move(90, 0);
 	sliderValue.setFixedWidth(30);
 	sliderValue.move(width - 30, 0);
 	QObject::connect(&slider, SIGNAL(valueChanged(int)),
