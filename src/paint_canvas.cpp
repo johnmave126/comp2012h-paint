@@ -273,7 +273,8 @@ void PaintCanvas::mousePressEvent(QMouseEvent *e) {
 }
 
 void PaintCanvas::mouseMoveEvent(QMouseEvent *e) {
-	if(e->state() == Qt::LeftButton) {
+	//Handle when left button involved
+	if(e->state() & Qt::LeftButton) {
 		if(!currentTool->isBegin()) {
 			buffer = currentTool->begin(*Current, fgColor, bgColor, e->pos());
 		}
@@ -300,6 +301,7 @@ void PaintCanvas::mouseDoubleClickEvent(QMouseEvent *e) {
 }
 
 void PaintCanvas::mouseReleaseEvent(QMouseEvent *e) {
+	//Handle left release
 	if(e->button() == Qt::LeftButton) {
 		if(currentTool->isBegin()) {
 			forward(currentTool->end());
