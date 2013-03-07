@@ -16,7 +16,8 @@
 #include <qpen.h>
 
 PaintTool::PaintTool(QMainWindow *parent)
-:drawPen(QColor(0, 0, 0)), my_parent(parent) {
+:drawPen(QColor(0, 0, 0)), my_parent(parent)
+ config_window(parent) {
 }
 
 PaintTool::~PaintTool() {

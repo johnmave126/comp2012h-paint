@@ -19,8 +19,18 @@
 
 PaintPen::PaintPen(QMainWindow *parent)
 :PaintTool(parent) {
+	//Default Pen
 	drawPen.setWidth(1);
 	drawPen.setCapStyle(Qt::FlatCap);
+	
+	//Lay the config window
+	config_window->resize(300, 200);
+	config_window->setFixedSize(300, 200);
+	PaintSlider *slider = new PaintSlider(&config_window, config_window.width(), "Pen Width");
+	
+	//Connect Attributes
+	QObject::connect(slider, SIGNAL(valueChanged(int)),
+		drawPen, SLOT(setWidth(int)));
 }
 
 PaintPen::~PaintPen() {
@@ -60,10 +70,6 @@ QPixmap PaintPen::end() {
 }
 
 void PaintPen::config() {
-	QDialog *config_window = new QDialog(my_parent);
-	config_window->resize(300, 200);
-	config_window->setSizeGripEnabled(false);
-	PaintSlider *slider = new PaintSlider(config_window, config_window->width(), "Pen Width");
-	config_window->exec();
-	
+	//Run config window
+	config_window.exec();
 }

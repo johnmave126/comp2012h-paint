@@ -81,6 +81,7 @@ class PaintTool {
 		
 		
 	protected:
+		//Pen and brush used
 		QPen drawPen;
 		QBrush fillBrush;
 		
@@ -94,6 +95,9 @@ class PaintTool {
 		//Temporary storage of indicator target and painter
 		QPixmap tmp_target;
 		QPainter tmpBufferPainter;
+		
+		//Dialog for configuration
+		QDialog config_window;
 };
 
 #endif
