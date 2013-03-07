@@ -10,6 +10,7 @@
  */
 
 #include "paint_eraser.h"
+#include "paint_slider.h"
 #include <qapplication.h>
 #include <qmainwindow.h>
 #include <qpixmap.h>
@@ -92,6 +93,6 @@ void PaintEraser::config() {
 	config_window.exec();
 }
 
-void PaintPen::setEraserWidth(int r) {
+void PaintEraser::setEraserWidth(int r) {
 	width = r;
 }
