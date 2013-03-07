@@ -20,8 +20,24 @@ using namespace std;
 
 PaintEraser::PaintEraser(QMainWindow *parent)
 :PaintTool(parent), width(10) {
+	//Border attributes
 	drawPen.setWidth(1);
 	drawPen.setCapStyle(Qt::SquareCap);
+	
+	//Lay the config window
+	config_window.resize(300, 40);
+	config_window.setFixedSize(300, 40);
+	config_window.setIconText("Eraser Dialog");
+	
+	//Add slider
+	PaintSlider *slider = new PaintSlider(&config_window,
+		config_window.width(), "Size");
+	slider->setMin(10);
+	slider->setMax(100);
+	
+	//Connect Attributes
+	QObject::connect(slider, SIGNAL(valueChanged(int)),
+		this, SLOT(setEraserWidth(int)));
 }
 
 PaintEraser::~PaintEraser() {
@@ -74,4 +90,8 @@ QPixmap PaintEraser::end() {
 
 void PaintEraser::config() {
 	config_window.exec();
+}
+
+void PaintPen::setEraserWidth(int r) {
+	width = r;
 }

@@ -26,8 +26,13 @@ PaintPen::PaintPen(QMainWindow *parent)
 	//Lay the config window
 	config_window.resize(300, 200);
 	config_window.setFixedSize(300, 200);
+	config_window.setIconText("Pen Dialog");
+	
+	//Add slider
 	PaintSlider *slider = new PaintSlider(&config_window,
 		config_window.width(), "Pen Width");
+	slider->setMin(1);
+	slider->setMax(40);
 	
 	//Connect Attributes
 	QObject::connect(slider, SIGNAL(valueChanged(int)),

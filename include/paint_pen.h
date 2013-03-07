@@ -76,7 +76,7 @@ class PaintPen: public PaintTool {
 		 *
 		 * set the pen width to r
 		 */
-		virtual void setPenWidth(int r);
+		void setPenWidth(int r);
 		
 		
 	private:

@@ -19,6 +19,10 @@
 #include <qpainter.h>
 
 class PaintEraser: public PaintTool {
+	// All classes that contain signals or slots
+	// must mention Q_OBJECT in their declaration.
+	Q_OBJECT
+	
 	public:
 		PaintEraser(QMainWindow* parent = 0);
 		virtual ~PaintEraser();
@@ -64,6 +68,15 @@ class PaintEraser: public PaintTool {
 		 * Configure the eraser
 		 */
 		virtual void config();
+		
+		/*
+		 * setEraserWidth
+		 *
+		 * r: the eraser width to set
+		 *
+		 * set the eraser width to r
+		 */
+		void setEraserWidth(int r);
 		
 	private:
 		//Configuration
