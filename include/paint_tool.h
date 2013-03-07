@@ -82,7 +82,7 @@ class PaintTool: public QObject {
 		 *
 		 * return if the draw begins
 		 */
-		bool isBegin();
+		virtual bool isBegin();
 		
 		
 	protected:

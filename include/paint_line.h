@@ -72,6 +72,13 @@ class PaintLine: public PaintTool {
 		 */
 		virtual void config();
 		
+		/*
+		 * isBegin
+		 *
+		 * return if the draw begins
+		 */
+		virtual bool isBegin();
+		
 	private:
 		//Last time point and temporary point storage
 		QPoint last_point, tmp_point;
