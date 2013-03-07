@@ -29,8 +29,9 @@
 using namespace std;
 
 PaintCanvas::PaintCanvas()
-:fgColor(0, 0, 0), bgColor(255, 255, 255), ToolState(Pen),
- Current(ImageHistory.begin()), currentTool(&penTool) {
+:Current(ImageHistory.begin()),
+ fgColor(0, 0, 0), bgColor(255, 255, 255),
+ currentTool(&penTool), ToolState(Pen) {
 	//Reset canvas size to zero
 	setFixedSize(0, 0);
 }
