@@ -21,7 +21,7 @@
 class PaintPen: public PaintTool {
 	public:
 		PaintPen(QMainWindow* parent = 0);
-		~PaintPen();
+		virtual ~PaintPen();
 		
 	public slots:
 		/*

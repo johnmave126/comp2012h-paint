@@ -21,7 +21,7 @@
 class PaintEraser: public PaintTool {
 	public:
 		PaintEraser(QMainWindow* parent = 0);
-		~PaintEraser();
+		virtual ~PaintEraser();
 		
 	public slots:
 		/*

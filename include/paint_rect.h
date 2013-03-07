@@ -21,7 +21,7 @@
 class PaintRect: public PaintTool {
 	public:
 		PaintRect(QMainWindow* parent = 0);
-		~PaintRect();
+		virtual ~PaintRect();
 		
 	public slots:
 		/*

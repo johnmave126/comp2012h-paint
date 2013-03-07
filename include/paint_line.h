@@ -13,14 +13,15 @@
 #define _PAINT_LINE_H
 
 #include "paint_common.h"
+#include "paint_tool.h"
 #include <qapplication.h>
 #include <qpixmap.h>
 #include <qpainter.h>
 
-class PaintLine {
+class PaintLine: public PaintTool {
 	public:
 		PaintLine(QMainWindow* parent = 0);
-		~PaintLine();
+		virtual ~PaintLine();
 		
 	public slots:
 		/*
