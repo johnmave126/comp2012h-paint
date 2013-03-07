@@ -17,9 +17,9 @@
 
 PaintSlider::PaintSlider(QWidget* parent, int width, const char* caption)
 :QWidget(parent), title(caption, this), slider(this) {
-	this.setFixedWidth(width);
-	title.setWidth(70);
-	slider.setWidth(width - 70);
+	setFixedWidth(width);
+	title.setFixedWidth(70);
+	slider.setFixedWidth(width - 70);
 	QObject::connect(slider, SIGNAL(valueChanged(int)),
 		this, SLOT(sliderValueChanged(int)));
 }
