@@ -15,7 +15,7 @@
 #include <qpainter.h>
 #include <qdialog.h>
 
-PaintSlider::PaintSlider(QMainWindow* parent, int width, const char* caption)
+PaintSlider::PaintSlider(QWidget* parent, int width, const char* caption)
 :QWidget(parent), title(caption, this), slider(this) {
 	this.setWidth(width);
 	title.setWidth(70);
