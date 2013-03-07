@@ -70,8 +70,14 @@ QPixmap PaintLine::process(QPoint newPoint) {
 }
 
 QPixmap PaintLine::end() {
-	//Reset painter
-	tmpBufferPainter.end();
+	if(tmpBufferPainter.isActive()) {
+		//Reset painter
+		tmpBufferPainter.end();
+	}
+	else {
+		//Only occur when special case in poly
+		return QPixmap();
+	}
 	
 	//Copy to original
 	my_target = tmp_target;
