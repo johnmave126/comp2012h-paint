@@ -11,6 +11,7 @@
 
 #include "paint_slider.h"
 #include <qapplication.h>
+#include <qstring.h>
 #include <qwidget.h>
 #include <qpainter.h>
 #include <qdialog.h>
@@ -19,7 +20,7 @@ using namespace std;
 
 PaintSlider::PaintSlider(QWidget* parent, int width, const char* caption)
 :QWidget(parent), title(caption, this), slider(Qt::Horizontal, this),
- sliderValue(0, this) {
+ sliderValue(QString(0), this) {
 	setFixedWidth(width);
 	title.setFixedWidth(40);
 	slider.setFixedWidth(width - 40);

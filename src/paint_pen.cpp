@@ -62,7 +62,7 @@ QPixmap PaintPen::end() {
 void PaintPen::config() {
 	QDialog *config_window = new QDialog(my_parent);
 	config_window->resize(300, 200);
-	PaintSlider *slider = new PaintSlider(config_window, 200, "Pen Size");
+	PaintSlider *slider = new PaintSlider(config_window, 200, "Pen Width");
 	config_window->exec();
 	
 }
