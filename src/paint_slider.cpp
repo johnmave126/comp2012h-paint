@@ -20,7 +20,7 @@ using namespace std;
 
 PaintSlider::PaintSlider(QWidget* parent, int width, const char* caption)
 :QWidget(parent), title(caption, this), slider(Qt::Horizontal, this),
- sliderValue(QString(0), this) {
+ sliderValue(QString("%1").arg(0), this) {
 	setFixedWidth(width);
 	title.setFixedWidth(40);
 	slider.setFixedWidth(width - 40);
@@ -43,6 +43,6 @@ void PaintSlider::setMax(int m) {
 }
 
 void PaintSlider::sliderValueChanged(int r) {
-	sliderValue.setText(r);
+	sliderValue.setText(QString("%1").arg(r));
 	emit valueChanged(r);
 }
