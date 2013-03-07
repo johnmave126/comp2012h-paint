@@ -291,7 +291,8 @@ void PaintCanvas::mouseMoveEvent(QMouseEvent *e) {
 }
 
 void PaintCanvas::mouseDoubleClickEvent(QMouseEvent *e) {
-	if(e->state() == Qt::LeftButton) {
+	//Handle left double click
+	if(e->button() == Qt::LeftButton) {
 		if(currentTool->dblEnd()) {
 			fallback();
 		}
