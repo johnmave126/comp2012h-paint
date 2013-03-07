@@ -20,6 +20,7 @@ PaintSlider::PaintSlider(QWidget* parent, int width, const char* caption)
 	setFixedWidth(width);
 	title.setFixedWidth(70);
 	slider.setFixedWidth(width - 70);
+	slider.move(0, width - 70);
 	QObject::connect(&slider, SIGNAL(valueChanged(int)),
 		this, SLOT(sliderValueChanged(int)));
 }
