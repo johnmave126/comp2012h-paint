@@ -24,13 +24,13 @@ PaintPen::PaintPen(QMainWindow *parent)
 	drawPen.setCapStyle(Qt::FlatCap);
 	
 	//Lay the config window
-	config_window->resize(300, 200);
-	config_window->setFixedSize(300, 200);
+	config_window.resize(300, 200);
+	config_window.setFixedSize(300, 200);
 	PaintSlider *slider = new PaintSlider(&config_window, config_window.width(), "Pen Width");
 	
 	//Connect Attributes
 	QObject::connect(slider, SIGNAL(valueChanged(int)),
-		drawPen, SLOT(setWidth(int)));
+		&drawPen, SLOT(setWidth(int)));
 }
 
 PaintPen::~PaintPen() {
