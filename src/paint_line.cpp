@@ -15,6 +15,8 @@
 #include <qpixmap.h>
 #include <qpainter.h>
 #include <qdialog.h>
+#include <iostream>
+using namespace std;
 
 PaintLine::PaintLine(QMainWindow *parent)
 :PaintTool(parent), mode(Poly) {
@@ -34,6 +36,7 @@ QPixmap PaintLine::begin(QPixmap dst, QColor fcolor, QColor bcolor, QPoint newPo
 		last_point = newPoint;
 	}
 	else {
+		cout << tmp_target.isNull() << endl;
 		if(tmp_target.isNull()) {
 			//Null tmp_target indicates end of polyline
 			//Start new one
