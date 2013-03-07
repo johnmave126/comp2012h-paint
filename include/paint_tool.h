@@ -61,11 +61,9 @@ class PaintTool {
 		/*
 		 * dblEnd
 		 *
-		 * return the need to fallback(default false)
-		 *
 		 * end function for double click, not many tool will use this
 		 */
-		virtual bool dblEnd();
+		virtual void dblEnd();
 		
 		/*
 		 * config

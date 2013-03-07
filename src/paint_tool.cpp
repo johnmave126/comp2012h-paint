@@ -23,8 +23,7 @@ PaintTool::~PaintTool() {
 	my_parent = NULL;
 }
 
-bool PaintTool::dblEnd() {
-	return false;
+void PaintTool::dblEnd() {
 }
 
 bool PaintTool::isBegin() {

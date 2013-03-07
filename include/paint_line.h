@@ -61,11 +61,9 @@ class PaintLine: public PaintTool {
 		/*
 		 * dblEnd
 		 *
-		 * return the need to fallback(in polyline mode, true)
-		 *
 		 * End the draw of line in polyline mode
 		 */
-		virtual bool dblEnd();
+		virtual void dblEnd();
 		
 		/*
 		 * config

@@ -15,8 +15,6 @@
 #include <qpixmap.h>
 #include <qpainter.h>
 #include <qdialog.h>
-#include <iostream>
-using namespace std;
 
 PaintLine::PaintLine(QMainWindow *parent)
 :PaintTool(parent), mode(Poly) {
@@ -90,14 +88,11 @@ QPixmap PaintLine::end() {
 	return my_target;
 }
 
-bool PaintLine::dblEnd() {
-	cout << "double click" << endl;
+void PaintLine::dblEnd() {
 	if(mode == Poly) {
 		//Null tmp_target indicates end of polyline
 		tmp_target.resize(0, 0);
-		return true;
 	}
-	return false;
 }
 
 void PaintLine::config() {

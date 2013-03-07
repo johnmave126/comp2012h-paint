@@ -238,9 +238,7 @@ void PaintCanvas::resetTool() {
 	//If the current tool is not ended, really end it
 	if(currentTool->isBegin()) {
 		forward(currentTool->end());
-		if(currentTool->dblEnd()) {
-			fallback();
-		}
+		currentTool->dblEnd();
 	}
 }
 
@@ -293,9 +291,7 @@ void PaintCanvas::mouseMoveEvent(QMouseEvent *e) {
 void PaintCanvas::mouseDoubleClickEvent(QMouseEvent *e) {
 	//Handle left double click
 	if(e->button() == Qt::LeftButton) {
-		if(currentTool->dblEnd()) {
-			fallback();
-		}
+		currentTool->dblEnd();
 	}
 	//Give up, return it to parent
 	else {
