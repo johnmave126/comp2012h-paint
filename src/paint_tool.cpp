@@ -21,7 +21,6 @@ PaintTool::PaintTool(QMainWindow *parent)
 }
 
 PaintTool::~PaintTool() {
-	my_parent = NULL;
 }
 
 void PaintTool::dblEnd() {
