@@ -27,14 +27,15 @@ class PaintLine {
 		 * begin
 		 *
 		 * dst: the Pixmap to draw upon
-		 * color: the color of the line
+		 * fcolor: the foreground color of the pen
+		 * bcolor: not used
 		 * newPoint: the first point triggered
 		 *
 		 * return a QPixmap for temporary use
 		 *
 		 * Initialize the line tool
 		 */
-		virtual QPixmap begin(QPixmap dst, QColor color, QPoint new_point);
+		virtual QPixmap begin(QPixmap dst, QColor fColor, QColor bColor, QPoint new_point);
 		
 		/*
 		 * process
@@ -59,9 +60,11 @@ class PaintLine {
 		/*
 		 * dblEnd
 		 *
-		 * End line tool in polyline mode
+		 * return the need to fallback(in polyline mode, true)
+		 *
+		 * End the draw of line in polyline mode
 		 */
-		virtual void dblEnd();
+		virtual bool dblEnd();
 		
 		/*
 		 * config

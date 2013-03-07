@@ -27,7 +27,6 @@ PaintRect::~PaintRect() {
 QPixmap PaintRect::begin(QPixmap dst, QColor fcolor, QColor bcolor, QPoint newPoint) {
 	//Set canvas and color
 	my_target = dst;
-	tmp_target = my_target;
 	drawPen.setColor(fcolor);
 	if(fill_mode == FG) {
 		fillBrush.setColor(fcolor);
@@ -37,9 +36,9 @@ QPixmap PaintRect::begin(QPixmap dst, QColor fcolor, QColor bcolor, QPoint newPo
 	}
 	
 	//Start painter
-	bufferPainter.begin(&tmp_target);
-	bufferPainter.setPen(drawPen);
-	bufferPainter.setBrush(fillBrush);
+	tmpBufferPainter.begin(&tmp_target);
+	tmpBufferPainter.setPen(drawPen);
+	tmpBufferPainter.setBrush(fillBrush);
 	
 	//Store point
 	start_point = newPoint;
@@ -50,18 +49,18 @@ QPixmap PaintRect::begin(QPixmap dst, QColor fcolor, QColor bcolor, QPoint newPo
 
 QPixmap PaintRect::process(QPoint newPoint) {
 	//Temporarily reset painter
-	bufferPainter.end();
+	tmpBufferPainter.end();
 	
 	//Reset to original
 	tmp_target = my_target;
 	
 	//Start again
-	bufferPainter.begin(&tmp_target);
-	bufferPainter.setPen(drawPen);
-	bufferPainter.setBrush(fillBrush);
+	tmpBufferPainter.begin(&tmp_target);
+	tmpBufferPainter.setPen(drawPen);
+	tmpBufferPainter.setBrush(fillBrush);
 	
 	//Draw the rectangle
-	bufferPainter.drawRect(start_point.x(), start_point.y(),
+	tmpBufferPainter.drawRect(start_point.x(), start_point.y(),
 		newPoint.x() - start_point.x(), newPoint.y() - start_point.y());
 	
 	//Return tmp pixmap
@@ -70,7 +69,7 @@ QPixmap PaintRect::process(QPoint newPoint) {
 
 QPixmap PaintRect::end() {
 	//Reset painter
-	bufferPainter.end();
+	tmpBufferPainter.end();
 	
 	//Copy back to original
 	my_target = tmp_target;

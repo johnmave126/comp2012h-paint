@@ -18,6 +18,7 @@
 
 PaintPen::PaintPen(QMainWindow *parent)
 :PaintTool(parent) {
+	drawPen.setWidth(1);
 	drawPen.setCapStyle(Qt::FlatCap);
 }
 

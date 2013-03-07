@@ -76,3 +76,30 @@ void PaintCanvas::forward(QPixmap new_node) {
 	emit undoabilityChanged(true);
 	emit redoabilityChanged(false);
 }
+
+void PaintCanvas::fallback() {
+	//Create a copy of Current->next
+	list<QPixmap>::iterator tmp = Current;
+	tmp++;
+	
+	//Not last one, not able to fallback
+	if(tmp != ImageHistory.end())
+		return;
+	
+	//The first one, not able to fallback
+	if(Current == ImageHistory.begin())
+		return;
+	
+	//Store the new last one
+	tmp = Current;
+	Current--;
+	
+	//Remove the element
+	ImageHistory.erase(tmp);
+	buffer = *Current;
+	
+	//Repaint and emit signal
+	repaint();
+	emit undoabilityChanged(Current != ImageHistory.begin());
+	emit redoabilityChanged(false);
+}

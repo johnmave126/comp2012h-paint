@@ -23,9 +23,11 @@ PaintTool::~PaintTool() {
 	my_parent = NULL;
 }
 
-void PaintTool::dblEnd() {
+bool PaintTool::dblEnd() {
+	return false;
 }
 
 bool PaintTool::isBegin() {
-	return bufferPainter.isActive();
+	return bufferPainter.isActive()
+		|| tmpBufferPainter.isActive();
 }

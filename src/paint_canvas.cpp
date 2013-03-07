@@ -13,6 +13,7 @@
 #include "paint_canvas.h"
 #include "paint_toolbar.h"
 #include "paint_pen.h"
+#include "paint_line.h"
 #include "paint_eraser.h"
 #include "paint_rect.h"
 #include <qmainwindow.h>
@@ -28,15 +29,10 @@
 using namespace std;
 
 PaintCanvas::PaintCanvas()
-:fgColor(0, 0, 0), bgColor(255, 255, 255), ToolState(Pen) {
-	//Assign the current pointer for history use
-	Current = ImageHistory.begin();
-	
+:fgColor(0, 0, 0), bgColor(255, 255, 255), ToolState(Pen),
+ Current(ImageHistory.begin()), currentTool(&penTool) {
 	//Reset canvas size to zero
 	setFixedSize(0, 0);
-	
-	//Set default tool to pen
-	currentTool = &penTool;
 }
 
 PaintCanvas::~PaintCanvas() {
@@ -226,7 +222,7 @@ void PaintCanvas::switchTool(PaintToolType tool) {
 			currentTool = &penTool;
 			break;
 		case Line:
-		//	currentTool = &lineTool;
+			currentTool = &lineTool;
 			break;
 		case Eraser:
 			currentTool = &eraserTool;
@@ -241,7 +237,9 @@ void PaintCanvas::resetTool() {
 	//If the current tool is not ended, really end it
 	if(currentTool->isBegin()) {
 		forward(currentTool->end());
-		currentTool->dblEnd();
+		if(currentTool->dblEnd()) {
+			fallback();
+		}
 	}
 }
 
@@ -283,6 +281,18 @@ void PaintCanvas::mouseMoveEvent(QMouseEvent *e) {
 		else {
 			buffer = currentTool->process(e->pos());
 			repaint();
+		}
+	}
+	//Give up, return it to parent
+	else {
+		e->ignore();
+	}
+}
+
+void PaintCanvas::mouseDoubleClickEvent(QMouseEvent *e) {
+	if(e->state() == Qt::LeftButton) {
+		if(currentTool->dblEnd()) {
+			fallback();
 		}
 	}
 	//Give up, return it to parent

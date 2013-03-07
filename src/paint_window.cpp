@@ -22,17 +22,13 @@
 #include <qscrollview.h>
 
 PaintMainWindow::PaintMainWindow(QWidget* parent, const char* name)
-:QMainWindow(parent, name) {
-	//Create canvas
-	canvas = new PaintCanvas();
-	
+:QMainWindow(parent, name), canvas(new PaintCanvas()), 
+ tools(new PaintToolBar(this, "tool bar", canvas)), 
+ viewport(new QScrollView(this)) {
 	//Create menubar and toolbar
-	tools = new PaintToolBar(this, "tool bar", canvas);
 	CreateMenuBar();
 	setDockMenuEnabled(false);
 	
-	//Create scrollview container
-	viewport = new QScrollView(this);
 	//Set as the central widget to resize automatically
 	setCentralWidget(viewport);
 	
@@ -45,9 +41,6 @@ PaintMainWindow::PaintMainWindow(QWidget* parent, const char* name)
 }
 
 PaintMainWindow::~PaintMainWindow() {
-	delete canvas;
-	delete viewport;
-	delete tools;
 }
 
 void PaintMainWindow::CreateMenuBar() {

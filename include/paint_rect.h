@@ -66,9 +66,6 @@ class PaintRect: public PaintTool {
 		virtual void config();
 		
 	private:
-		//Border Related
-		QPixmap tmp_target;
-		QPainter tmpBufferPainter;
 		
 		//Record last point
 		QPoint start_point;

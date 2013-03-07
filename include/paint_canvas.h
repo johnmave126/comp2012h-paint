@@ -13,8 +13,8 @@
 #define _PAINT_CANVAS_H
 
 #include "paint_common.h"
-#include "paint_pen.h"/*
-#include "paint_line.h"*/
+#include "paint_pen.h"
+#include "paint_line.h"
 #include "paint_rect.h"
 #include "paint_eraser.h"
 #include <qmainwindow.h>
@@ -219,6 +219,14 @@ class PaintCanvas : public QWidget {
 		virtual void mouseReleaseEvent(QMouseEvent*);
 	
 	private:
+		
+		/*
+		 * fallback
+		 *
+		 * try to clear the current history node
+		 */
+		void fallback();
+		
 		//History component
 		list<QPixmap> ImageHistory;
 		list<QPixmap>::iterator Current;
@@ -232,7 +240,7 @@ class PaintCanvas : public QWidget {
 		//Tools
 		PaintTool *currentTool;
 		PaintPen penTool;
-//		PaintLine lineTool;
+		PaintLine lineTool;
 		PaintRect rectTool;
 		PaintEraser eraserTool;
 		PaintToolType ToolState;

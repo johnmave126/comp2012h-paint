@@ -61,9 +61,11 @@ class PaintTool {
 		/*
 		 * dblEnd
 		 *
+		 * return the need to fallback(default false)
+		 *
 		 * end function for double click, not many tool will use this
 		 */
-		virtual void dblEnd();
+		virtual bool dblEnd();
 		
 		/*
 		 * config
@@ -90,6 +92,10 @@ class PaintTool {
 		//Temporary storage of painting target and painter
 		QPixmap my_target;
 		QPainter bufferPainter;
+		
+		//Temporary storage of indicator target and painter
+		QPixmap tmp_target;
+		QPainter tmpBufferPainter;
 };
 
 #endif
