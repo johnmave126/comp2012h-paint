@@ -23,8 +23,9 @@ PaintSlider::PaintSlider(QWidget* parent, int width, const char* caption)
  sliderValue(QString("%1").arg(0), this) {
 	setFixedSize(width, slider.height());
 	title.setFixedWidth(70);
-	slider.setFixedWidth(width - 120);
-	slider.move(90, 0);
+	title.move(10, 0);
+	slider.setFixedWidth(width - 130);
+	slider.move(100, 0);
 	sliderValue.setFixedWidth(30);
 	sliderValue.move(width - 30, 0);
 	QObject::connect(&slider, SIGNAL(valueChanged(int)),
