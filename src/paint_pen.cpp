@@ -10,6 +10,7 @@
  */
 
 #include "paint_pen.h"
+#include "paint_slider.h"
 #include <qapplication.h>
 #include <qmainwindow.h>
 #include <qpixmap.h>
