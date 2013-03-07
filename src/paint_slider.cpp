@@ -27,14 +27,14 @@ PaintSlider::PaintSlider(QWidget* parent, int width, const char* caption)
 PaintSlider::~PaintSlider() {
 }
 
-void setMin(int m) {
+void PaintSlider::setMin(int m) {
 	slider.setMinValue(m);
 }
 
-void setMax(int m) {
+void PaintSlider::setMax(int m) {
 	slider.setMaxValue(m);
 }
 
-void sliderValueChanged(int r) {
+void PaintSlider::sliderValueChanged(int r) {
 	emit valueChanged(r);
 }

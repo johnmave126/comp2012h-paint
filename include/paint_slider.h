@@ -27,6 +27,24 @@ class PaintSlider: public QWidget {
 		PaintSlider(QWidget* parent = 0, int width = 200, const char* caption = 0);
 		~PaintSlider();
 		
+		/*
+		 * setMin
+		 *
+		 * m: the min value of the slider
+		 *
+		 * set the minimal value of the slider
+		 */
+		void setMin(int m);
+		
+		/*
+		 * setMax
+		 *
+		 * m: the max value of the slider
+		 *
+		 * set the maximum value of the slider
+		 */
+		void setMax(int m);
+		
 	public slots:
 		/* receive the slide change signal */
 		void sliderValueChanged(int);
