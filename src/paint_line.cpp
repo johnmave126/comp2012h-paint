@@ -18,8 +18,24 @@
 
 PaintLine::PaintLine(QMainWindow *parent)
 :PaintTool(parent), mode(Poly) {
+	//Default Pen
 	drawPen.setWidth(1);
 	drawPen.setCapStyle(Qt::FlatCap);
+	
+	//Lay the config window
+	config_window.resize(300, 200);
+	config_window.setFixedSize(300, 200);
+	config_window.setCaption("Line Dialog");
+	
+	//Add slider
+	PaintSlider *slider = new PaintSlider(&config_window,
+		config_window.width(), "Line Width");
+	slider->setMin(1);
+	slider->setMax(40);
+	
+	//Connect Attributes
+	QObject::connect(slider, SIGNAL(valueChanged(int)),
+		this, SLOT(setLineWidth(int)));
 }
 
 PaintLine::~PaintLine() {
@@ -107,4 +123,8 @@ void PaintLine::config() {
 
 bool PaintLine::isBegin() {
 	return !tmp_target.isNull();
+}
+
+void PaintPen::setPenWidth(int r) {
+	drawPen.setWidth(r);
 }

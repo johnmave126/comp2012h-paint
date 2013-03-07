@@ -19,6 +19,10 @@
 #include <qpainter.h>
 
 class PaintLine: public PaintTool {
+	// All classes that contain signals or slots
+	// must mention Q_OBJECT in their declaration.
+	Q_OBJECT
+	
 	public:
 		PaintLine(QMainWindow* parent = 0);
 		virtual ~PaintLine();
@@ -78,6 +82,15 @@ class PaintLine: public PaintTool {
 		 * return if the draw begins
 		 */
 		virtual bool isBegin();
+		
+		/*
+		 * setLineWidth
+		 *
+		 * r: the line width to set
+		 *
+		 * set the line width to r
+		 */
+		void setLineWidth(int r);
 		
 	private:
 		//Last time point and temporary point storage
