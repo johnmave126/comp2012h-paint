@@ -126,6 +126,6 @@ bool PaintLine::isBegin() {
 	return !tmp_target.isNull();
 }
 
-void PaintPen::setPenWidth(int r) {
+void PaintLine::setPenWidth(int r) {
 	drawPen.setWidth(r);
 }
