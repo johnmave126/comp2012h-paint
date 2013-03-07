@@ -36,6 +36,7 @@ QPixmap PaintRect::begin(QPixmap dst, QColor fcolor, QColor bcolor, QPoint newPo
 	}
 	
 	//Start painter
+	tmp_target = my_target;
 	tmpBufferPainter.begin(&tmp_target);
 	tmpBufferPainter.setPen(drawPen);
 	tmpBufferPainter.setBrush(fillBrush);
