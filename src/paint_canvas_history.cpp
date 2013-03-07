@@ -54,7 +54,7 @@ void PaintCanvas::redo() {
 }
 
 void PaintCanvas::forward(QPixmap new_node) {
-	if(new_node.isNull) {
+	if(new_node.isNull()) {
 		//Null pixmap
 		//Do nothing
 		return;
