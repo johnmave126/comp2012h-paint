@@ -10,6 +10,7 @@
  */
 
 #include "paint_rect.h"
+#include "paint_slider.h"
 #include <qapplication.h>
 #include <qmainwindow.h>
 #include <qpixmap.h>
@@ -18,7 +19,24 @@
 
 PaintRect::PaintRect(QMainWindow *parent)
 :PaintTool(parent), fill_mode(FG) {
+	//Default settings
 	drawPen.setCapStyle(Qt::SquareCap);
+	
+	//Lay the config window
+	config_window.resize(500, 330);
+	config_window.setFixedSize(500, 330);
+	config_window.setCaption("Rectangle Dialog");
+	
+	//Add slider
+	PaintSlider *slider = new PaintSlider(&config_window,
+		config_window.width(), "Boundary Width");
+	slider->setMin(1);
+	slider->setMax(40);
+	slider->move(0, 300);
+	
+	//Connect Attributes
+	QObject::connect(slider, SIGNAL(valueChanged(int)),
+		this, SLOT(setPenWidth(int)));
 }
 
 PaintRect::~PaintRect() {
@@ -81,4 +99,8 @@ QPixmap PaintRect::end() {
 
 void PaintRect::config() {
 	config_window.exec();
+}
+
+void PaintRect::setPenWidth(int r) {
+	drawPen.setWidth(r);
 }

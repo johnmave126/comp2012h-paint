@@ -65,6 +65,15 @@ class PaintRect: public PaintTool {
 		 */
 		virtual void config();
 		
+		/*
+		 * setPenWidth
+		 *
+		 * r: the border width to set
+		 *
+		 * set the border width to r
+		 */
+		void setPenWidth(int r);
+		
 	private:
 		
 		//Record last point
