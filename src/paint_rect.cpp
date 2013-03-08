@@ -13,6 +13,7 @@
 #include "paint_drawtype.h"
 #include "paint_fillstyle.h"
 #include "paint_boundarystyle.h"
+#include "paint_joinstyle.h"
 #include "paint_slider.h"
 #include <qapplication.h>
 #include <qmainwindow.h>
@@ -27,7 +28,7 @@ PaintRect::PaintRect(QMainWindow *parent)
 	
 	//Lay the config window
 	config_window.resize(500, 330);
-	config_window.setFixedSize(500, 330);
+	config_window.setFixedSize(500, 310);
 	config_window.setCaption("Rectangle Dialog");
 	
 	//Add drawtype
@@ -44,12 +45,17 @@ PaintRect::PaintRect(QMainWindow *parent)
 		370);
 	boundarystyle->move(0, 150);
 	
+	//Add joinstyle
+	PaintJoinstyle *joinstyle = new PaintJoinstyle(&config_window,
+		370);
+	joinstyle->move(0, 225);
+	
 	//Add slider
 	PaintSlider *slider = new PaintSlider(&config_window,
 		config_window.width(), "Boundary Width");
 	slider->setMin(1);
 	slider->setMax(40);
-	slider->move(0, 300);
+	slider->move(0, 280);
 	
 	//Connect Attributes
 	QObject::connect(drawtype, SIGNAL(valueChanged(PaintDrawType)),
@@ -58,6 +64,8 @@ PaintRect::PaintRect(QMainWindow *parent)
 		this, SLOT(setFillStyle(Qt::BrushStyle)));
 	QObject::connect(boundarystyle, SIGNAL(valueChanged(Qt::PenStyle)),
 		this, SLOT(setBoundaryStyle(Qt::PenStyle)));
+	QObject::connect(joinstyle, SIGNAL(valueChanged(Qt::PenJoinStyle)),
+		this, SLOT(setJoinStyle(Qt::PenJoinStyle)));
 	QObject::connect(slider, SIGNAL(valueChanged(int)),
 		this, SLOT(setPenWidth(int)));
 }
@@ -158,4 +166,8 @@ void PaintRect::setFillStyle(Qt::BrushStyle r) {
 
 void PaintRect::setBoundaryStyle(Qt::PenStyle r) {
 	drawPen.setStyle(r);
+}
+
+void PaintRect::setJoinStyle(Qt::PenJoinStyle r) {
+	drawPen.setJoinStyle(r);
 }

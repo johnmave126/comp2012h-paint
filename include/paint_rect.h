@@ -105,6 +105,15 @@ class PaintRect: public PaintTool {
 		 */
 		void setBoundaryStyle(Qt::PenStyle r);
 		
+		/*
+		 * setJoinStyle
+		 *
+		 * r: the join style to set
+		 *
+		 * set the join style to r
+		 */
+		void setJoinStyle(Qt::PenJoinStyle r);
+		
 	private:
 		
 		//Record last point
