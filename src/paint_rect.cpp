@@ -38,6 +38,11 @@ PaintRect::PaintRect(QMainWindow *parent)
 		config_window.width());
 	fillstyle->move(0, 50);
 	
+	//Add boundarystyle
+	PaintBoundarystyle *boundarystyle = new PaintBoundarystyle(&config_window,
+		370);
+	boundarystyle->move(0, 150);
+	
 	//Add slider
 	PaintSlider *slider = new PaintSlider(&config_window,
 		config_window.width(), "Boundary Width");
@@ -50,6 +55,8 @@ PaintRect::PaintRect(QMainWindow *parent)
 		this, SLOT(setDrawType(PaintDrawType)));
 	QObject::connect(fillstyle, SIGNAL(valueChanged(Qt::BrushStyle)),
 		this, SLOT(setFillStyle(Qt::BrushStyle)));
+	QObject::connect(boundarystyle, SIGNAL(valueChanged(Qt::PenStyle)),
+		this, SLOT(setBoundaryStyle(Qt::PenStyle)));
 	QObject::connect(slider, SIGNAL(valueChanged(int)),
 		this, SLOT(setPenWidth(int)));
 }
@@ -146,4 +153,8 @@ void PaintRect::setDrawType(PaintDrawType r) {
 
 void PaintRect::setFillStyle(Qt::BrushStyle r) {
 	fillBrush.setStyle(r);
+}
+
+void PaintRect::setBoundaryStyle(Qt::PenStyle r) {
+	drawPen.setStyle(r);
 }

@@ -6,7 +6,7 @@
  *
  * paint_drawtype.cpp
  *
- * Draw type config, configuring capstyle
+ * Draw type config, configuring draw type
  */
 
 #include "paint_drawtype.h"

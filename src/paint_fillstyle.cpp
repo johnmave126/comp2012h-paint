@@ -6,7 +6,7 @@
  *
  * paint_fillstyle.cpp
  *
- * Draw type config, configuring capstyle
+ * Fill style config, configuring fill style
  */
 
 #include "paint_fillstyle.h"

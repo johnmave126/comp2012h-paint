@@ -37,7 +37,7 @@ PaintMainWindow::PaintMainWindow(QWidget* parent, const char* name)
 	
 	//Resize window to a resonable size
 	setBaseSize(100, 100);
-	resize(600, 400);
+	resize(800, 600);
 }
 
 PaintMainWindow::~PaintMainWindow() {
