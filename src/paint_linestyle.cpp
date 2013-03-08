@@ -36,29 +36,29 @@ PaintLinestyle::PaintLinestyle(QWidget* parent, int width)
 	
 	solid = new QRadioButton("Solid line", &container);
 	//Default
-	flat->setChecked(true);
-	signalMapper->setMapping(flat, 0);
-	QObject::connect(flat, SIGNAL(clicked()),
+	solid->setChecked(true);
+	signalMapper->setMapping(solid, 0);
+	QObject::connect(solid, SIGNAL(clicked()),
 		signalMapper, SLOT(map()));
 	
 	dash = new QRadioButton("Dash line", &container);
-	signalMapper->setMapping(square, 1);
-	QObject::connect(square, SIGNAL(clicked()),
+	signalMapper->setMapping(dash, 1);
+	QObject::connect(dash, SIGNAL(clicked()),
 		signalMapper, SLOT(map()));
 	
 	dot = new QRadioButton("Dot line", &container);
-	signalMapper->setMapping(square, 2);
-	QObject::connect(square, SIGNAL(clicked()),
+	signalMapper->setMapping(dot, 2);
+	QObject::connect(dot, SIGNAL(clicked()),
 		signalMapper, SLOT(map()));
 	
 	dashdot = new QRadioButton("Dash dot line", &container);
-	signalMapper->setMapping(square, 3);
-	QObject::connect(square, SIGNAL(clicked()),
+	signalMapper->setMapping(dashdot, 3);
+	QObject::connect(dashdot, SIGNAL(clicked()),
 		signalMapper, SLOT(map()));
 	
 	dashdotdot = new QRadioButton("Dash dot dot line", &container);
-	signalMapper->setMapping(square, 4);
-	QObject::connect(square, SIGNAL(clicked()),
+	signalMapper->setMapping(dashdotdot, 4);
+	QObject::connect(dashdotdot, SIGNAL(clicked()),
 		signalMapper, SLOT(map()));
 	
 	QObject::connect(signalMapper, SIGNAL(mapped(int)),
