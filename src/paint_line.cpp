@@ -157,7 +157,7 @@ void PaintLine::setPenStyle(Qt::PenStyle r) {
 }
 
 void PaintLine::setLineMode(PaintLineMode r) {
-	mode = r
+	mode = r;
 }
 
 void PaintLine::setLineWidth(int r) {
