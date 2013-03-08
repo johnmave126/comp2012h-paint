@@ -35,7 +35,7 @@ PaintLine::PaintLine(QMainWindow *parent)
 	
 	//Add Capstyle
 	PaintCapstyle *capstyle = new PaintCapstyle(&config_window,
-		100, Qt::Vertical);
+		120, Qt::Vertical);
 	capstyle->move(180, 0);
 	
 	//Add slider
