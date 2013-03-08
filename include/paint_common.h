@@ -44,10 +44,10 @@ enum PaintRectFill {
 	BG
 };
 enum PaintDrawType {
-	Rect = 0,
-	RRect,
-	Circ,
-	Elli
+	Rectangle = 0,
+	RRectangle,
+	Circle,
+	Ellipse
 };
 
 #endif

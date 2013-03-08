@@ -89,20 +89,20 @@ QPixmap PaintRect::process(QPoint newPoint) {
 	
 	//Draw the graph
 	switch(type) {
-		case Rect:
+		case Rectangle:
 			tmpBufferPainter.drawRect(start_point.x(), start_point.y(),
 				w1, w2);
 			break;
-		case RRect:
+		case RRectangle:
 			tmpBufferPainter.drawRoundRect(start_point.x(), start_point.y(),
 				w1, w2);
 			break;
-		case Circ:
+		case Circle:
 			if(w1 > w2)
 				w1 = w2;
 			else
 				w2 = w1;
-		case Elli:
+		case Ellipse:
 			tmpBufferPainter.drawEllipse(start_point.x(), start_point.y(),
 				w1, w2);
 			break;

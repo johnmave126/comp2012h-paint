@@ -65,16 +65,16 @@ PaintDrawtype::~PaintDrawtype() {
 void PaintDrawtype::selectorValueChanged(int v) {
 	switch(v) {
 		case 0:
-			emit valueChanged(Rect);
+			emit valueChanged(Rectangle);
 			break;
 		case 1:
-			emit valueChanged(RRect);
+			emit valueChanged(RRectangle);
 			break;
 		case 2:
-			emit valueChanged(Circ);
+			emit valueChanged(Circle);
 			break;
 		case 3:
-			emit valueChanged(Elli);
+			emit valueChanged(Ellipse);
 			break;
 	}
 }
