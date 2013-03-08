@@ -24,7 +24,7 @@ class PaintSlider: public QWidget {
 	Q_OBJECT
 	
 	public:
-		PaintSlider(QWidget* parent = 0, int width = 200, const char* caption = 0);
+		PaintSlider(QWidget* parent = 0, int width = 300, const char* caption = 0);
 		~PaintSlider();
 		
 		/*

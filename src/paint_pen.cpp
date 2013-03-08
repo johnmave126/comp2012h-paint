@@ -10,6 +10,7 @@
  */
 
 #include "paint_pen.h"
+#include "paint_capstyle.h"
 #include "paint_slider.h"
 #include <qapplication.h>
 #include <qmainwindow.h>
@@ -28,6 +29,10 @@ PaintPen::PaintPen(QMainWindow *parent)
 	config_window.setFixedSize(300, 200);
 	config_window.setCaption("Pen Dialog");
 	
+	//Add Capstyle
+	PaintCapstyle *capstyle = new PaintCapstyle(&config_window,
+		config_window.width(), Qt::Horizontal);
+	
 	//Add slider
 	PaintSlider *slider = new PaintSlider(&config_window,
 		config_window.width(), "Pen Width");
@@ -35,6 +40,8 @@ PaintPen::PaintPen(QMainWindow *parent)
 	slider->setMax(40);
 	
 	//Connect Attributes
+	QObject::connect(capstyle, SIGNAL(valueChanged(Qt::PenCapStyle)),
+		this, SLOT(setPenCap(Qt::PenCapStyle)));
 	QObject::connect(slider, SIGNAL(valueChanged(int)),
 		this, SLOT(setPenWidth(int)));
 }
@@ -82,4 +89,8 @@ void PaintPen::config() {
 
 void PaintPen::setPenWidth(int r) {
 	drawPen.setWidth(r);
+}
+
+void PaintPen::setPenCap(Qt::PenCapStyle r) {
+	drawPen.setCapStyle(r);
 }
