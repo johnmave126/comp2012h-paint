@@ -15,7 +15,7 @@
 #include "paint_common.h"
 #include <qmainwindow.h>
 #include <qwidget.h>
-#include <qgroupbox.h>
+#include <qbuttongroup.h>
 #include <qstring.h>
 
 class PaintCapstyle: public QWidget {
@@ -36,6 +36,6 @@ class PaintCapstyle: public QWidget {
 		void valueChanged(Qt::PenCapStyle);
 	
 	private:
-		QGroupBox container;
+		QButtonGroup container;
 };
 #endif

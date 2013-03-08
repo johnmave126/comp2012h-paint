@@ -15,6 +15,7 @@
 #include <qwidget.h>
 #include <qdialog.h>
 #include <qsignalmapper.h>
+#include <qbuttongroup.h>
 #include <qradiobutton.h>
 
 PaintCapstyle::PaintCapstyle(QWidget* parent, int width, Qt::Orientation orientation)
@@ -34,6 +35,9 @@ PaintCapstyle::PaintCapstyle(QWidget* parent, int width, Qt::Orientation orienta
 		container.setFixedSize(width - 20, 100);
 	}
 	container.move(10, 0);
+	
+	//Set exclusive
+	container.setExclusive(true);
 	
 	QRadioButton *flat, *square, *round;
 	//Used to map signals to one slot
