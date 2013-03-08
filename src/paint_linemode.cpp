@@ -24,6 +24,7 @@ PaintLinemode::PaintLinemode(QWidget* parent, int width)
 	
 	//Set margin
 	container.setFixedSize(width - 20, 100);
+	container.move(10, 0);
 	
 	//Set exclusive
 	container.setExclusive(true);

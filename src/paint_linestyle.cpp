@@ -21,10 +21,10 @@
 PaintLinestyle::PaintLinestyle(QWidget* parent, int width)
 :QWidget(parent), container(5, Qt::Vertical, "Line Style", this) {
 	//Set widget size
-	setFixedSize(width, 160);
+	setFixedSize(width, 180);
 	
 	//Set margin
-	container.setFixedSize(width - 20, 160);
+	container.setFixedSize(width - 20, 180);
 	container.move(10, 0);
 	
 	//Set exclusive

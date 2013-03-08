@@ -27,8 +27,8 @@ PaintLine::PaintLine(QMainWindow *parent)
 	drawPen.setCapStyle(Qt::FlatCap);
 	
 	//Lay the config window
-	config_window.resize(300, 200);
-	config_window.setFixedSize(300, 200);
+	config_window.resize(300, 220);
+	config_window.setFixedSize(300, 220);
 	config_window.setCaption("Line Dialog");
 	
 	//Add linestyle
@@ -48,7 +48,7 @@ PaintLine::PaintLine(QMainWindow *parent)
 		config_window.width(), "Line Width");
 	slider->setMin(1);
 	slider->setMax(40);
-	slider->move(0, 160);
+	slider->move(0, 185);
 	
 	//Connect Attributes
 	QObject::connect(linestyle, SIGNAL(valueChanged(Qt::PenStyle)),
