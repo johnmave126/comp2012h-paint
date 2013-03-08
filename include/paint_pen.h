@@ -85,7 +85,7 @@ class PaintPen: public PaintTool {
 		 *
 		 * set the pen capstyle to r
 		 */
-		void setPenWidth(Qt::PenCapStyle r);
+		void setPenCap(Qt::PenCapStyle r);
 		
 		
 	private:
