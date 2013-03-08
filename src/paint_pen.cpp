@@ -38,6 +38,7 @@ PaintPen::PaintPen(QMainWindow *parent)
 		config_window.width(), "Pen Width");
 	slider->setMin(1);
 	slider->setMax(40);
+	slider->move(0, 60);
 	
 	//Connect Attributes
 	QObject::connect(capstyle, SIGNAL(valueChanged(Qt::PenCapStyle)),
