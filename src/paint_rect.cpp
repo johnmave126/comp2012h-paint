@@ -49,7 +49,7 @@ PaintRect::PaintRect(QMainWindow *parent)
 	QObject::connect(drawtype, SIGNAL(valueChanged(PaintDrawType)),
 		this, SLOT(setDrawType(PaintDrawType)));
 	QObject::connect(fillstyle, SIGNAL(valueChanged(Qt::BrushStyle)),
-		this, SLOT(setDrawType(Qt::BrushStyle)));
+		this, SLOT(setFillStyle(Qt::BrushStyle)));
 	QObject::connect(slider, SIGNAL(valueChanged(int)),
 		this, SLOT(setPenWidth(int)));
 }
