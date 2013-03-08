@@ -9,7 +9,7 @@
  * Draw type config, configuring capstyle
  */
 
-#include "paint_drawtype.h"
+#include "paint_fillstyle.h"
 #include <qapplication.h>
 #include <qstring.h>
 #include <qwidget.h>
