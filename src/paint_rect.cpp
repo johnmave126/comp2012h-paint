@@ -18,7 +18,7 @@
 #include <qdialog.h>
 
 PaintRect::PaintRect(QMainWindow *parent)
-:PaintTool(parent), fill_mode(FG) {
+:PaintTool(parent), fill_mode(FG), type(Rect) {
 	//Default settings
 	drawPen.setCapStyle(Qt::SquareCap);
 	
@@ -26,6 +26,10 @@ PaintRect::PaintRect(QMainWindow *parent)
 	config_window.resize(500, 330);
 	config_window.setFixedSize(500, 330);
 	config_window.setCaption("Rectangle Dialog");
+	
+	//Add drawtype
+	PaintDrawtype *drawtype = new PaintDrawtype(&config_window,
+		config_window.width());
 	
 	//Add slider
 	PaintSlider *slider = new PaintSlider(&config_window,
@@ -35,6 +39,8 @@ PaintRect::PaintRect(QMainWindow *parent)
 	slider->move(0, 300);
 	
 	//Connect Attributes
+	QObject::connect(drawtype, SIGNAL(valueChanged(PaintDrawType)),
+		this, SLOT(setDrawType(PaintDrawType)));
 	QObject::connect(slider, SIGNAL(valueChanged(int)),
 		this, SLOT(setPenWidth(int)));
 }
@@ -67,6 +73,9 @@ QPixmap PaintRect::begin(QPixmap dst, QColor fcolor, QColor bcolor, QPoint newPo
 }
 
 QPixmap PaintRect::process(QPoint newPoint) {
+	int w1 = newPoint.x() - start_point.x(),
+		w2 = newPoint.y() - start_point.y();
+	
 	//Temporarily reset painter
 	tmpBufferPainter.end();
 	
@@ -78,9 +87,26 @@ QPixmap PaintRect::process(QPoint newPoint) {
 	tmpBufferPainter.setPen(drawPen);
 	tmpBufferPainter.setBrush(fillBrush);
 	
-	//Draw the rectangle
-	tmpBufferPainter.drawRect(start_point.x(), start_point.y(),
-		newPoint.x() - start_point.x(), newPoint.y() - start_point.y());
+	//Draw the graph
+	switch(type) {
+		case Rect:
+			tmpBufferPainter.drawRect(start_point.x(), start_point.y(),
+				w1, w2);
+			break;
+		case RRect:
+			tmpBufferPainter.drawRoundRect(start_point.x(), start_point.y(),
+				w1, w2);
+			break;
+		case Circ:
+			if(w1 > w2)
+				w1 = w2;
+			else
+				w2 = w1;
+		case Elli:
+			tmpBufferPainter.drawEllipse(start_point.x(), start_point.y(),
+				w1, w2);
+			break;
+	}
 	
 	//Return tmp pixmap
 	return tmp_target;
@@ -103,4 +129,8 @@ void PaintRect::config() {
 
 void PaintRect::setPenWidth(int r) {
 	drawPen.setWidth(r);
+}
+
+void PaintRect::setDrawType(PaintDrawType r) {
+	type = r;
 }

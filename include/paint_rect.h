@@ -78,10 +78,22 @@ class PaintRect: public PaintTool {
 		 */
 		void setPenWidth(int r);
 		
+		/*
+		 * setDrawType
+		 *
+		 * r: the draw type to set
+		 *
+		 * set the draw type to r
+		 */
+		void setDrawType(PaintDrawType r);
+		
 	private:
 		
 		//Record last point
 		QPoint start_point;
+		
+		//Draw type config
+		PaintDrawType type;
 		
 		//Fill mode config
 		PaintRectFill fill_mode;
