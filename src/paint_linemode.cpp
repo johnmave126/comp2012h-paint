@@ -20,10 +20,10 @@
 
 PaintLinemode::PaintLinemode(QWidget* parent, int width)
 :QWidget(parent), container(3, Qt::Vertical, "Line Mode", this) {
-	setFixedSize(width, 60);
+	setFixedSize(width, 80);
 	
 	//Set margin
-	container.setFixedSize(width - 20, 100);
+	container.setFixedSize(width - 20, 80);
 	container.move(10, 0);
 	
 	//Set exclusive
