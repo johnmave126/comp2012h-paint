@@ -53,8 +53,8 @@ PaintRect::PaintRect(QMainWindow *parent)
 	
 	//Add fillcolor
 	PaintFillcolor *fillcolor = new PaintFillcolor(&config_window,
-		130);
-	fillcolor->move(370, 150);
+		140);
+	fillcolor->move(360, 150);
 	
 	//Add slider
 	PaintSlider *slider = new PaintSlider(&config_window,

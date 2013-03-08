@@ -33,14 +33,14 @@ PaintFillcolor::PaintFillcolor(QWidget* parent, int width)
 	//Used to map signals to one slot
 	QSignalMapper *signalMapper = new QSignalMapper(this);
 	
-	fg = new QRadioButton("Foreground", &container);
+	fg = new QRadioButton("Fore-\nground", &container);
 	//Default
 	fg->setChecked(true);
 	signalMapper->setMapping(fg, 0);
 	QObject::connect(fg, SIGNAL(clicked()),
 		signalMapper, SLOT(map()));
 	
-	bg = new QRadioButton("Background", &container);
+	bg = new QRadioButton("Back-\nground", &container);
 	signalMapper->setMapping(bg, 1);
 	QObject::connect(bg, SIGNAL(clicked()),
 		signalMapper, SLOT(map()));
