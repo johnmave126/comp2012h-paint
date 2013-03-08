@@ -55,6 +55,8 @@ PaintLine::PaintLine(QMainWindow *parent)
 		this, SLOT(setPenStyle(Qt::PenStyle)));
 	QObject::connect(capstyle, SIGNAL(valueChanged(Qt::PenCapStyle)),
 		this, SLOT(setPenCap(Qt::PenCapStyle)));
+	QObject::connect(linemode, SIGNAL(valueChanged(PaintLineMode)),
+		this, SLOT(setLineMode(PaintLineMode)));
 	QObject::connect(slider, SIGNAL(valueChanged(int)),
 		this, SLOT(setLineWidth(int)));
 }
@@ -152,6 +154,10 @@ void PaintLine::setPenCap(Qt::PenCapStyle r) {
 
 void PaintLine::setPenStyle(Qt::PenStyle r) {
 	drawPen.setStyle(r);
+}
+
+void PaintLine::setLineMode(PaintLineMode r) {
+	mode = r
 }
 
 void PaintLine::setLineWidth(int r) {

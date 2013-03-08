@@ -100,6 +100,15 @@ class PaintLine: public PaintTool {
 		 * set the pen style to r
 		 */
 		void setPenStyle(Qt::PenStyle r);
+			
+		/*
+		 * setLineMode
+		 *
+		 * r: the line mode to set
+		 *
+		 * set the line mode to r
+		 */
+		void setLineMode(PaintLineMode r);
 		
 		/*
 		 * setLineWidth
