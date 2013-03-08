@@ -20,10 +20,10 @@ PaintSlider::PaintSlider(QWidget* parent, int width, const char* caption)
 :QWidget(parent), title(caption, this), slider(Qt::Horizontal, this),
  sliderValue(QString("%1").arg(0), this) {
 	setFixedSize(width, slider.height());
-	title.setFixedWidth(width * 0.25);
+	title.setFixedWidth(width * 0.3);
 	title.move(10, 0);
-	slider.setFixedWidth(width * 0.75 - 30);
-	slider.move(width * 0.25, 0);
+	slider.setFixedWidth(width * 0.7 - 30);
+	slider.move(width * 0.3, 0);
 	sliderValue.setFixedWidth(30);
 	sliderValue.move(width - 30, 0);
 	QObject::connect(&slider, SIGNAL(valueChanged(int)),
