@@ -20,18 +20,18 @@
 PaintCapstyle::PaintCapstyle(QWidget* parent, int width, Qt::Orientation orientation)
 :QWidget(parent), container(3, orientation, "Cap Style", this) {
 	if(orientation == Qt::Horizontal) {
-		setFixedSize(width, 80);
+		setFixedSize(width, 50);
 	}
 	else {
-		setFixedSize(width, 160);
+		setFixedSize(width, 100);
 	}
 	
 	//Set margin
 	if(orientation == Qt::Horizontal) {
-		container.setFixedSize(width - 20, 80);
+		container.setFixedSize(width - 20, 50);
 	}
 	else {
-		container.setFixedSize(width - 20, 160);
+		container.setFixedSize(width - 20, 100);
 	}
 	container.move(10, 0);
 	
@@ -40,6 +40,8 @@ PaintCapstyle::PaintCapstyle(QWidget* parent, int width, Qt::Orientation orienta
 	QSignalMapper *signalMapper = new QSignalMapper(this);
 	
 	flat = new QRadioButton("Flat", &container);
+	//Default
+	flat->setChecked(true);
 	signalMapper->setMapping(flat, 0);
 	QObject::connect(flat, SIGNAL(clicked()),
 		signalMapper, SLOT(map()));

@@ -25,8 +25,8 @@ PaintPen::PaintPen(QMainWindow *parent)
 	drawPen.setCapStyle(Qt::FlatCap);
 	
 	//Lay the config window
-	config_window.resize(300, 200);
-	config_window.setFixedSize(300, 200);
+	config_window.resize(300, 90);
+	config_window.setFixedSize(300, 90);
 	config_window.setCaption("Pen Dialog");
 	
 	//Add Capstyle
@@ -38,7 +38,7 @@ PaintPen::PaintPen(QMainWindow *parent)
 		config_window.width(), "Pen Width");
 	slider->setMin(1);
 	slider->setMax(40);
-	slider->move(0, 80);
+	slider->move(0, 50);
 	
 	//Connect Attributes
 	QObject::connect(capstyle, SIGNAL(valueChanged(Qt::PenCapStyle)),
