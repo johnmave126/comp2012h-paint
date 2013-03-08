@@ -25,17 +25,17 @@ PaintCapstyle::PaintCapstyle(QWidget* parent, int width, Qt::Orientation orienta
 	//Used to map signals to one slot
 	QSignalMapper *signalMapper = new QSignalMapper(this);
 	
-	flat = new QRadioButton("Flat", container);
+	flat = new QRadioButton("Flat", &container);
 	signalMapper->setMapping(flat, "flat");
 	QObject::connect(flat, SIGNAL(clicked()),
 		signalMapper, SLOT(map()));
 	
-	square = new QRadioButton("Square", container);
+	square = new QRadioButton("Square", &container);
 	signalMapper->setMapping(square, "square");
 	QObject::connect(square, SIGNAL(clicked()),
 		signalMapper, SLOT(map()));
 	
-	round = new QRadioButton("Round", container);
+	round = new QRadioButton("Round", &container);
 	signalMapper->setMapping(round, "round");
 	QObject::connect(round, SIGNAL(clicked()),
 		signalMapper, SLOT(map()));
