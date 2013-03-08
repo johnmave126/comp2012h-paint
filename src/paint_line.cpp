@@ -43,7 +43,7 @@ PaintLine::PaintLine(QMainWindow *parent)
 		config_window.width(), "Line Width");
 	slider->setMin(1);
 	slider->setMax(40);
-	slider->(0, 180);
+	slider->move(0, 180);
 	
 	//Connect Attributes
 	QObject::connect(linestyle, SIGNAL(valueChanged(Qt::PenStyle)),
