@@ -84,6 +84,24 @@ class PaintLine: public PaintTool {
 		virtual bool isBegin();
 		
 		/*
+		 * setPenCap
+		 *
+		 * r: the pen capstyle to set
+		 *
+		 * set the pen capstyle to r
+		 */
+		void setPenCap(Qt::PenCapStyle r);
+			
+		/*
+		 * setPenStyle
+		 *
+		 * r: the pen style to set
+		 *
+		 * set the pen style to r
+		 */
+		void setPenStyle(Qt::PenStyle r);
+		
+		/*
 		 * setLineWidth
 		 *
 		 * r: the line width to set

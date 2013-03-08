@@ -28,13 +28,26 @@ PaintLine::PaintLine(QMainWindow *parent)
 	config_window.setFixedSize(300, 200);
 	config_window.setCaption("Line Dialog");
 	
+	//Add linestyle
+	PaintLinestyle *linestyle = new PaintLinestyle(&config_window, 200);
+	
+	//Add Capstyle
+	PaintCapstyle *capstyle = new PaintCapstyle(&config_window,
+		100, Qt::Vertical);
+	capstyle->move(200, 0);
+	
 	//Add slider
 	PaintSlider *slider = new PaintSlider(&config_window,
 		config_window.width(), "Line Width");
 	slider->setMin(1);
 	slider->setMax(40);
+	slider->(0, 180);
 	
 	//Connect Attributes
+	QObject::connect(linestyle, SIGNAL(valueChanged(Qt::PenStyle)),
+		this, SLOT(setPenStyle(Qt::PenStyle)));
+	QObject::connect(capstyle, SIGNAL(valueChanged(Qt::PenCapStyle)),
+		this, SLOT(setPenCap(Qt::PenCapStyle)));
 	QObject::connect(slider, SIGNAL(valueChanged(int)),
 		this, SLOT(setLineWidth(int)));
 }
@@ -124,6 +137,14 @@ void PaintLine::config() {
 
 bool PaintLine::isBegin() {
 	return !tmp_target.isNull();
+}
+
+void PaintPen::setPenCap(Qt::PenCapStyle r) {
+	drawPen.setCapStyle(r);
+}
+
+void PaintPen::setPenStyle(Qt::PenStyle r) {
+	drawPen.setStyle(r);
 }
 
 void PaintLine::setLineWidth(int r) {
