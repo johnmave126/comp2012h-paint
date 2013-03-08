@@ -11,6 +11,7 @@
 
 #include "paint_rect.h"
 #include "paint_drawtype.h"
+#include "paint_fillstyle.h"
 #include "paint_slider.h"
 #include <qapplication.h>
 #include <qmainwindow.h>
@@ -20,7 +21,7 @@
 
 PaintRect::PaintRect(QMainWindow *parent)
 :PaintTool(parent), fill_mode(FG), type(Rectangle) {
-	//Default settings
+	//Border settings
 	drawPen.setCapStyle(Qt::SquareCap);
 	
 	//Lay the config window
@@ -32,6 +33,11 @@ PaintRect::PaintRect(QMainWindow *parent)
 	PaintDrawtype *drawtype = new PaintDrawtype(&config_window,
 		config_window.width());
 	
+	//Add fillstyle
+	PaintFillstyle *fillstyle = new PaintFillstyle(&config_window,
+		config_window.width());
+	fillstyle->move(0, 50);
+	
 	//Add slider
 	PaintSlider *slider = new PaintSlider(&config_window,
 		config_window.width(), "Boundary Width");
@@ -42,6 +48,8 @@ PaintRect::PaintRect(QMainWindow *parent)
 	//Connect Attributes
 	QObject::connect(drawtype, SIGNAL(valueChanged(PaintDrawType)),
 		this, SLOT(setDrawType(PaintDrawType)));
+	QObject::connect(drawtype, SIGNAL(valueChanged(Qt::BrushStyle)),
+		this, SLOT(setDrawType(Qt::BrushStyle)));
 	QObject::connect(slider, SIGNAL(valueChanged(int)),
 		this, SLOT(setPenWidth(int)));
 }
@@ -134,4 +142,8 @@ void PaintRect::setPenWidth(int r) {
 
 void PaintRect::setDrawType(PaintDrawType r) {
 	type = r;
+}
+
+void PaintRect::setFillStyle(Qt::BrushStyle r) {
+	fillBrush.setStyle(r);
 }

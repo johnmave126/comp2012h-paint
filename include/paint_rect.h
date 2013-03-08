@@ -87,6 +87,15 @@ class PaintRect: public PaintTool {
 		 */
 		void setDrawType(PaintDrawType r);
 		
+		/*
+		 * setFillStyle
+		 *
+		 * r: the fill style to set
+		 *
+		 * set the fill style to r
+		 */
+		void setFillStyle(Qt::BrushStyle r);
+		
 	private:
 		
 		//Record last point
