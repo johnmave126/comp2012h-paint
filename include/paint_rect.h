@@ -19,6 +19,10 @@
 #include <qpainter.h>
 
 class PaintRect: public PaintTool {
+	// All classes that contain signals or slots
+	// must mention Q_OBJECT in their declaration.
+	Q_OBJECT
+	
 	public:
 		PaintRect(QMainWindow* parent = 0);
 		virtual ~PaintRect();
