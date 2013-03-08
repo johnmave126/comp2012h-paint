@@ -28,10 +28,10 @@ PaintCapstyle::PaintCapstyle(QWidget* parent, int width, Qt::Orientation orienta
 	
 	//Set margin
 	if(orientation == Qt::Horizontal) {
-		container.setFixedWidth(width - 20, 80);
+		container.setFixedSize(width - 20, 80);
 	}
 	else {
-		container.setFixedWidth(width - 20, 160);
+		container.setFixedSize(width - 20, 160);
 	}
 	container.move(10, 0);
 	
