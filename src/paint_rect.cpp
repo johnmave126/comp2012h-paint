@@ -19,7 +19,7 @@
 #include <qdialog.h>
 
 PaintRect::PaintRect(QMainWindow *parent)
-:PaintTool(parent), fill_mode(FG), type(Rect) {
+:PaintTool(parent), fill_mode(FG), type(Rectangle) {
 	//Default settings
 	drawPen.setCapStyle(Qt::SquareCap);
 	
