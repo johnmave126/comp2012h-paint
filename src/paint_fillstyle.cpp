@@ -18,7 +18,7 @@
 #include <qbuttongroup.h>
 #include <qradiobutton.h>
 
-PaintDrawtype::PaintDrawtype(QWidget* parent, int width)
+PaintFillstyle::PaintFillstyle(QWidget* parent, int width)
 :QWidget(parent), container(5, Qt::Horizontal, "Fill Style", this) {
 	setFixedSize(width, 100);
 	
@@ -115,10 +115,10 @@ PaintDrawtype::PaintDrawtype(QWidget* parent, int width)
 		this, SLOT(selectorValueChanged(int)));
 }
 
-PaintDrawtype::~PaintDrawtype() {
+PaintFillstyle::~PaintFillstyle() {
 }
 
-void PaintDrawtype::selectorValueChanged(int v) {
+void PaintFillstyle::selectorValueChanged(int v) {
 	switch(v) {
 		case 0:
 			emit valueChanged(Qt::SolidPattern);
