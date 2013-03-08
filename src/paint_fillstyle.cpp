@@ -29,7 +29,7 @@ PaintFillstyle::PaintFillstyle(QWidget* parent, int width)
 	//Set exclusive
 	container.setExclusive(true);
 	
-	QRadioButton *solid, *d1, *d2, *d3, *d4, *d5, *d6
+	QRadioButton *solid, *d1, *d2, *d3, *d4, *d5, *d6,
 		*d7, *hor, *ver, *cross, *bd, *fd, *dc, *nb;
 	//Used to map signals to one slot
 	QSignalMapper *signalMapper = new QSignalMapper(this);
