@@ -40,7 +40,7 @@ PaintCapstyle::PaintCapstyle(QWidget* parent, int width, Qt::Orientation orienta
 	QObject::connect(round, SIGNAL(clicked()),
 		signalMapper, SLOT(map()));
 	
-	QObject::connect(signalMapper, SIGNAL(mapped(int))),
+	QObject::connect(signalMapper, SIGNAL(mapped(int)),
 		this, SLOT(selectorValueChanged(int)));
 }
 
