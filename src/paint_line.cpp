@@ -12,6 +12,7 @@
 #include "paint_line.h"
 #include "paint_linestyle.h"
 #include "paint_capstyle.h"
+#include "paint_linemode.h"
 #include "paint_slider.h"
 #include <qapplication.h>
 #include <qmainwindow.h>
