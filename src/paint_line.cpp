@@ -31,19 +31,19 @@ PaintLine::PaintLine(QMainWindow *parent)
 	config_window.setCaption("Line Dialog");
 	
 	//Add linestyle
-	PaintLinestyle *linestyle = new PaintLinestyle(&config_window, 200);
+	PaintLinestyle *linestyle = new PaintLinestyle(&config_window, 180);
 	
 	//Add Capstyle
 	PaintCapstyle *capstyle = new PaintCapstyle(&config_window,
 		100, Qt::Vertical);
-	capstyle->move(200, 0);
+	capstyle->move(180, 0);
 	
 	//Add slider
 	PaintSlider *slider = new PaintSlider(&config_window,
 		config_window.width(), "Line Width");
 	slider->setMin(1);
 	slider->setMax(40);
-	slider->move(0, 180);
+	slider->move(0, 160);
 	
 	//Connect Attributes
 	QObject::connect(linestyle, SIGNAL(valueChanged(Qt::PenStyle)),
