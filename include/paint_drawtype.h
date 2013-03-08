@@ -24,7 +24,7 @@ class PaintDrawtype: public QWidget {
 	Q_OBJECT
 	
 	public:
-		PaintDrawtype(QWidget* parent = 0, int width = 300, Qt::Orientation orientation = Qt::Horizontal);
+		PaintDrawtype(QWidget* parent = 0, int width = 300);
 		~PaintDrawtype();
 		
 		
