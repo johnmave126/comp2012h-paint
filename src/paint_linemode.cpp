@@ -18,7 +18,7 @@
 #include <qbuttongroup.h>
 #include <qradiobutton.h>
 
-PaintLinemode::PaintLinemode(QWidget* parent, int width, Qt::Orientation orientation)
+PaintLinemode::PaintLinemode(QWidget* parent, int width)
 :QWidget(parent), container(3, Qt::Vertical, "Line Mode", this) {
 	setFixedSize(width, 60);
 	
