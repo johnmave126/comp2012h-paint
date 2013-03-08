@@ -34,7 +34,7 @@ PaintLinemode::PaintLinemode(QWidget* parent, int width)
 	
 	sing = new QRadioButton("Single", &container);
 	//Default
-	flat->setChecked(true);
+	sing->setChecked(true);
 	signalMapper->setMapping(sing, 0);
 	QObject::connect(sing, SIGNAL(clicked()),
 		signalMapper, SLOT(map()));
