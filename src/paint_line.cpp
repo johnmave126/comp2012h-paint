@@ -41,7 +41,7 @@ PaintLine::PaintLine(QMainWindow *parent)
 	
 	//Add Linemode
 	PaintLinemode *linemode = new PaintLinemode(&config_window, 120);
-	capstyle->move(180, 100);
+	linemode->move(180, 100);
 	
 	//Add slider
 	PaintSlider *slider = new PaintSlider(&config_window,
