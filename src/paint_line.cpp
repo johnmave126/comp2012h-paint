@@ -141,11 +141,11 @@ bool PaintLine::isBegin() {
 	return !tmp_target.isNull();
 }
 
-void PaintPen::setPenCap(Qt::PenCapStyle r) {
+void PaintLine::setPenCap(Qt::PenCapStyle r) {
 	drawPen.setCapStyle(r);
 }
 
-void PaintPen::setPenStyle(Qt::PenStyle r) {
+void PaintLine::setPenStyle(Qt::PenStyle r) {
 	drawPen.setStyle(r);
 }
 
