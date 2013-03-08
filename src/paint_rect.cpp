@@ -14,6 +14,7 @@
 #include "paint_fillstyle.h"
 #include "paint_boundarystyle.h"
 #include "paint_joinstyle.h"
+#include "paint_fillcolor.h"
 #include "paint_slider.h"
 #include <qapplication.h>
 #include <qmainwindow.h>
@@ -50,6 +51,11 @@ PaintRect::PaintRect(QMainWindow *parent)
 		370);
 	joinstyle->move(0, 225);
 	
+	//Add fillcolor
+	PaintFillcolor *fillcolor = new PaintFillcolor(&config_window,
+		130);
+	fillcolor->move(370, 150);
+	
 	//Add slider
 	PaintSlider *slider = new PaintSlider(&config_window,
 		config_window.width(), "Boundary Width");
@@ -66,6 +72,8 @@ PaintRect::PaintRect(QMainWindow *parent)
 		this, SLOT(setBoundaryStyle(Qt::PenStyle)));
 	QObject::connect(joinstyle, SIGNAL(valueChanged(Qt::PenJoinStyle)),
 		this, SLOT(setJoinStyle(Qt::PenJoinStyle)));
+	QObject::connect(fillcolor, SIGNAL(valueChanged(PaintRectFill)),
+		this, SLOT(setFillColor(PaintRectFill)));
 	QObject::connect(slider, SIGNAL(valueChanged(int)),
 		this, SLOT(setPenWidth(int)));
 }
@@ -170,4 +178,8 @@ void PaintRect::setBoundaryStyle(Qt::PenStyle r) {
 
 void PaintRect::setJoinStyle(Qt::PenJoinStyle r) {
 	drawPen.setJoinStyle(r);
+}
+
+void PaintRect::setFillColor(PaintRectFill r) {
+	fill_mode = r;
 }
