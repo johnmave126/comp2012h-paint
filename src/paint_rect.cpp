@@ -10,6 +10,7 @@
  */
 
 #include "paint_rect.h"
+#include "paint_drawtype.h"
 #include "paint_slider.h"
 #include <qapplication.h>
 #include <qmainwindow.h>
