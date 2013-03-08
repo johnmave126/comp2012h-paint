@@ -114,6 +114,15 @@ class PaintRect: public PaintTool {
 		 */
 		void setJoinStyle(Qt::PenJoinStyle r);
 		
+		/*
+		 * setFillColor
+		 *
+		 * r: the fill color to set
+		 *
+		 * set the fill color to r
+		 */
+		void setFillColor(PaintRectFill r);
+		
 	private:
 		
 		//Record last point
