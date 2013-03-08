@@ -30,7 +30,7 @@ class PaintCapstyle: public QWidget {
 		
 	public slots:
 		/* receive the cap change signal */
-		void selectorValueChanged(QString);
+		void selectorValueChanged(int);
 		
 	signals:
 		void valueChanged(Qt::PenCapStyle);

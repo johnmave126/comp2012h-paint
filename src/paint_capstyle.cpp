@@ -26,35 +26,37 @@ PaintCapstyle::PaintCapstyle(QWidget* parent, int width, Qt::Orientation orienta
 	QSignalMapper *signalMapper = new QSignalMapper(this);
 	
 	flat = new QRadioButton("Flat", &container);
-	signalMapper->setMapping(flat, "flat");
+	signalMapper->setMapping(flat, 0);
 	QObject::connect(flat, SIGNAL(clicked()),
 		signalMapper, SLOT(map()));
 	
 	square = new QRadioButton("Square", &container);
-	signalMapper->setMapping(square, "square");
+	signalMapper->setMapping(square, 1);
 	QObject::connect(square, SIGNAL(clicked()),
 		signalMapper, SLOT(map()));
 	
 	round = new QRadioButton("Round", &container);
-	signalMapper->setMapping(round, "round");
+	signalMapper->setMapping(round, 2);
 	QObject::connect(round, SIGNAL(clicked()),
 		signalMapper, SLOT(map()));
 	
-	QObject::connect(signalMapper, SIGNAL(mapped(QString)),
-		this, SLOT(selectorValueChanged(QString)));
+	QObject::connect(signalMapper, SIGNAL(mapped(int))),
+		this, SLOT(selectorValueChanged(int)));
 }
 
 PaintCapstyle::~PaintCapstyle() {
 }
 
-void PaintCapstyle::selectorValueChanged(QString v) {
-	if(v == "flat") {
-		emit valueChanged(Qt::FlatCap);
-	}
-	else if(v == "square") {
-		emit valueChanged(Qt::SquareCap);
-	}
-	else {
-		emit valueChanged(Qt::RoundCap);
+void PaintCapstyle::selectorValueChanged(int v) {
+	switch(v) {
+		case 0:
+			emit valueChanged(Qt::FlatCap);
+			break;
+		case 1:
+			emit valueChanged(Qt::SquareCap);
+			break;
+		case 2:
+			emit valueChanged(Qt::RoundCap);
+			break;
 	}
 }
