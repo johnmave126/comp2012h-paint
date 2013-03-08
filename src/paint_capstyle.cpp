@@ -19,7 +19,13 @@
 
 PaintCapstyle::PaintCapstyle(QWidget* parent, int width, Qt::Orientation orientation)
 :QWidget(parent), container(3, orientation, "Cap Style", this) {
-	setFixedSize(width, 60);
+	if(orientation == Qt::Horizontal) {
+		setFixedSize(width, 80);
+	}
+	else {
+		setFixedSize(width, 160);
+	}
+	container.setFixedWidth(width);
 	
 	QRadioButton *flat, *square, *round;
 	//Used to map signals to one slot
