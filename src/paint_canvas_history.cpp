@@ -25,6 +25,9 @@ void PaintCanvas::undo() {
 		return;
 	}
 	
+	//Reset tool
+	resetTool();
+	
 	//Undo, repaint and emit signal
 	Current--;
 	buffer = *Current;
@@ -43,6 +46,9 @@ void PaintCanvas::redo() {
 	if(ImageHistory.empty() || tmp == ImageHistory.end()) {
 		return;
 	}
+	
+	//Reset tool
+	resetTool();
 	
 	//Redo, repaint and emit signal
 	Current++;

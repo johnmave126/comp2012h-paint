@@ -162,6 +162,9 @@ void PaintCanvas::clearAll() {
 		return;
 	}
 	
+	//Reset tool
+	resetTool();
+	
 	//Always create a copy before operation
 	QPixmap copy = *Current;
 	
